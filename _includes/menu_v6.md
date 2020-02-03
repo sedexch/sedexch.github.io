@@ -1,9 +1,7 @@
-<ul>
-  <li><a href="index">Basics</a></li>
-  <li><a href="advanced-docker-options">Advanced Docker Options</li>
-  <li><a href="sedex-client-configuration-options">sedex Client Configuration Options</li>
-  <li><a href="docker-compose-kubernetes">Kubernetes &amp; Co.</li>
-</ul>
+<h3>Menu</h3>
+<a href="/">Home</a>
 
-<a href="..">Home</a>
-  
+<a href="/v6/index">Basics</a>
+<a href="/v6/advanced-docker-options">Advanced Docker Options</a>
+<a href="/v6/sedex-client-configuration-options">sedex Client Configuration Options</a>
+<a href="/v6/docker-compose-kubernetes">Kubernetes &amp; Co.</a>

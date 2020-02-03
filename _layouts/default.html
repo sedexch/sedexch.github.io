@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <!--link rel="stylesheet" href="/assets/css/style.css?v=00275fa3e20a138d203a2817bc901dbbf93e5dfc"-->
+    <link rel="stylesheet" href="/static_files/assets/css/default.css">
+
+    <style>
+        .floating-menu {
+            font-family: sans-serif;
+            background: yellowgreen;
+            padding: 5px;;
+            width: 130px;
+            z-index: 100;
+            position: fixed;
+        }
+        .floating-menu a,
+        .floating-menu h3 {
+            font-size: 0.9em;
+            display: block;
+            margin: 0 0.5em;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+<nav class="floating-menu">
+    <h3>Menu</h3>
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    {{ page.mymenu }}
+</nav>
+
+<div class="container-lg px-3 my-5 markdown-body">
+
+    <section>
+        {{ content }}
+    </section>
+
+</div>
+</body>
+</html>
+
+
+

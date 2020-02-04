@@ -1,6 +1,7 @@
-**Documentation for the legacy Docker Image of the sedex-client V5**
+**Documentation for the legacy Docker Image of the sedex-client V5 availabe on [docker hub](https://hub.docker.com/r/sedexch/sedex-client)**
 
 [Switch to the documentation for the current sedex-client V6](/v6)
+
 
 ***
 

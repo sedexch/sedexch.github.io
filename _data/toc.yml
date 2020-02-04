@@ -1,4 +1,8 @@
 toc:
+  - Menu
+    subfolderitems:
+      - page: Home
+        url: /
   - title: Client V6 (Current)
     subfolderitems:
       - page: Basics

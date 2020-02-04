@@ -1,11 +1,3 @@
-**Documentation for the legacy sedex-client V5 Docker Image on [docker hub](https://hub.docker.com/r/sedexch/sedex-client)**
-
-[Switch to the documentation for the current sedex-client V6](/v6)
-
-
-***
-
-
 This is the documentation for the official Docker image of the sedex-client software. The docker image can be found on ducker hub and allows to run a containerized version of the client for the Swiss SEcure Data EXchange (sedex) platform.
 For more information about sedex and the sedex-client, visit [www.sedex.ch](http://www.sedex.ch).
 
@@ -174,9 +166,7 @@ The following steps show how to create and start the latest Docker container run
 Run the sedex-client container using environment-specific values for the following options:
 - /path/to/sedex-data - The path to the host's "sedex-data" directory (holding the persisted data)
 - YOUR_MONITORING_PORT - The port at which the monitoring web page of the sedex-client should be accessible from the outside of the container
-- YOUR_WS_PROXY_HTTP_PORT - The unsecured http port at which the sedex-clients Web service proxy should be accessible from the outside of the
-  container. **Note:** You can omit this line if the WS-Proxy will not be used.
-- YOUR_WS_PROXY_HTTPS_PORT - The secured https port at which the sedex-clients Web service proxy should be accessible from the outside of the
+- YOUR_WS_PROXY_PORT - The port at which the sedex-clients Web service proxy should be accessible from the outside of the
   container. **Note:** You can omit this line if the WS-Proxy will not be used.
 - --stop-timeout 65 - When the docker container is stopped (e.g. with "docker stop" command), the sedex-client's controller-stop.sh is executed to initiate a graceful 
   shutdown of the client. This typically takes longer than the default 10 seconds that the Docker daemon waits before killing the container.
@@ -190,8 +180,7 @@ Run the sedex-client container using environment-specific values for the followi
       --name sedex-client \
       --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
       --publish YOUR_MONITORING_PORT:8000 \
-      --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
-      --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
+      --publish YOUR_WS_PROXY_PORT:8080 \
       --stop-timeout 65 \
       --restart unless-stopped \
       -d \
@@ -382,9 +371,7 @@ tree and its contents so that the non-root user can access them.
 Run the sedex-client container using environment-specific values for the following options:
 - /path/to/sedex-data - The path to the host's "sedex-data" directory (holding the persisted data)
 - YOUR_MONITORING_PORT - The port at which the monitoring web page of the sedex-client should be accessible from the outside of the container
-- YOUR_WS_PROXY_HTTP_PORT - The unsecured http port at which the sedex-clients Web service proxy should be accessible from the outside of the
-  container. **Note:** You can omit this line if the WS-Proxy will not be used.
-- YOUR_WS_PROXY_HTTPS_PORT - The secured https port at which the sedex-clients Web service proxy should be accessible from the outside of the
+- YOUR_WS_PROXY_PORT - The port at which the sedex-clients Web service proxy should be accessible from the outside of the
   container. **Note:** You can omit this line if the WS-Proxy will not be used.
 - --stop-timeout 65 - When the docker container is stopped (e.g. with "docker stop" command), the sedex-client's controller-stop.sh is executed to initiate a graceful 
   shutdown of the client. This typically takes longer than the default 10 seconds that the Docker daemon waits before killing the container.
@@ -399,8 +386,7 @@ Run the sedex-client container using environment-specific values for the followi
       --name sedex-client \
       --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
       --publish YOUR_MONITORING_PORT:8000 \
-      --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
-      --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
+      --publish YOUR_WS_PROXY_PORT:8080 \
       --stop-timeout 65 \
       --restart unless-stopped \
       --user 901:501 \
@@ -472,8 +458,7 @@ If you have good reasons to separate these stores, you can mount the different s
       --mount type=bind,source=/path/to/sedex-logs,destination=/sedex-data/logs/ \
       --mount type=bind,source=/path/to/sedex-monitoring,destination=/sedex-data/monitoring/ \
       --publish YOUR_MONITORING_PORT:8000 \
-      --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
-      --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
+      --publish YOUR_WS_PROXY_PORT:8080 \
       --stop-timeout 65 \
       --restart unless-stopped \
       -d \
@@ -559,4 +544,15 @@ e.g. for UPIQueryService:
 
 If no entry is made for a particular service, the default endpoint is used.
 
+### Custom sedex Webservice Proxy definition files (AAR files)
+
+For each web service offered by the sedex Webservice Proxy, it must be configured with a so-called AAR file (an "Axis Archive").
+The AAR files for the frequently used web services are already contained in the Docker container image and can be easily used without further measures.
+
+If you need to use special web services that are not yet contained in the Docker container image, you can make them available in the subfolder "sedex-data/conf/additional-webservices" on your host:
+
+    $ mkdir /path/to/sedex-data/conf/additional-webservices
+    $ cp /path/to/aars/YOUR-AAR-FILE.aar /path/to/sedex-data/conf/additional-webservices/
+
+**Note:** The new AAR files are only effective after a restart of the container. 
 

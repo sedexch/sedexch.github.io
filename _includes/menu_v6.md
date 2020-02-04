@@ -18,6 +18,8 @@
 {% for item in site.data.toc.toc %}
     <h3>{{ item.title }}</h3>
     {% for entry in item.subfolderitems %}
+       <span class="floating-menu-entry" class="{% if item.url == page.url %}active{% endif %}"></span>
        <a href="{{ entry.url }}">- {{ entry.page }}</a></li>
     {% endfor %}
+    <br />
 {% endfor %}

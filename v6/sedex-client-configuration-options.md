@@ -1,3 +1,7 @@
+**Documentation for the current Docker Image of the sedex-client**
+
+***
+
 # Custom sedex-Client Configuration Options
 
 **Note:**
@@ -23,11 +27,6 @@ Example:
 **Note:** Leave the user/password parameters blank if proxy server authentication is not required. Restart container to activate Changes.
 
 
-## Timezone
-The default timezone in the sedex-client Docker container is "Europe/Zurich" (i.e. local Swiss time).
-If you have to set another timezone (e.g. UTC) then set the environment variable TZ by adding the following option to your container run statement:
-
-    --env TZ=UTC   
 
 ## Disable WebSocket protocol
 By default, the sedex-client uses the WebSocket protocol to reduce round trip times by actively notifying the client via events from the server.

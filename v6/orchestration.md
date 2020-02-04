@@ -1,3 +1,7 @@
+**Documentation for the current Docker Image of the sedex-client**
+
+***
+
 # Kubernetes & Co.
 
 ## Initial configuration with Init Containers instead of init.conf file

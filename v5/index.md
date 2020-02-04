@@ -1,3 +1,10 @@
+**Documentation for the legacy Docker Image of the sedex-client V5**
+
+[Switch to the documentation for the current sedex-client V6](/v6)
+
+***
+
+
 This is the documentation for the official Docker image of the sedex-client software. The docker image can be found on ducker hub and allows to run a containerized version of the client for the Swiss SEcure Data EXchange (sedex) platform.
 For more information about sedex and the sedex-client, visit [www.sedex.ch](http://www.sedex.ch).
 

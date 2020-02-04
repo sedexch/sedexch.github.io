@@ -1,3 +1,7 @@
+**Documentation for the current Docker Image of the sedex-client**
+
+***
+
 # Advanced Docker Options
 
 
@@ -18,6 +22,13 @@ Example:
 
 **Note:** An http proxy can also be configured manually in the central client configuration file at any time (see section "Custom Configuration Options").
     
+
+## Timezone
+The default timezone in the sedex-client Docker container is "Europe/Zurich" (i.e. local Swiss time).
+If you have to set another timezone (e.g. UTC) then set the environment variable TZ by adding the following option to your container run statement:
+
+    --env TZ=UTC   
+
 
 ## Running the sedex-client as a non-root user
 Non-root container images add an extra layer of security and are generally recommended for production environments. The following steps 

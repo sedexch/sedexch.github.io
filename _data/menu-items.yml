@@ -7,7 +7,7 @@ toc:
     subfolderitems:
       - page: Basics
         url: /v6/
-      - page: Advanced Docker options
+      - page: Advanced Docker Options
         url: /v6/advanced-docker-options.html
       - page: Advanced sedex Client Config
         url: /v6/sedex-client-configuration-options.html

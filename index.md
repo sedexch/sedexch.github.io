@@ -1,4 +1,4 @@
-# Documentation for the Docker Image of the sedex-client from [docker hub](https://hub.docker.com/r/sedexch/sedex-client)
+# Documentation for the Docker Image of the sedex-client
 
 
 ![sedex logo](https://raw.githubusercontent.com/sedexdev/sedexdev/master/sedex-logo.png)

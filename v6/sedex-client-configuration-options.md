@@ -1,11 +1,11 @@
-## Custom Configuration options
+# Custom sedex-Client Configuration Options
 
 **Note:**
 Configuration changes become active after a *restart* of the container.
 So restart the container to activate any changes made to the central configuration file "sedex-client-configuration.properties".
 
 
-### Internet access via HTTP-Proxy
+## Internet access via HTTP-Proxy
 If an HTTP proxy is required to access the Internet, such a proxy server can be entered in the central sedex-client configuration file.
 
 Example:
@@ -23,13 +23,13 @@ Example:
 **Note:** Leave the user/password parameters blank if proxy server authentication is not required. Restart container to activate Changes.
 
 
-### Timezone
+## Timezone
 The default timezone in the sedex-client Docker container is "Europe/Zurich" (i.e. local Swiss time).
 If you have to set another timezone (e.g. UTC) then set the environment variable TZ by adding the following option to your container run statement:
 
     --env TZ=UTC   
 
-### Disable WebSocket protocol
+## Disable WebSocket protocol
 By default, the sedex-client uses the WebSocket protocol to reduce round trip times by actively notifying the client via events from the server.
 
 In extremely rare cases, the WebSocket protocol can cause communication problems with network components.
@@ -46,7 +46,7 @@ Add the following configuration parameter to the configuration file and save it:
     
 **Note:** Restart container to activate changes    
 
-### Disable sedex Webservice Proxy
+## Disable sedex Webservice Proxy
 By default, the sedex-client is starting the sedex Webservice Proxy functionality. If not used, the sedex Webservice Proxy can be disabled in order to save some resources (CPU, memory).
 
 
@@ -60,7 +60,7 @@ Set the following configuration parameter in the configuration file to false and
 
 **Note:** Restart container to activate changes
 
-### Custom sedex Webservice Proxy endpoints
+## Custom sedex Webservice Proxy endpoints
 
 When developing or testing a Web service, it may be necessary to configure test instances of services.
 The endpoint of a service provider behind the local Web service proxy endpoint can be configured in the following 

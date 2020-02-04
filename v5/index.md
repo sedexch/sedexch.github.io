@@ -1,4 +1,4 @@
-This is the official Docker image of the sedex-client software. It allows to run a containerized version of the client for the Swiss SEcure Data EXchange (sedex) platform.
+This is the documentation for the official Docker image of the sedex-client software. The docker image can be found on ducker hub and allows to run a containerized version of the client for the Swiss SEcure Data EXchange (sedex) platform.
 For more information about sedex and the sedex-client, visit [www.sedex.ch](http://www.sedex.ch).
 
 ![sedex logo](https://raw.githubusercontent.com/sedexdev/sedexdev/master/sedex-logo.png)

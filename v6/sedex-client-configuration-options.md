@@ -76,3 +76,8 @@ e.g. for UPIQueryService:
     wsproxy.services.UPIQueryService.target-url=https://wupi-test.zas.admin.ch/wupi_cc/UPIQueryService 
 
 If no entry is made for a particular service, the default endpoint is used.
+
+If the custom endpoint of a Web service requires a custom truststore, you can override its truststore by adding
+the following line and copying the certificate (e.g. upiquery-test.cer) into the local certificate folder:
+    
+     wsproxy.services.UPIQueryService.target-tls-certificate-filename=upiquery-test.cer  

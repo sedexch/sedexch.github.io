@@ -2,7 +2,7 @@
 <a href="/">- Home</a>
 <br />
 <h3>Client V6</h3>
-<a href="/v6/index">- Basics</a>
+<a href="/v6/index" class="{% if '/v6/index' == page.url %}active{% endif %}">- Basics</a>
 <a href="/v6/advanced-docker-options">- Advanced Docker Options</a>
 <a href="/v6/sedex-client-configuration-options">- Advanced sedex Client Config</a>
 <a href="/v6/orchestration">- Kubernetes &amp; Co.</a>

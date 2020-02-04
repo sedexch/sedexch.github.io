@@ -7,6 +7,8 @@
     {% for entry in item.subfolderitems %}
        <span class="{% if entry.url == page.url %}active{% endif %}"></span>
        <a href="{{ entry.url }}">- {{ entry.page }}</a>
+       (Entry.url={% entry.url %})
+       (Page.url={% page.url %})
     {% endfor %}
     <br />
 {% endfor %}

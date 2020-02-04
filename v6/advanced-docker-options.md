@@ -1,4 +1,4 @@
-**Documentation for the current Docker Image of the sedex-client V6 availabe on [docker hub](https://hub.docker.com/r/sedexch/sedex-client)**
+**Documentation for the current Docker Image sedex-client V6 availabe on [docker hub](https://hub.docker.com/r/sedexch/sedex-client)**
 
 ***
 

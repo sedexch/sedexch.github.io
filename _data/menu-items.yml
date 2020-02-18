@@ -11,6 +11,8 @@ toc:
         url: /v6/advanced-docker-options.html
       - page: Advanced sedex Client Config
         url: /v6/sedex-client-configuration-options.html
+      - page: sedex Web Service Proxy
+        url: /v6/sedex-webservice-proxy.html
       - page: Kubernetes & Co.
         url: /v6/orchestration.html
   - title: Client V5 (Legacy)

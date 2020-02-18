@@ -11,7 +11,7 @@ This page describes the web service proxy functionality of the sedex client. If 
 
 The web service proxy (WS-Proxy) is an add-on component of the sedex client offering local access to defined remote Web services. For the business application it looks as if the sedex web service proxy would offer the web service. In fact, the sedex WS-Proxy is only an intermediary between the application and the actual web service.
 
-![sedex logo](/static_files/assets/images/v6/wsp.png)
+![sedex logo](https://raw.githubusercontent.com/sedexdev/sedexdev.github.io/master/static_files/assets/images/v6/wsp.png)
 
 To establish a secure SSL/TLS connection to the actual web service, the WS-Proxy uses the participant's sedex certificate. This allows the service provider to unambiguously identify the caller and to check whether this caller is authorized to use the service or not.
 
@@ -20,7 +20,7 @@ To establish a secure SSL/TLS connection to the actual web service, the WS-Proxy
 
 Whether the WS-Proxy is active or not is controlled by a property in the central client configuration. The following excerpt from a sample configuration shows an activated WS-Proxy:
 
-    wsproxy.start=true 
+       wsproxy.start=true 
 
     
 ## Checking if Web service proxy is active
@@ -147,19 +147,29 @@ Notes regarding the self-signed certificate:
 -	The self-signed certificate is valid for 5 years. You can find the expiration date on the monitoring page of the sedex client.
 
 -	If you want to recreate the certificate, simply delete the path to the certificate from the property in the configuration file:\
-*wsproxy.https.key-store-file=*
+
+            wsproxy.https.key-store-file=
 
 -	The generated certificate is valid for all host names that the sedex client could automatically detect. The WS-Proxy writes these host names to the log file during the creation of the self-signed certificate. Alternately, you can open and examine the certificate.
 
 -	To create a self-signed certificate with an additional host name of your choice do the following steps: 
 
-        1. add the parameter   *wsproxy.https.hostname=your-host-name*
-        2. Delete the value of the parameter *wsproxy.https.key-store-file=* 
+        1. add the parameter
+        
+                wsproxy.https.hostname=your-host-name
+                
+        2. Delete the value of the parameter
+        
+                wsproxy.https.key-store-file=
+                
         3. Let the the certificate be recreated by restarting the sedex client
+
 
 -	The generated certificate is valid for all host names that the sedex client could automatically detect.
 
--	The keystore file generated for the self-signed certificate is in P12 format and is stored under the following path: sedex-data/conf/certificates
+-	The keystore file generated for the self-signed certificate is in P12 format and is stored under the following path:
+
+            sedex-data/conf/certificates
 
 -	Additionally a CER file containing the public certificate is created. You can pass this file on to the developers or operators of the business application so that they can include the self-signed certificate in their trust store.
 

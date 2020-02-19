@@ -73,6 +73,22 @@
 
     </section>
 
+    <script>
+
+        console.log("Begin Toc");
+
+        $('#navmenu').initTOC({
+            selector: 'h2, h3, h4',
+            scope: 'body',
+            overwrite: false,
+            prefix: 'inpagetoc'
+        });
+
+        console.log("End Toc");
+
+
+    </script>
+
 
 </div>
 </body>

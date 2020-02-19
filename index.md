@@ -1,7 +1,7 @@
 # Documentation for the sedex-client Docker Image 
 
 
-![sedex logo](https://raw.githubusercontent.com/sedexdev/sedexdev/master/sedex-logo.png)
+![sedex logo](https://raw.githubusercontent.com/sedexch/web-resources/master/sedex-logo.png)
 
 ## Docker image of the sedex-client
 The sedex-client docker image is publicly available on [docker hub](https://hub.docker.com/r/sedexch/sedex-client)

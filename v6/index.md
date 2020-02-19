@@ -10,7 +10,7 @@ This is the documentation for the official Docker image of the sedex-client soft
 
 For more information about sedex and the sedex-client, visit [www.sedex.ch](http://www.sedex.ch).
 
-![sedex logo](https://raw.githubusercontent.com/sedexdev/sedexdev/master/sedex-logo.png)
+![sedex logo](https://raw.githubusercontent.com/sedexch/web-resources/master/sedex-logo.png)
 
 
 **Important Notes:**

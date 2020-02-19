@@ -45,7 +45,9 @@
 
     <script>
 
-        var container = document.getElementById('navmenu');
+        var container = document.getElementById("navmenu");
+
+        console.log("container=" + container);
 
         var toc = initTOC({
             selector: 'h2, h3, h4',
@@ -53,6 +55,8 @@
             overwrite: false,
             prefix: 'toc'
         });
+
+        console.log("toc=" + toc);
 
         container.appendChild(toc);
 

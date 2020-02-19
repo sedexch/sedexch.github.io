@@ -271,7 +271,7 @@ If a new business application (e.g. named «myApp») needs access to one or more
 5.	Check the log file of WS-Proxy for errors or warnings
 
 
-### 11.6.3	Change the password of a user
+### Change the password of a user
 
 The password of a user can be changed as follows:
 

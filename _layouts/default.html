@@ -39,26 +39,27 @@
 </head>
 <body>
 
+<script>
+
+    console.log("Begin Toc");
+
+    $('#navmenu').initTOC({
+        selector: 'h2, h3, h4',
+        scope: 'body',
+        overwrite: false,
+        prefix: 'inpagetoc'
+    });
+
+    console.log("End Toc");
+
+
+</script>
+
 <nav class="floating-menu" id="navmenu">
     {% include menu_v6.md %}
 
     <hr />
 
-    <script>
-
-        console.log("Begin Toc");
-
-        $('#navmenu').initTOC({
-            selector: 'h2, h3, h4',
-            scope: 'body',
-            overwrite: false,
-            prefix: 'inpagetoc'
-        });
-
-        console.log("End Toc");
-
-
-    </script>
 
 </nav>
 

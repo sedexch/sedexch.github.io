@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <!--link rel="stylesheet" href="/assets/css/style.css?v=00275fa3e20a138d203a2817bc901dbbf93e5dfc"-->
-    <link rel="stylesheet" href="/static_files/assets/css/default.css">
+    <link rel="stylesheet" href="/static_files/as
+    sets/css/default.css">
     <script src="/static_files/assets/js/toc.min.js"></script>
 
     <style>
@@ -43,9 +44,18 @@
     <hr />
 
     <script>
-        varlist =initTOC(options);
-        var navmenu = document.getElementById('navmenu');
-        navmenu.appendChild(list);
+
+        var container = document.getElementById('navmenu');
+
+        var toc = initTOC({
+            selector: 'h2, h3, h4',
+            scope: 'body',
+            overwrite: false,
+            prefix: 'toc'
+        });
+
+        container.appendChild(toc);
+
     </script>
 
 </nav>

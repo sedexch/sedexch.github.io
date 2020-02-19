@@ -111,5 +111,5 @@ The following is an excerpt from a Kubernetes deployment for the sedex client:
             spec:
               containers:
               - name: sedexch/sedex-client
-                image: nginx:6.0.0
+                image: sedexch/sedex-client:6.0.0
         [...]

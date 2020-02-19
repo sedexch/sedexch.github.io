@@ -11,7 +11,7 @@ This page describes the web service proxy functionality of the sedex client. If 
 
 The web service proxy (WS-Proxy) is an add-on component of the sedex client offering local access to defined remote Web services. For the business application it looks as if the sedex web service proxy would offer the web service. In fact, the sedex WS-Proxy is only an intermediary between the application and the actual web service.
 
-![sedex logo](https://raw.githubusercontent.com/sedexdev/sedexdev.github.io/master/static_files/assets/images/v6/wsp.png)
+![WSP Overview](https://raw.githubusercontent.com/sedexch/sedexch.github.io/master/static_files/assets/images/v6/wsp.png)
 
 To establish a secure SSL/TLS connection to the actual web service, the WS-Proxy uses the participant's sedex certificate. This allows the service provider to unambiguously identify the caller and to check whether this caller is authorized to use the service or not.
 

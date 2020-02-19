@@ -34,26 +34,26 @@
             color: #ff6600;
             cursor: default;
         }
+
+        .floating-menu ol {
+            list-style: none;
+        }
+        .floating-menu ol li {
+            padding-bottom: 0.5em;
+        }
+        .floating-menu ol li::before {
+            color: red;
+            font-weight: bold;
+        }
+
+
+
+
     </style>
 
 </head>
 <body>
 
-<script>
-
-    console.log("Begin Toc");
-
-    $('#navmenu').initTOC({
-        selector: 'h2, h3, h4',
-        scope: 'body',
-        overwrite: false,
-        prefix: 'inpagetoc'
-    });
-
-    console.log("End Toc");
-
-
-</script>
 
 <nav class="floating-menu" id="navmenu">
     {% include menu_v6.md %}
@@ -81,17 +81,12 @@
 
     <script>
 
-        console.log("Begin Toc");
-
         $('#ourtoc').initTOC({
-            selector: 'h2',
+            selector: 'h1, h2',
             scope: 'ourmaincontent',
             overwrite: false,
             prefix: 'inpagetoc'
         });
-
-        console.log("End Toc");
-
 
     </script>
 

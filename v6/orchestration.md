@@ -78,3 +78,38 @@ Run the sedex-client container using environment-specific values for the followi
       --env CRID=YOUR_CERTIFICATE_REQUEST_ID \
       --env OTP=YOUR-ONE-TIME-PASSWORD \
       sedexch/sedex-client init-container-new-cert.sh
+
+
+## Ensure a maximum of one client instance 
+
+Due to the architecture of the sedex system, **a maximum of one sedex client may be running for a participant at any time**. This must also be ensured when operating the sedex client as a container.
+
+On an orchestration platform for each container can be defined how many instances should run. E.g. Kubernetes calls this the number of *"replicas"*.
+
+An orchestration platform can move containers to another node at any time. Usually this is done by starting a container on the new node before the old one is deactivated. This strategy may make sense for most web applications. However, when applied to the sedex client, this would result in two sedex clients running for a certain period of time. This can be prevented by setting the strategy to 
+be used. Kubernetes calls the strategy to be chosen for sedex "Recreate".
+
+The following is an excerpt from a Kubernetes deployment for the sedex client:
+
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: sedex-client-deployment
+          labels:
+            app: sedexch/sedex-client/1-123455-1
+        spec:
+          replicas: 1
+          strategy:
+            type: Recreate
+          selector:
+            matchLabels:
+              app: sedexch/sedex-client/1-123455-1
+          template:
+            metadata:
+              labels:
+                app: sedexch/sedex-client/1-123455-1
+            spec:
+              containers:
+              - name: sedexch/sedex-client
+                image: nginx:6.0.0
+        [...]

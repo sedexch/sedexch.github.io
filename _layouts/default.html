@@ -50,7 +50,7 @@
 
         $('#navmenu').initTOC({
             selector: 'h2, h3, h4',
-            scope: 'section',
+            scope: 'ourmaincontent',
             overwrite: false,
             prefix: 'inpagetoc'
         });
@@ -62,10 +62,14 @@
 
 </nav>
 
-<div class="container-lg px-3 my-5 markdown-body" id="maincontent">
+<div class="container-lg px-3 my-5 markdown-body">
 
     <section>
-        {{ content }}
+
+        <ourmaincontent>
+            {{ content }}
+        </ourmaincontent>
+
     </section>
 
 

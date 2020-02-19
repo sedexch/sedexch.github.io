@@ -6,6 +6,7 @@
     <title>{{ page.title }}</title>
     <!--link rel="stylesheet" href="/assets/css/style.css?v=00275fa3e20a138d203a2817bc901dbbf93e5dfc"-->
     <link rel="stylesheet" href="/static_files/assets/css/default.css">
+    <script src="/static_files/assets/js/toc.js"></script>
 
     <style>
         .floating-menu {
@@ -36,8 +37,17 @@
 </head>
 <body>
 
-<nav class="floating-menu">
+<nav class="floating-menu" id="navmenu">
     {% include menu_v6.md %}
+
+    <hr />
+
+    <script>
+        varlist =initTOC(options);
+        var navmenu = document.getElementById('navmenu');
+        navmenu.appendChild(list);
+    </script>
+
 </nav>
 
 <div class="container-lg px-3 my-5 markdown-body">

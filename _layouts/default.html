@@ -67,6 +67,10 @@
 
     <section>
 
+        <ourtoc id="ourtoc">
+
+        </ourtoc>
+
         <ourmaincontent>
             {{ content }}
         </ourmaincontent>
@@ -77,7 +81,7 @@
 
         console.log("Begin Toc");
 
-        $('#navmenu').initTOC({
+        $('#ourtoc').initTOC({
             selector: 'h2',
             scope: 'ourmaincontent',
             overwrite: false,

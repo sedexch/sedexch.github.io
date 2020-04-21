@@ -38,7 +38,7 @@ We are very interested in feedback on the Docker version of the sedex-client and
 
 | Tag(s) | Image Description | Release date |
 |---|---|---|
-| **latest**, 6.0.0, 6.0.0_container-0.95-beta | The most current container image (version 0.95-beta) with sedex-client 6.0.0. **Recommended.** | February 06, 2020 |
+| **latest**, 6.0.0, 6.0.0_container-0.96-beta | The most current container image (version 0.95-beta) with sedex-client 6.0.0. **Recommended.** | April 21, 2020 |
 | 5.3.1, 5.3.1_container-0.94-beta | The legacy container image (version 0.94-beta) with sedex-client 5.3.1. **Legacy.** | December 19, 2019 |
 
 **Note:**
@@ -190,6 +190,7 @@ Run the sedex-client container using environment-specific values for the followi
 - -d - Detached: Start container in background without showing log output on console.
 <!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
 
+To run the sedex-client container enter the following commands:
 
     $ docker pull sedexch/sedex-client:latest
     

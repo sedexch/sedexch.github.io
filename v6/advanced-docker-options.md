@@ -25,11 +25,27 @@ Example:
 **Note:** An http proxy can also be configured manually in the central client configuration file at any time (see [Advanced sedex Client Configuration](sedex-client-configuration-options.html)).
     
 
+## Disabling the Web Service Proxy in the init.conf
+
+If the functionality of the sedex web service proxy for secure access to defined web services is not used, it can already be deactivated at the very beginning in the initial configuration file init.conf.
+
+Example:
+
+    File: /path/to/sedex-data/conf/init.conf
+    ...
+    WSPROXY_START=false
+
+**Note:** If this parameter is missing in init.conf a default value of "true" will be set in the configuration file.
+
+**Note:** If the use of the web service proxy is still required at a later date, it can be activated later by adjusting the central configuration file.
+
+
 ## Timezone
 The default timezone in the sedex-client Docker container is "Europe/Zurich" (i.e. local Swiss time).
 If you have to set another timezone (e.g. UTC) then set the environment variable **TZ** by adding the following option to your container run statement:
 
     --env TZ=UTC   
+
 
 
 ## Running the sedex-client as a non-root user

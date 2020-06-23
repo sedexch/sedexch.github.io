@@ -26,8 +26,11 @@ Run the sedex-client container using environment-specific values for the followi
 - OUTGOING_WEB_PROXY_PORT - optional environment variable holding the http proxy port
 - OUTGOING_WEB_PROXY_USER - optional environment variable holding the http proxy user
 - OUTGOING_WEB_PROXY_PASSWORD - optional environment variable holding the http proxy password
+- WSPROXY_START - optional environment variable that can be set to false, if web service proxy should not be started (default value is true)
+
 <!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
 
+Command to run the init container:
 
     $ docker run \
       --rm \
@@ -68,8 +71,11 @@ Run the sedex-client container using environment-specific values for the followi
 - OUTGOING_WEB_PROXY_PORT - optional environment variable holding the http proxy port
 - OUTGOING_WEB_PROXY_USER - optional environment variable holding the http proxy user
 - OUTGOING_WEB_PROXY_PASSWORD - optional environment variable holding the http proxy password
+- WSPROXY_START - optional environment variable that can be set to false, if web service proxy should not be started (default value is true)
+
 <!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
 
+Command to run the init container:
 
     $ docker run \
       --rm \

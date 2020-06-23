@@ -177,17 +177,18 @@ The following steps show how to create and start the latest Docker container run
 
 ### Run the sedex-client container
 Run the sedex-client container using environment-specific values for the following options:
-- /path/to/sedex-data - The path to the host's "sedex-data" directory (holding the persisted data)
-- YOUR_MONITORING_PORT - The port at which the monitoring web page of the sedex-client should be accessible from the outside of the container
-- YOUR_WS_PROXY_HTTP_PORT - The unsecured http port at which the sedex-clients Web service proxy should be accessible from the outside of the
+- `/path/to/sedex-data` - The path to the host's "sedex-data" directory (holding the persisted data)
+- `YOUR_MONITORING_PORT` - The port at which the monitoring web page of the sedex-client should be accessible from the outside of the container
+- `YOUR_WS_PROXY_HTTP_PORT` - The unsecured http port at which the sedex-clients Web service proxy should be accessible from the outside of the
   container. **Note:** You can omit this line if the WS-Proxy will not be used or will only be used via https.
-- YOUR_WS_PROXY_HTTPS_PORT - The secured https port at which the sedex-clients Web service proxy should be accessible from the outside of the
+- `YOUR_WS_PROXY_HTTPS_PORT` - The secured https port at which the sedex-clients Web service proxy should be accessible from the outside of the
   container. **Note:** You can omit this line if the WS-Proxy will not be used.
-- --stop-timeout 65 - When the docker container is stopped (e.g. with "docker stop" command), the sedex-client's controller-stop.sh is executed to initiate a graceful 
+- `--stop-timeout 65` - When the docker container is stopped (e.g. with "docker stop" command), the sedex-client's controller-stop.sh is executed to initiate a graceful 
   shutdown of the client. This typically takes longer than the default 10 seconds that the Docker daemon waits before killing the container.
   The --stop-timeout option overrides the default. The required time will vary from one installation to another.
-- --restart unless-stopped - Restart Policy: Restart the container automatically after Docker daemon restarts, unless the container has been stopped intentionally. 
-- -d - Detached: Start container in background without showing log output on console.
+- `--restart unless-stopped` - Restart Policy: Restart the container automatically after Docker daemon restarts, unless the container has been stopped intentionally. 
+- `-d` - Detached: Start container in background without showing log output on console.
+
 <!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
 
 To run the sedex-client container enter the following commands:

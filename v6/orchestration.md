@@ -17,16 +17,16 @@ There is a separate init container for each of the two initialization cases a) a
 If you already have a participant with an existing sedex participant certificate (a P12 file).
 
 Run the sedex-client container using environment-specific values for the following options:
-- --rm - Automatically remove the container when it exits
-- /path/to/sedex-data - The path to the host's "sedex-data" directory or volume (holding the persisted data)
-- SEDEX_ID - environment variable holding the participant's sedex id
-- KEYSTORE - environment variable holding the *content* of the keystore file (P12) in base64 encoded format
-- KEYSTORE_PW - environment variable holding the password to the keystore file
-- OUTGOING_WEB_PROXY_HOST - optional environment variable holding the http proxy host
-- OUTGOING_WEB_PROXY_PORT - optional environment variable holding the http proxy port
-- OUTGOING_WEB_PROXY_USER - optional environment variable holding the http proxy user
-- OUTGOING_WEB_PROXY_PASSWORD - optional environment variable holding the http proxy password
-- WSPROXY_START - optional environment variable that can be set to false, if web service proxy should not be started (default value is true)
+- `--rm` - Automatically remove the container when it exits
+- `/path/to/sedex-data` - The path to the host's "sedex-data" directory or volume (holding the persisted data)
+- `SEDEX_ID` - environment variable holding the participant's sedex id
+- `KEYSTORE` - environment variable holding the *content* of the keystore file (P12) in base64 encoded format
+- `KEYSTORE_PW` - environment variable holding the password to the keystore file
+- `OUTGOING_WEB_PROXY_HOST` - optional environment variable holding the http proxy host
+- `OUTGOING_WEB_PROXY_PORT` - optional environment variable holding the http proxy port
+- `OUTGOING_WEB_PROXY_USER` - optional environment variable holding the http proxy user
+- `OUTGOING_WEB_PROXY_PASSWORD` - optional environment variable holding the http proxy password
+- `WSPROXY_START` - optional environment variable that can be set to false, if web service proxy should not be started (default value is true)
 
 <!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
 
@@ -62,16 +62,16 @@ Resulting output:
 If you don't have an existing certificate but a *certificate request ID (CRID)* and a one time password (OTP).
 
 Run the sedex-client container using environment-specific values for the following options:
-- --rm - Automatically remove the container when it exits
-- /path/to/sedex-data - The path to the host's "sedex-data" directory or volume (holding the persisted data)
-- SEDEX_ID - environment variable holding the participant's sedex id
-- CRID - environment variable holding the certificate request id (CRID)
-- OTP - environment variable holding the one time password (OTP)
-- OUTGOING_WEB_PROXY_HOST - optional environment variable holding the http proxy host
-- OUTGOING_WEB_PROXY_PORT - optional environment variable holding the http proxy port
-- OUTGOING_WEB_PROXY_USER - optional environment variable holding the http proxy user
-- OUTGOING_WEB_PROXY_PASSWORD - optional environment variable holding the http proxy password
-- WSPROXY_START - optional environment variable that can be set to false, if web service proxy should not be started (default value is true)
+- `--rm` - Automatically remove the container when it exits
+- `/path/to/sedex-data` - The path to the host's "sedex-data" directory or volume (holding the persisted data)
+- `SEDEX_ID` - environment variable holding the participant's sedex id
+- `CRID` - environment variable holding the certificate request id (CRID)
+- `OTP` - environment variable holding the one time password (OTP)
+- `OUTGOING_WEB_PROXY_HOST` - optional environment variable holding the http proxy host
+- `OUTGOING_WEB_PROXY_PORT` - optional environment variable holding the http proxy port
+- `OUTGOING_WEB_PROXY_USER` - optional environment variable holding the http proxy user
+- `OUTGOING_WEB_PROXY_PASSWORD` - optional environment variable holding the http proxy password
+- `WSPROXY_START` - optional environment variable that can be set to false, if web service proxy should not be started (default value is true)
 
 <!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
 

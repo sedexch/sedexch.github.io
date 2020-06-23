@@ -191,20 +191,20 @@ sedex-data/conf/certificates/my-ssl-keystore.p12
 
 2.	Configure your keystore file in the sedex client’s main configuration file:
 
-        -	*Path to the keystore file*\  
+        -	*Path to the keystore file*  
 
             wsproxy.https.key-store-file=my-ssl-keystore.p12
             
-        -	*Password with which the keystore file is secured*\
+        -	*Password with which the keystore file is secured*
         
             wsproxy.https.key-store-password=myKeystorePassword
 
-        -	*Alias name of the key to use*\
+        -	*Alias name of the key to use*
         A keystore file may contain one or many private keys. To select the correct key, its alias name must be specified. If you don't know the alias name, you can examine the content of the keystore with a suitable tool (e.g. with the KeyStore Explorer mentioned above).
 
             wsproxy.https.key-alias=my-key-alias
 
-        -	*Password for accessing the key to use*\
+        -	*Password for accessing the key to use*
         Within a keystore, a separate password can be set again for each key. If no separate password has been set for the key, enter the password for the keystore again here.
 
             wsproxy.https.key-password=myPrivatePasswordForTheKey
@@ -238,10 +238,10 @@ The format of the entries in the configuration file is as follows:
         user_name=password,sedex-id
 
 The elements of an entry (i.e. line of the configuration file) in detail are:
--	*user_name:*	A freely definable username that represents your application calling the
+-	`user_name:`	A freely definable username that represents your application calling the
  		sedex webservice proxy. Allowed characters: a-z, A-Z, 0-9, -, _
--	*password:*	The password of the user. Allowed characters: a-z, A-Z, 0-9, -, _
--	*sedex-id:*	The associated sedex ID is that of the physical or logical sedex
+-	`password:`	The password of the user. Allowed characters: a-z, A-Z, 0-9, -, _
+-	`sedex-id:`	The associated sedex ID is that of the physical or logical sedex
 		participant for whom the remote Web service is called.
 		The specific sedex-id to be used is provided either by your
 		sedex domain administrator or by FSO’s sedex customer support.

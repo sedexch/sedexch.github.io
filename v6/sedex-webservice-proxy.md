@@ -223,11 +223,11 @@ This sections describes the content and the basic administration of the WS-Proxy
 
 Usernames and passwords are configured in the following user configuration file:
 
-        sedex-data/conf/sedex-wsproxy-users.properties
+        sedex-data/conf/sedex-wsproxy-user-configuration.properties
 
 This is an excerpt from the configuration file showing two configured users:
 
-        # File: sedex-wsproxy-users.properties
+        # File: sedex-wsproxy-user-configuration.properties
         […]
         example-app-1=myNewAndSecurePassword,3-CH-55438
         example-app-2={bcrypt}$2a$10$f/du7KAWE0xVu.a9DrRKN.fBxg[…]1wldBVam,1-CH-2874423

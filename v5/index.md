@@ -28,7 +28,7 @@ This has to be considered especially when operating on automatic container orche
 
 | Tag(s) | Image Description | Release date |
 |---|---|---|
-| latest, 5.3.1, 5.3.1_container-0.94-beta | The most current container image (version 0.94-beta) with sedex-client 5.3.1. | December 19, 2019 |
+| 5.3.1, 5.3.1_container-0.94-beta | The legacy container image (version 0.94-beta) with sedex-client 5.3.1. **Legacy.** | December 19, 2019 |
 
 **Note:**
 The special tag "latest" will always be an alias for the most current container of the most current sedex-client.

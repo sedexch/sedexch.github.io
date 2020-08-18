@@ -24,14 +24,16 @@ This has to be considered especially when operating on automatic container orche
  Please tell us what you like and what you don't like.
 
 
-## Current Docker Hub Tags
+## Current Docker Hub Tags of legacy version V5
 
 | Tag(s) | Image Description | Release date |
 |---|---|---|
 | 5.3.1, 5.3.1_container-0.94-beta | The legacy container image (version 0.94-beta) with sedex-client 5.3.1. **Legacy.** | December 19, 2019 |
 
 **Note:**
-The special tag "latest" will always be an alias for the most current container of the most current sedex-client.
+ * The special tag "latest" will always be an alias for the most current container of the most current sedex-client.
+ * This is the legacy docker container for the sedex-client V5. If possible, the usage of the newer docker container for sedex-client V6 is recommended. 
+
 
 
 ---

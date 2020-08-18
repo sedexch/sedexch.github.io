@@ -37,7 +37,7 @@ By default, the sedex-client uses the WebSocket protocol to reduce round trip ti
 
 In extremely rare cases (approx. 1% of all clients), the WebSocket protocol can cause communication problems with network components on the client side.
 If such a problem is detected, the use of WebSocket can manually be deactivated.
-As a result, the client can only use so-called polling, which leads to longer round trip times, but solves the problems. **Note:** Normally the web socket communication should *not* be disabled.
+As a result, the client can only use the so-called *polling* mode, which leads to longer message round trip times (about 10 minutes instead of a few seconds), but the sedex-client can still offer the basic functionality without websocket if required. **Note:** Normally the web socket communication should *not* be disabled. 
 
 With a text editor (e.g. "nano") open the central sedex-client configuration file named "sedex-client-configuration.properties" in the subdirectory "sedex-data/conf":
 

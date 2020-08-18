@@ -4,6 +4,9 @@
 
 # Kubernetes & Co.
 
+## Memory Allocation
+It is recommended to allocate at least 1GB memory for the sedex docker container. If additional containers will run within a Kubernetes Pod (e.g. side car proxies of a service mesh), their memory requirements must be added and more memory must be allocated to the Pod accordingly.
+
 ## Initial configuration with Init Containers instead of init.conf file
 
 Container orchestration platforms such as Kubernetes know the concept of so-called *Init Containers*. These utility containers are started before the actual container is started, with the task of performing initialization tasks.

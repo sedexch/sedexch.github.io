@@ -29,17 +29,20 @@ In the worst case sedex messages could be lost.
 Therefore it has to be ensured that only one sedex client is running at a time.
 This has to be considered especially when operating on automatic container orchestration platforms like Kubernetes.
 
+- **Persistent file storage for data volume required:**
+There is important data that has to be stored permenently outside of the sedex-client Docker container. Examples for such data are messages, receipts, local messaging state database, certificates, passwords etc. If this data is not reliably stored outside the container, there is a risk of message loss and loss of access to the own message inbox. See section [*Permanent Data Storage ("sedex-data")*](#Permanent_Data_Storage) for further details.
+
 - **Feedback:**
 We are very interested in feedback on the Docker version of the sedex-client and this documentation.
  Please tell us what you like and what you don't like at sedexsupport@bfs.admin.ch.
 
 
-## Supported Tags
+## Current Docker Hub Tags
 
 | Tag(s) | Image Description | Release date |
 |---|---|---|
-| **latest**, 6.0.1, 6.0.1_container-0.97-beta | The most current container image (version 0.97-beta) with sedex-client 6.0.1. **Recommended.** | July 16, 2020 |
-| 6.0.0, 6.0.0_container-0.96-beta | The legacy container image (version 0.96-beta) with sedex-client 6.0.0. **Legacy.** | April 21, 2020 |
+| **latest**, 6.0.2, 6.0.2_container-0.98-beta | The most current container image (version 0.98-beta) with sedex-client 6.0.2. **Recommended.** | August 18, 2020 |
+| 5.3.1, 5.3.1_container-0.94-beta | The legacy container image (version 0.94-beta) with sedex-client 5.3.1. **Legacy.** | December 19, 2019 |
 
 **Note:**
 The special tag "**latest**" will always be an alias for the most current *container* of the most current *sedex-client*.
@@ -52,7 +55,7 @@ The special tag "**latest**" will always be an alias for the most current *conta
 
 At its core, the platform is a *message-oriented middleware* designed for secure asynchronous data exchange between business applications of different organizational units. In specific cases, synchronous data exchange (SOAP and RESTful web services) also takes place. The sedex platform is highly available (24/7).
 
-The **sedex-client** is a software which is installed at the business applications and offers the interface between the business applications and the remote sedex server and message hub.
+The **sedex-client** is a software which is installed at the business applications and offers the interface between the business applications and the remote sedex server and message hub. Further details about the internal structure of the sedex client can be found in the installation and user manual on www.sedex.ch under Downloads.
 
 
 
@@ -61,6 +64,7 @@ The **sedex-client** is a software which is installed at the business applicatio
 
 In order to successfully operate the sedex-client as a Docker container, you should first understand the following concepts.
 
+<a name="Permanent_Data_Storage"></a>
 ## Permanent Data Storage ("sedex-data")
 The sedex-client must be able to store certain data permanently outside of the container. All the following sedex specific data must survive the lifespan of a Docker container:
 - configuration
@@ -98,7 +102,8 @@ The installation instructions will distinguish between these two cases a) and b)
 
 ---
 # Requirements
-Docker Engine should be v17.06 or later. Older versions are not supported and the api syntax may differ from this manual.
+ * **Docker Version:** Docker Engine should be v17.06 or later. Older versions are not supported and the api syntax may differ from this manual.
+ * **Memory:** It is recommended to allocate at least 1GB memory for the sedex docker container.
 
 # How to use this image
 

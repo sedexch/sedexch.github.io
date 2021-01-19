@@ -35,27 +35,33 @@ Run the sedex-client container using environment-specific values for the followi
 
 Command to run the init container:
 
-    $ docker run \
-      --rm \
-      --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
-      --env SEDEX_ID=YOUR-SEDEX-ID \
-      --env KEYSTORE=CONTENT-OF-YOUR-CERTIFICATE-FILE \
-      --env KEYSTORE_PW=YOUR-PASSWORD \
-      sedexch/sedex-client init-container-existing-cert.sh
+```console
+$ docker run \
+  --rm \
+  --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
+  --env SEDEX_ID=YOUR-SEDEX-ID \
+  --env KEYSTORE=CONTENT-OF-YOUR-CERTIFICATE-FILE \
+  --env KEYSTORE_PW=YOUR-PASSWORD \
+  sedexch/sedex-client init-container-existing-cert.sh
+```
 
 **Note:** In a Linux console, the contents of the keystore file (P12) can be translated into the required base64 encoded format as follows:
 
-    $ cat YOUR-CERTIFICATE-FILE.p12 | base64
+```console
+$ cat YOUR-CERTIFICATE-FILE.p12 | base64
+```
 
 Resulting output:
 
-      MIIHdgIBAzCCBzwGCSqGSIb3DQEHAaCCBy0EggcpMIIHJTCCA+8GCSqGSIb3DQEHBqCCA+AwggPc
-      AgEAMIID1QYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQIRYqcETINPCICAggAgIIDqJno8zFy
-      [...]
-      cDZCr7zStk1IBaD7WoHQqRmvlM9qJJrZsELaTflLcfo43GWGDiwX+OqTD0xo3J/EmVJ8fat/yKsM
-      4lnSpDFaMCMGCSqGSIb3DQEJFTEWBBTPLjUs7MQ16yQIA6BqTg4C6uxj9jAzBgkqhkiG9w0BCRQx
-      Jh4kAEMAbABpAGUAbgB0ACAAQwBlAHIAdABpAGYAaQBjAGEAdABlMDEwITAJBgUrDgMCGgUABBSF
-      i3kuzz/2qGFiSHGVmHe+aHbm2wQIs0UZdpNO54oCAggA
+```
+MIIHdgIBAzCCBzwGCSqGSIb3DQEHAaCCBy0EggcpMIIHJTCCA+8GCSqGSIb3DQEHBqCCA+AwggPc
+AgEAMIID1QYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQIRYqcETINPCICAggAgIIDqJno8zFy
+[...]
+cDZCr7zStk1IBaD7WoHQqRmvlM9qJJrZsELaTflLcfo43GWGDiwX+OqTD0xo3J/EmVJ8fat/yKsM
+4lnSpDFaMCMGCSqGSIb3DQEJFTEWBBTPLjUs7MQ16yQIA6BqTg4C6uxj9jAzBgkqhkiG9w0BCRQx
+Jh4kAEMAbABpAGUAbgB0ACAAQwBlAHIAdABpAGYAaQBjAGEAdABlMDEwITAJBgUrDgMCGgUABBSF
+i3kuzz/2qGFiSHGVmHe+aHbm2wQIs0UZdpNO54oCAggA
+```
 
 **Note:** Since this content contains the private key of the sedex participant, it must be kept secret. This content and the corresponding password must not be visible to unauthorized persons at any time.
 
@@ -80,13 +86,15 @@ Run the sedex-client container using environment-specific values for the followi
 
 Command to run the init container:
 
-    $ docker run \
-      --rm \
-      --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
-      --env SEDEX_ID=YOUR-SEDEX-ID \
-      --env CRID=YOUR_CERTIFICATE_REQUEST_ID \
-      --env OTP=YOUR-ONE-TIME-PASSWORD \
-      sedexch/sedex-client init-container-new-cert.sh
+```console
+$ docker run \
+  --rm \
+  --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
+  --env SEDEX_ID=YOUR-SEDEX-ID \
+  --env CRID=YOUR_CERTIFICATE_REQUEST_ID \
+  --env OTP=YOUR-ONE-TIME-PASSWORD \
+  sedexch/sedex-client init-container-new-cert.sh
+```
 
 
 ## Ensure a maximum of one client instance 
@@ -100,25 +108,217 @@ be used. Kubernetes calls the strategy to be chosen for sedex "Recreate".
 
 The following is an excerpt from a Kubernetes deployment for the sedex client:
 
-        apiVersion: apps/v1
-        kind: Deployment
-        metadata:
-          name: sedex-client-deployment
-          labels:
-            app: sedexch/sedex-client/1-123455-1
-        spec:
-          replicas: 1
-          strategy:
-            type: Recreate
-          selector:
-            matchLabels:
-              app: sedexch/sedex-client/1-123455-1
-          template:
-            metadata:
-              labels:
-                app: sedexch/sedex-client/1-123455-1
-            spec:
-              containers:
-              - name: sedexch/sedex-client
-                image: sedexch/sedex-client:6.0.0
-        [...]
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sedex-client-deployment
+  labels:
+    app: sedexch/sedex-client/1-123455-1
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: sedexch/sedex-client/1-123455-1
+  template:
+    metadata:
+      labels:
+        app: sedexch/sedex-client/1-123455-1
+    spec:
+      containers:
+      - name: sedexch/sedex-client
+        image: sedexch/sedex-client:6.0.0
+[...]
+```
+        
+## `StatefulSet` / [`minio`](https://min.io/) Example
+
+### P12
+
+To use this Statefulset, a P12 Certificate is needed. If you do not have that, following the instructions to create one:
+
+```console
+$ mkdir sedex-data
+$ cd sedex-data
+$ docker run \
+  --rm \
+  --mount type=bind,source=`pwd`,destination=/sedex-data/ \
+  --env SEDEX_ID="$SEDEX_ID" \
+  --env CRID="$CRID" \
+  --env OTP="$OTP" \
+  sedexch/sedex-client init-container-new-cert.sh
+$ docker run \
+  --rm \
+  --mount type=bind,source=`pwd`,destination=/sedex-data/ \
+  --env SEDEX_ID="$SEDEX_ID" \
+  --env CRID="$CRID" \
+  --env OTP="$OTP" \
+  sedexch/sedex-client
+# Wait until the certificate is valid (check logs)
+$ export KEYSTORE=$(cat conf/certificates/$SEDEX_ID.p12 | base64)
+# Extract KEYSTORE_PW from conf/sedex-certificate-configuration.xml / #certificateConfiguration/privateCertificate/password
+```
+
+### Setup
+
+```console
+$ kubectl create secret \
+  generic \
+  sedex \
+  --from-literal=MINIO_ROOT_USER="$MINIO_ROOT_USER" \
+  --from-literal=MINIO_ROOT_PASSWORD="$MINIO_ROOT_PASSWORD" \
+  --from-literal=SEDEX_ID="$SEDEX_ID" \
+  --from-file=SEDEX_KEYSTORE="$SEDEX_KEYSTORE" \
+  --from-literal=SEDEX_KEYSTORE_PW="$SEDEX_KEYSTORE_PW"
+$ kubectl apply -f sfs.yml
+```
+
+```yml
+# sfs.yml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sedex
+spec:
+  selector:
+    matchLabels:
+      app: sedex
+  serviceName: sedex
+  updateStrategy:
+    type: RollingUpdate
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sedex
+    spec:
+      terminationGracePeriodSeconds: 30
+      initContainers:
+        - name: sedex-data-setup
+          image: sedexch/sedex-client:6.0.2
+          command:
+            - init-container-existing-cert.sh
+          env:
+            - name: SEDEX_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sedex
+                  key: SEDEX_ID
+            - name: KEYSTORE
+              valueFrom:
+                secretKeyRef:
+                  name: sedex
+                  key: SEDEX_KEYSTORE
+            - name: KEYSTORE_PW
+              valueFrom:
+                secretKeyRef:
+                  name: sedex
+                  key: SEDEX_KEYSTORE_PW
+          volumeMounts:
+            - name: "sedex-data"
+              mountPath: /sedex-data
+      containers:
+        - name: sedex
+          image: sedexch/sedex-client:6.0.2
+          env:
+            - name: SEDEX_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sedex
+                  key: SEDEX_ID
+            - name: KEYSTORE
+              valueFrom:
+                secretKeyRef:
+                  name: sedex
+                  key: SEDEX_KEYSTORE
+            - name: KEYSTORE_PW
+              valueFrom:
+                secretKeyRef:
+                  name: sedex
+                  key: SEDEX_KEYSTORE_PW
+          volumeMounts:
+            - name: sedex-data
+              mountPath: /sedex-data
+          livenessProbe:
+            tcpSocket:
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 20
+            successThreshold: 1
+            failureThreshold: 2
+          readinessProbe:
+            tcpSocket:
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 20
+            successThreshold: 1
+            failureThreshold: 2
+        - name: minio
+          image: minio/minio:RELEASE.2021-01-16T02-19-44Z
+          command:
+            - "/bin/sh"
+            - "-ce"
+            - "/usr/bin/docker-entrypoint.sh minio server /sedex-data"
+          ports:
+            - containerPort: 9000
+              name: storage
+          volumeMounts:
+            - name: sedex-data
+              mountPath: /sedex-data
+          env:
+            - name: MINIO_ROOT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: sedex
+                  key: MINIO_ROOT_USER
+            - name: MINIO_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sedex
+                  key: MINIO_ROOT_PASSWORD
+          livenessProbe:
+            httpGet:
+              path: /minio/health/live
+              port: 9000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 20
+            successThreshold: 1
+            failureThreshold: 2
+          readinessProbe:
+            httpGet:
+              path: /minio/health/live
+              port: 9000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 20
+            successThreshold: 1
+            failureThreshold: 2
+  volumeClaimTemplates:
+    - metadata:
+        name: sedex-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
+        volumeMode: Filesystem
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sedex
+spec:
+  ports:
+    - name: minio
+      protocol: TCP
+      port: 9000
+  selector:
+    app: sedex
+  type: ClusterIP
+```

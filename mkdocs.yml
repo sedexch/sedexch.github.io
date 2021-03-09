@@ -1,0 +1,18 @@
+site_name: Documentation for the official sedex-Client Docker Image
+site_description: Documentation for the official sedex-Client Docker image.
+theme:
+  name: material
+  language: en
+  logo: assets/sedex-logo.png
+nav:
+  - 'Documentation Home': index.md
+  - 'Documentation for Client V6':
+      - 'Basic Usage': v6/index.md
+      - 'Advanced Docker Options': v6/advanced-docker-options.md
+      - 'Advanced sedex Client Config': v6/sedex-client-configuration-options.md
+      - 'sedex Web Service Proxy': v6/sedex-webservice-proxy.md
+      - 'Kubernetes & Co.': v6/orchestration.md
+  - 'Documentation for Client V5':
+      - 'Overview': v5/index.md
+
+

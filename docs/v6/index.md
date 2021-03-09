@@ -121,9 +121,11 @@ With a text editor (e.g. "nano") create a plain text file named "init.conf" in t
 
 Add the following three configuration parameters (with values adjusted to your actual data) to your "init.conf" file and save it:
 
-    SEDEX_ID=YOUR-SEDEX-ID
-    SEDEX_CERTIFICATE_FILENAME=YOUR-CERTIFICATE-FILE.p12
-    SEDEX_CERTIFICATE_PASSWORD=YOUR-PASSWORD
+``` shell
+SEDEX_ID=YOUR-SEDEX-ID
+SEDEX_CERTIFICATE_FILENAME=YOUR-CERTIFICATE-FILE.p12
+SEDEX_CERTIFICATE_PASSWORD=YOUR-PASSWORD
+```
     
 **Note:** After the first successful start of the sedex-client, this file will be **deleted automatically** as its content will be moved to the created sedex configuration files.
 
@@ -139,13 +141,17 @@ For new participants follow Step 3a.
 
 With a text editor (e.g. "nano") create a plain text file named "init.conf" in the subdirectory "sedex-data/conf":
 
+``` shell
     $ nano /path/to/sedex-data/conf/init.conf
+```
 
 Add the following three configuration parameters (with values adjusted to your actual data) to your "init.conf" file and save it:
 
-    SEDEX_ID=YOUR-SEDEX-ID
-    SEDEX_CRID=YOUR_CERTIFICATE_REQUEST_ID
-    SEDEX_OTP=YOUR-ONE-TIME-PASSWORD
+``` shell
+SEDEX_ID=YOUR-SEDEX-ID
+SEDEX_CRID=YOUR_CERTIFICATE_REQUEST_ID
+SEDEX_OTP=YOUR-ONE-TIME-PASSWORD
+```
 
 **Note:** After the first successful start of the sedex-client, this file will be **deleted automatically** as its content will be moved to the created sedex configuration files.
 

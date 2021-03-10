@@ -142,7 +142,7 @@ For new participants follow Step 3a.
 With a text editor (e.g. "nano") create a plain text file named "init.conf" in the subdirectory "sedex-data/conf":
 
 ``` shell
-    $ nano /path/to/sedex-data/conf/init.conf
+$ nano /path/to/sedex-data/conf/init.conf
 ```
 
 Add the following three configuration parameters (with values adjusted to your actual data) to your "init.conf" file and save it:

@@ -3,7 +3,7 @@ site_description: Documentation for the official sedex-Client Docker image.
 theme:
   name: material
   language: en
-  logo: assets/sedex-logo.png
+  logo: assets/favicon.png
 nav:
   - 'Documentation Home': index.md
   - 'Documentation for Client V6':

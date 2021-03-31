@@ -64,6 +64,7 @@ If the sedex-client will run as a non-root user inside of the Docker container, 
 
 ##### Step 4: Run the sedex-client container as a non-root user
 Run the sedex-client container using environment-specific values for the following options:
+
 - `/path/to/sedex-data` - The path to the host's "sedex-data" directory (holding the persisted data)
 - `YOUR_MONITORING_PORT` - The port at which the monitoring web page of the sedex-client should be accessible from the outside of the container
 - `YOUR_WS_PROXY_HTTP_PORT` - The unsecured http port at which the sedex-clients Web service proxy should be accessible from the outside of the
@@ -141,6 +142,7 @@ Example: Get the Docker container 0.95-beta of the sedex-client 6.0.0:
 
 ## Separate permanent stores for conf, log, etc.  
 For the permanent store of data outside the container, most users will be happy to use one single directory "sedex-data" that holds all the different data types in one place:
+
 - configuration
 - sedex messages
 - messaging state

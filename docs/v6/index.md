@@ -45,6 +45,7 @@ In order to successfully operate the sedex-client as a Docker container, you sho
 <a name="Permanent_Data_Storage"></a>
 ### Permanent Data Storage ("sedex-data")
 The sedex-client must be able to store certain data permanently outside of the container. All the following sedex specific data must survive the lifespan of a Docker container:
+
 - configuration
 - sedex messages
 - messaging state
@@ -52,10 +53,12 @@ The sedex-client must be able to store certain data permanently outside of the c
 - etc.
 
 For the permanent storage of data outside the container, Docker primarily offers the following two options ([see Docker documentation](https://docs.docker.com/storage/) for details):
+
 - *Volumes* (storage managed by Docker)
 - *Bind Mounts* (local file system based storage on the host)
 
 **Notes:**
+
  - The following command line examples only show the use of *bind mounts*. Experienced Docker administrators can easily adapt the examples to *volumes*.
  - In our examples the directory with the permanent data storage is named "sedex-data". Of course you can name this directory differently, but then you have to adapt the examples to your actual directory name. 
 
@@ -166,6 +169,7 @@ The following steps show how to create and start the latest Docker container run
 
 #### Run the sedex-client container
 Run the sedex-client container using environment-specific values for the following options:
+
 - `/path/to/sedex-data` - The path to the host's "sedex-data" directory (holding the persisted data)
 - `YOUR_MONITORING_PORT` - The port at which the monitoring web page of the sedex-client should be accessible from the outside of the container
 - `YOUR_WS_PROXY_HTTP_PORT` - The unsecured http port at which the sedex-clients Web service proxy should be accessible from the outside of the

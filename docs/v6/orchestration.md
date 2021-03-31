@@ -1,5 +1,7 @@
 # Kubernetes & Co.
 
+The sedex client Docker container can be run on a Kubernetes-based orchestration platform. The following points must be taken into account.
+
 ## Memory Allocation
 It is recommended to allocate at least 1GB memory for the sedex docker container. If additional containers will run within a Kubernetes Pod (e.g. side car proxies of a service mesh), their memory requirements must be added and more memory must be allocated to the Pod accordingly.
 
@@ -9,13 +11,14 @@ Container orchestration platforms such as Kubernetes know the concept of so-call
 
 If the initial configuration described above (with manually creating an init.conf file) is not a feasible way, one of the two provided init containers from sedex may be able to help.
 
-There is a separate init container for each of the two initialization cases a) and b) described above. The task of the init containers is to create the init.conf file from passed ENV parameters.
+There is a separate init container for each of the two initialization cases a) and b) described in the [Basic Usage](index.md). The task of the init containers is to create the init.conf file from passed ENV parameters.
 
 ### a) Init Container for an existing participant
 
 If you already have a participant with an existing sedex participant certificate (a P12 file).
 
 Run the sedex-client container using environment-specific values for the following options:
+
 - `--rm` - Automatically remove the container when it exits
 - `/path/to/sedex-data` - The path to the host's "sedex-data" directory or volume (holding the persisted data)
 - `SEDEX_ID` - environment variable holding the participant's sedex id
@@ -61,6 +64,7 @@ Resulting output:
 If you don't have an existing certificate but a *certificate request ID (CRID)* and a one time password (OTP).
 
 Run the sedex-client container using environment-specific values for the following options:
+
 - `--rm` - Automatically remove the container when it exits
 - `/path/to/sedex-data` - The path to the host's "sedex-data" directory or volume (holding the persisted data)
 - `SEDEX_ID` - environment variable holding the participant's sedex id

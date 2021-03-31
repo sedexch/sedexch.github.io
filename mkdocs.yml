@@ -4,6 +4,15 @@ theme:
   name: material
   language: en
   logo: assets/favicon.png
+  features:
+    - navigation.top
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - admonition
+  - toc:
+      toc_depth: 3
 nav:
   - 'Documentation Home': index.md
   - 'Documentation for Client V6':
@@ -13,6 +22,4 @@ nav:
       - 'sedex Web Service Proxy': v6/sedex-webservice-proxy.md
       - 'Kubernetes & Co.': v6/orchestration.md
   - 'Documentation for Client V5':
-      - 'Overview': v5/index.md
-
-
+      - 'Usage': v5/index.md

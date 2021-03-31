@@ -18,7 +18,7 @@ Example:
     
 **Note:** If no user name is required, the two parameters OUTGOING_WEB_PROXY_USER and OUTGOING_WEB_PROXY_PASSWORD can be omitted. 
 
-**Note:** An http proxy can also be configured manually in the central client configuration file at any time (see [Advanced sedex Client Configuration](sedex-client-configuration-options.html)).
+**Note:** An http proxy can also be configured manually in the central client configuration file at any time (see [Advanced sedex Client Configuration](sedex-client-configuration-options)).
     
 
 ## Disabling the Web Service Proxy in the init.conf

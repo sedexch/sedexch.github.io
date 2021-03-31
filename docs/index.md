@@ -4,7 +4,7 @@
 
 ## What is sedex-Client?
 
-[**sedex**](http://www.sedex.ch) stands for *secure data exchange* and is a service of the [Swiss Federal Statistical Office (FSO)](https://www.bfs.admin.ch/bfs/en/home.html) that integrates business applications in the Swiss e-Government sector.
+[**sedex**](http://www.sedex.ch) stands for *secure data exchange* and is a service of the [Swiss Federal Statistical Office (FSO)](https://www.bfs.admin.ch/bfs/en/home) that integrates business applications in the Swiss e-Government sector.
 
 At its core, the **sedex platform** is a *message-oriented middleware* designed for secure asynchronous data exchange between business applications of different organizational units. In specific cases, synchronous data exchange (SOAP and RESTful web services) also takes place. The sedex platform is highly available (24/7).
 

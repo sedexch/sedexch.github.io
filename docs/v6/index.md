@@ -132,7 +132,7 @@ SEDEX_CERTIFICATE_PASSWORD=YOUR-PASSWORD
     
 **Note:** After the first successful start of the sedex-client, this file will be **deleted automatically** as its content will be moved to the created sedex configuration files.
 
-**Note:** If an HTTP proxy is required for access to the Internet, such a proxy server can optionally already be defined in the init.conf file (see section [Advanced Docker Options](advanced-docker-options.html)) or later manually be defined in the central configuration file of the sedex client (see section [Advanced sedex Client Configuration](sedex-client-configuration-options.html)). 
+**Note:** If an HTTP proxy is required for access to the Internet, such a proxy server can optionally already be defined in the init.conf file (see section [Advanced Docker Options](advanced-docker-options)) or later manually be defined in the central configuration file of the sedex client (see section [Advanced sedex Client Configuration](sedex-client-configuration-options)). 
 
     
 #### Step 3b: Provide the initial configuration for a *new* participant
@@ -158,14 +158,14 @@ SEDEX_OTP=YOUR-ONE-TIME-PASSWORD
 
 **Note:** After the first successful start of the sedex-client, this file will be **deleted automatically** as its content will be moved to the created sedex configuration files.
 
-**Note:** If an HTTP proxy is required for access to the Internet, such a proxy server can optionally already be defined in the init.conf file (see section [Advanced Docker Options](advanced-docker-options.html)) or later manually be defined in the central configuration file of the sedex client (see section [Advanced sedex Client Configuration](sedex-client-configuration-options.html)). 
+**Note:** If an HTTP proxy is required for access to the Internet, such a proxy server can optionally already be defined in the init.conf file (see section [Advanced Docker Options](advanced-docker-options)) or later manually be defined in the central configuration file of the sedex client (see section [Advanced sedex Client Configuration](sedex-client-configuration-options)). 
 
 
 ### II) Starting and using the sedex-client
 
 The following steps show how to create and start the latest Docker container running the sedex-client.
 
-**Note:** If you want to use a specific version of the container then see [Advanced Docker Options](advanced-docker-options.html) for details.
+**Note:** If you want to use a specific version of the container then see [Advanced Docker Options](advanced-docker-options) for details.
 
 #### Run the sedex-client container
 Run the sedex-client container using environment-specific values for the following options:
@@ -202,7 +202,7 @@ To run the sedex-client container enter the following commands:
 
 **Note:** After the very first start of the sedex-client Docker container, a general default configuration is created.
 If specific configuration options are required, these can be set in the central configuration file of the sedex-client.
-With a text editor (e.g. "nano") open the central sedex-client configuration file named "sedex-client-configuration.properties" in the subdirectory "sedex-data/conf" and edit the contained configuration parameters as needed and as described in [Advanced sedex Client Configuration](sedex-client-configuration-options.html):
+With a text editor (e.g. "nano") open the central sedex-client configuration file named "sedex-client-configuration.properties" in the subdirectory "sedex-data/conf" and edit the contained configuration parameters as needed and as described in [Advanced sedex Client Configuration](sedex-client-configuration-options):
 
     $ nano /path/to/sedex-data/conf/sedex-client-configuration.properties
 

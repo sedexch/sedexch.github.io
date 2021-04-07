@@ -30,7 +30,7 @@ We are very interested in feedback on the Docker version of the sedex-client and
 
 | Tag(s) | Image Description | Release date |
 |---|---|---|
-| **latest**, 6.0.2, 6.0.2_container-0.98-beta | The most current container image (version 0.98-beta) with sedex-client 6.0.2. **Recommended.** | August 18, 2020 |
+| **latest**, 6.0.4, 6.0.4_container-0.99-beta | The most current container image (version 0.99-beta) with sedex-client 6.0.4. **Recommended.** | April 07, 2021 |
 | 5.3.1, 5.3.1_container-0.94-beta | The legacy container image (version 0.94-beta) with sedex-client 5.3.1. **Legacy.** | December 19, 2019 |
 
 **Note:**

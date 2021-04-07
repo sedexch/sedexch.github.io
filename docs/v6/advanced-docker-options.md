@@ -97,6 +97,29 @@ To run the sedex-client container as a non root user enter the following command
       sedexch/sedex-client:latest
 
 
+## Running the Container in Read-Only mode
+
+The sedex client Docker image can be started with a read-only root filesystem, which further increases the security of the container.
+
+To run the sedex-client container with its root filesystem mounted as read-only enter the following commands:
+
+    $ docker pull sedexch/sedex-client:latest
+
+    $ docker run \
+      --name sedex-client \
+      --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
+      --publish YOUR_MONITORING_PORT:8000 \
+      --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
+      --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
+      --stop-timeout 65 \
+      --restart unless-stopped \
+      --read-only \
+      -d \
+      sedexch/sedex-client:latest
+
+
+The Docker option `--read-only` mounts the container’s root filesystem as read only prohibiting writes to locations other than the specified volumes for the container.
+
 
 ## Running a specific version of the container
 If your are referencing the container by its name "sedexch/sedex-client" the version with the tag "latest" is automatically selected.

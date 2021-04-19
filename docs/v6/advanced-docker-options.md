@@ -5,42 +5,45 @@ This page describes advanced aspects of Docker Container configuration. Most of 
 
 ## Defining an outgoing HTTP-proxy in the init.conf
 
-If an HTTP proxy is required to access the Internet, such a proxy server can optionally already be entered at the very beginning in the initial configuration file init.conf.
+If an HTTP proxy is required to access the Internet, such a proxy server can optionally already be entered at the very beginning during the initial configuration phase in the file init.conf. This configuration is then included in the generated configuration of the sedex client. 
 
 Example:
+```
+File: /path/to/sedex-data/conf/init.conf
+...
+OUTGOING_WEB_PROXY_HOST=proxy.example.ch
+OUTGOING_WEB_PROXY_PORT=8080
+OUTGOING_WEB_PROXY_USER=example-user
+OUTGOING_WEB_PROXY_PASSWORD=1234
+```
 
-    File: /path/to/sedex-data/conf/init.conf
-    ...
-    OUTGOING_WEB_PROXY_HOST=proxy.example.ch
-    OUTGOING_WEB_PROXY_PORT=8080
-    OUTGOING_WEB_PROXY_USER=example-user
-    OUTGOING_WEB_PROXY_PASSWORD=1234
-    
-**Note:** If no user name is required, the two parameters OUTGOING_WEB_PROXY_USER and OUTGOING_WEB_PROXY_PASSWORD can be omitted. 
+**Note:** If no user name is required, the two optional parameters OUTGOING_WEB_PROXY_USER and OUTGOING_WEB_PROXY_PASSWORD can be omitted.
 
-**Note:** An http proxy can also be configured manually in the central client configuration file at any time (see [Advanced sedex Client Configuration](sedex-client-configuration-options)).
+**Note:** An http proxy can also be configured directly in the central client configuration file at any time (see [Advanced sedex Client Configuration](sedex-client-configuration-options)).
     
 
 ## Disabling the Web Service Proxy in the init.conf
 
-If the functionality of the sedex web service proxy for secure access to defined web services is not used, it can already be deactivated at the very beginning in the initial configuration file init.conf.
+If the functionality of the *sedex web service proxy* for secure access to defined web services is not used, it can already be deactivated at the very beginning during the initial configuration phase in the initial configuration file init.conf. This configuration is then included in the generated configuration of the sedex client. 
 
 Example:
-
-    File: /path/to/sedex-data/conf/init.conf
-    ...
-    WSPROXY_START=false
+```
+File: /path/to/sedex-data/conf/init.conf
+...
+WSPROXY_START=false
+```
 
 **Note:** If this parameter is missing in init.conf a default value of "true" will be set in the configuration file.
 
-**Note:** If the use of the web service proxy is still required at a later date, it can be activated later by adjusting the central configuration file.
+**Note:** If the usage of the web service proxy should be required later, it can be activated in the central client configuration file at any time (see [Advanced sedex Client Configuration](sedex-client-configuration-options)).
 
 
 ## Timezone
 The default timezone in the sedex-client Docker container is "Europe/Zurich" (i.e. local Swiss time).
 If you have to set another timezone (e.g. UTC) then set the environment variable **TZ** by adding the following option to your container run statement:
-
-    --env TZ=UTC   
+```
+--env TZ=UTC   
+```
 
 
 
@@ -49,18 +52,21 @@ Non-root container images add an extra layer of security and are generally recom
 
 ##### Step 1: Create a non-root group on the host machine
 Determine a group ID (501 in the this example) that is unique on the host machine and create the group (the name does not have to be "sedex-group").
-
-    $ groupadd --gid 501 sedex-group
+```console
+$ groupadd --gid 501 sedex-group
+```
 
 ##### Step 2: Create a non-root user on the host machine
 Determine a user ID (901 in the this example) that is unique on the host machine and create the user (the name does not have to be "sedex-user"), assign it to the group created in the previous step, and specifying its home directory.
-
-    $ useradd --uid 901 --no-log-init --gid sedex-group --create-home --home-dir /opt/sedexclient/ sedex-user
+```console
+$ useradd --uid 901 --no-log-init --gid sedex-group --create-home --home-dir /opt/sedexclient/ sedex-user
+```
 
 ##### Step 3: Set the group and owner of the sedex-data directories
 If the sedex-client will run as a non-root user inside of the Docker container, set the group and owner of the whole sedex-data directory tree and its contents so that the non-root user can access them.
-
-    $ chown --recursive sedex-user:sedex-group /path/to/sedex-data
+```console
+$ chown --recursive sedex-user:sedex-group /path/to/sedex-data
+```
 
 ##### Step 4: Run the sedex-client container as a non-root user
 Run the sedex-client container using environment-specific values for the following options:
@@ -82,41 +88,43 @@ Run the sedex-client container using environment-specific values for the followi
 
 To run the sedex-client container as a non root user enter the following commands:
 
-    $ docker pull sedexch/sedex-client:latest
+```console
+$ docker pull sedexch/sedex-client:latest
 
-    $ docker run \
-      --name sedex-client \
-      --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
-      --publish YOUR_MONITORING_PORT:8000 \
-      --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
-      --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
-      --stop-timeout 65 \
-      --restart unless-stopped \
-      --user 901:501 \
-      -d \
-      sedexch/sedex-client:latest
+$ docker run \
+  --name sedex-client \
+  --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
+  --publish YOUR_MONITORING_PORT:8000 \
+  --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
+  --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
+  --stop-timeout 65 \
+  --restart unless-stopped \
+  --user 901:501 \
+  -d \
+  sedexch/sedex-client:latest
+```
 
 
 ## Running the Container in Read-Only mode
 
-The sedex client Docker image can be started with a read-only root filesystem, which further increases the security of the container.
+The sedex client Docker container can be started with a read-only root filesystem, which further increases the security of the container.
 
 To run the sedex-client container with its root filesystem mounted as read-only enter the following commands:
+```console
+$ docker pull sedexch/sedex-client:latest
 
-    $ docker pull sedexch/sedex-client:latest
-
-    $ docker run \
-      --name sedex-client \
-      --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
-      --publish YOUR_MONITORING_PORT:8000 \
-      --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
-      --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
-      --stop-timeout 65 \
-      --restart unless-stopped \
-      --read-only \
-      -d \
-      sedexch/sedex-client:latest
-
+$ docker run \
+  --name sedex-client \
+  --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
+  --publish YOUR_MONITORING_PORT:8000 \
+  --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
+  --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
+  --stop-timeout 65 \
+  --restart unless-stopped \
+  --read-only \
+  -d \
+  sedexch/sedex-client:latest
+```
 
 The Docker option `--read-only` mounts the container’s root filesystem as read only prohibiting writes to locations other than the specified volumes for the container.
 
@@ -130,38 +138,44 @@ View the [list of available versions](https://hub.docker.com/r/sedexch/sedex-cli
 These parameters have to be set as described in the run example above.
 
 Example: Run the latest Docker container of the latest sedex-client:
-
-    $ docker run sedexch/sedex-client
+```console
+$ docker run sedexch/sedex-client
+```
 
 or
 
-    $ docker run sedexch/sedex-client:latest
+```console
+$ docker run sedexch/sedex-client:latest
+```
 
 Example: Run the latest Docker container of the sedex-client 6.0.0:
-
-    $ docker run sedexch/sedex-client:6.0.0
+```console
+$ docker run sedexch/sedex-client:6.0.0
+```
 
 Example: Run the Docker container 0.95-beta of the sedex-client 6.0.0:
-
-    $ docker run sedexch/sedex-client:6.0.0_container-0.95-beta
-
+```console
+$ docker run sedexch/sedex-client:6.0.0_container-0.95-beta
+```
 
 ## Pulling a specific image version
 The "docker run" command does **not** automatically download a newer image from docker hub, if an older image with that name and tag is available locally.
 In this case you have to manually issue a "docker pull" command, to download the newest images from docher hub.
 
 Example: Get the latest Docker container of the latest sedex-client:
-
-    $ docker pull sedexch/sedex-client
+```console
+$ docker pull sedexch/sedex-client
+```
 
 Example: Get the latest Docker container of the sedex-client 5.3.1:
-
-    $ docker pull sedexch/sedex-client:6.0.0
+```console
+$ docker pull sedexch/sedex-client:6.0.0
+```
 
 Example: Get the Docker container 0.95-beta of the sedex-client 6.0.0:
-
-    $ docker pull sedexch/sedex-client:6.0.0_container-0.95-beta
-
+```console
+$ docker pull sedexch/sedex-client:6.0.0_container-0.95-beta
+```
 
 ## Separate permanent stores for conf, log, etc.  
 For the permanent store of data outside the container, most users will be happy to use one single directory "sedex-data" that holds all the different data types in one place:
@@ -172,25 +186,26 @@ For the permanent store of data outside the container, most users will be happy 
 - log files
 - etc.
 
-If you have good reasons to separate these stores, you can mount different subdirectories seperately:
+There are good reasons to separate these stores, e.g. different users and permissions. So you can mount the different subdirectories seperately:
+```console
+$ mkdir /path/to/sedex-conf
+$ mkdir /path/to/sedex-interface
+$ mkdir /path/to/sedex-internal
+$ mkdir /path/to/sedex-logs
+$ mkdir /path/to/sedex-monitoring
 
-    $ mkdir /path/to/sedex-conf
-    $ mkdir /path/to/sedex-interface
-    $ mkdir /path/to/sedex-internal
-    $ mkdir /path/to/sedex-logs
-    $ mkdir /path/to/sedex-monitoring
-
-    $ docker run \
-      --name sedex-client \
-      --mount type=bind,source=/path/to/sedex-conf,destination=/sedex-data/conf/ \
-      --mount type=bind,source=/path/to/sedex-interface,destination=/sedex-data/interface/ \
-      --mount type=bind,source=/path/to/sedex-internal,destination=/sedex-data/internal/ \
-      --mount type=bind,source=/path/to/sedex-logs,destination=/sedex-data/logs/ \
-      --mount type=bind,source=/path/to/sedex-monitoring,destination=/sedex-data/monitoring/ \
-      --publish YOUR_MONITORING_PORT:8000 \
-      --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
-      --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
-      --stop-timeout 65 \
-      --restart unless-stopped \
-      -d \
-      sedexch/sedex-client:latest
+$ docker run \
+  --name sedex-client \
+  --mount type=bind,source=/path/to/sedex-conf,destination=/sedex-data/conf/ \
+  --mount type=bind,source=/path/to/sedex-interface,destination=/sedex-data/interface/ \
+  --mount type=bind,source=/path/to/sedex-internal,destination=/sedex-data/internal/ \
+  --mount type=bind,source=/path/to/sedex-logs,destination=/sedex-data/logs/ \
+  --mount type=bind,source=/path/to/sedex-monitoring,destination=/sedex-data/monitoring/ \
+  --publish YOUR_MONITORING_PORT:8000 \
+  --publish YOUR_WS_PROXY_HTTP_PORT:8080 \
+  --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \
+  --stop-timeout 65 \
+  --restart unless-stopped \
+  -d \
+  sedexch/sedex-client:latest
+```

@@ -34,10 +34,10 @@ nav:
         - 'with docker': v6n/run/run_with_docker.md
         - 'with docker-compose': v6n/run/run_with_docker-compose.md
         - 'with kubernetes': v6n/run/run_with_kubernetes.md
-      - 'Advanced Configuration' :
-          - 'sedex-Client': v6n/advanced-configuration/sedex-client-options.md
-          - 'sedex Web Service Proxy': v6n/advanced-configuration/sedex-web-service-proxy-options.md
-          - 'Container' : v6n/advanced-configuration/container-options.md
+      - 'Configuration' :
+          - 'sedex-Client': v6n/configuration/sedex-client-options.md
+          - 'sedex Web Service Proxy': v6n/configuration/sedex-web-service-proxy-options.md
+          - 'Container' : v6n/configuration/container-options.md
       - 'Monitoring' :
           - 'with docker': v6n/monitoring/monitor_docker_container.md
           - 'with docker-compose': v6n/monitoring/monitor_docker_compose_container.md

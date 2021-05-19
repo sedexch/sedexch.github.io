@@ -25,24 +25,26 @@ nav:
       - 'Usage': v5/index.md
   - 'Client V6 (new)':
       - 'Introduction': v6n/introduction.md
-      - 'Basic Concepts': v6n/basic-concepts.md
-      - 'Requirements' : v6n/requirements.md
+      - 'The sedex system':
+         - 'System Overview': v6n/sedex-system/overview_sedex.md
+         - 'sedex-Client': v6n/sedex-system/sedex-client.md
+      - 'Basic Concepts of the Container Image': v6n/basic-concepts.md
+      - 'Requirements': v6n/requirements.md
       - 'Initial Configuration' :
-        - 'Init-Case a: With P12-Certificate': v6n/initial-configuration/initial_configuration_with_certificate.md
-        - 'Init-Case b: With CRID/OTP': v6n/initial-configuration/initial_configuration_with_crid_and_otp.md
+        - 'With P12-Certificate': v6n/initial-configuration/initial_configuration_with_certificate.md
+        - 'With CRID+OTP': v6n/initial-configuration/initial_configuration_with_crid_and_otp.md
       - 'Start & Stop sedex-Client' :
         - 'with docker': v6n/run/run_with_docker.md
         - 'with docker-compose': v6n/run/run_with_docker-compose.md
         - 'with kubernetes': v6n/run/run_with_kubernetes.md
-      - 'Configuration' :
+      - 'Configuration':
           - 'sedex-Client': v6n/configuration/sedex-client-options.md
           - 'sedex Web Service Proxy': v6n/configuration/sedex-web-service-proxy-options.md
           - 'Container' : v6n/configuration/container-options.md
-      - 'Monitoring' :
-          - 'with docker': v6n/monitoring/monitor_docker_container.md
-          - 'with docker-compose': v6n/monitoring/monitor_docker_compose_container.md
-          - 'with kubernetes': v6n/monitoring/monitor_kubernetes_container.md
-      - 'Backup your Data' : v6n/backup_data.md
-      - 'Versions & Changes' : v6n/versions_changes.md
+      - 'Observation':
+          - 'Accessing Logs': v6n/observation/accessing-logs.md
+          - 'Monitoring State': v6n/observation/monitoring-state.md
+      - 'Backup your Data': v6n/backup_data.md
+      - 'Versions & Changes': v6n/versions_changes.md
       - 'FAQ': v6n/faq.md
   - 'Contact' : contact.md

@@ -1,6 +1,6 @@
-# Basic Concepts of the Container Image
+# Important Concepts of the Container Image
 
-**Before you start using the sedex Client as a Docker container, it is important to understand the following basic concepts:**
+**Before you start using the sedex Client as a Docker container, it is important to understand the following important concepts:**
 
  1. Permanent Data Storage ("sedex-data")
  2. Initial Configuration Process

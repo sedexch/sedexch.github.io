@@ -1,8 +1,10 @@
 # Start and Stop the sedex Client
 
-The following steps show how to create, start and stop a Docker container running the sedex Client.
+**The following steps show how to create, start and stop a Docker container running the sedex Client.**
 
-**Note:** If you want to use a specific version of the container then see [Advanced Configuration - Container Options](advanced-configuration/container-options) for details.
+!!! info "Info: latest vs. specific version of the container image"
+    The instructions show how to start the most recent container image called *"lastest"*.
+    If you want to use a specific version of the container then see [Configuration - Container Options](../../configuration/container-options) for details.
 
 
 
@@ -43,7 +45,7 @@ $ docker run \
 
 **Note:** After the very first start of the sedex Client Docker container, a general default configuration is created.
 If specific configuration options are required, these can be set in the central configuration file of the sedex Client.
-With a text editor (e.g. "nano") open the central sedex Client configuration file named "sedex Client-configuration.properties" in the subdirectory "sedex-data/conf" and edit the contained configuration parameters as needed and as described in [Advanced sedex Client Configuration](sedex Client-configuration-options):
+With a text editor (e.g. "nano") open the central sedex Client configuration file named "sedex Client-configuration.properties" in the subdirectory "sedex-data/conf" and edit the contained configuration parameters as needed and as described in [Configuration - sedex Client Options](../../configuration/sedex Client-options):
 ```console
 $ nano /path/to/sedex-data/conf/sedex Client-configuration.properties
 ```

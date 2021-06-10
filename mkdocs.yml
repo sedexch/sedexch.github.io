@@ -11,40 +11,35 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.details
   - admonition
+  - attr_list
   - toc:
       toc_depth: 3
 nav:
   - 'Documentation Home': index.md
-  - 'Client V6 (current)':
-      - 'Basic Usage': v6/index.md
-      - 'Advanced Docker Options': v6/advanced-docker-options.md
-      - 'Advanced sedex Client Config': v6/sedex-client-configuration-options.md
-      - 'sedex Web Service Proxy': v6/sedex-webservice-proxy.md
-      - 'Kubernetes & Co.': v6/orchestration.md
-  - 'Client V5 (deprecated)':
-      - 'Usage': v5/index.md
-  - 'Client V6 (new)':
-      - 'Introduction': v6n/introduction.md
-      - 'The sedex system':
-         - 'System Overview': v6n/sedex-system/overview_sedex.md
-         - 'sedex-Client': v6n/sedex-system/sedex-client.md
-      - 'Basic Concepts of the Container Image': v6n/basic-concepts.md
-      - 'Requirements': v6n/requirements.md
+  - 'The sedex system':
+      - 'sedex System Overview': sedex-system/overview_sedex.md
+      - 'sedex Client': sedex-system/sedex-client.md
+  - 'Client Container V6 (current)':
+      - 'Before Starting': client-container-v6/index.md
+      - 'Important Concepts': client-container-v6/important-concepts.md
+      - 'Requirements': client-container-v6/requirements.md
       - 'Initial Configuration' :
-        - 'With P12-Certificate': v6n/initial-configuration/initial_configuration_with_certificate.md
-        - 'With CRID+OTP': v6n/initial-configuration/initial_configuration_with_crid_and_otp.md
+        - 'With P12-Certificate': client-container-v6/initial-configuration/initial_configuration_with_certificate.md
+        - 'With CRID+OTP': client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp.md
       - 'Start & Stop sedex-Client' :
-        - 'with docker': v6n/run/run_with_docker.md
-        - 'with docker-compose': v6n/run/run_with_docker-compose.md
-        - 'with kubernetes': v6n/run/run_with_kubernetes.md
+        - 'with docker': client-container-v6/run/run_with_docker.md
+        - 'with docker-compose': client-container-v6/run/run_with_docker-compose.md
+        - 'with kubernetes': client-container-v6/run/run_with_kubernetes.md
       - 'Configuration':
-          - 'sedex-Client': v6n/configuration/sedex-client-options.md
-          - 'sedex Web Service Proxy': v6n/configuration/sedex-web-service-proxy-options.md
-          - 'Container' : v6n/configuration/container-options.md
+          - 'sedex-Client': client-container-v6/configuration/sedex-client-options.md
+          - 'sedex Web Service Proxy': client-container-v6/configuration/sedex-web-service-proxy-options.md
+          - 'Container' : client-container-v6/configuration/container-options.md
       - 'Observation':
-          - 'Accessing Logs': v6n/observation/accessing-logs.md
-          - 'Monitoring State': v6n/observation/monitoring-state.md
-      - 'Backup your Data': v6n/backup_data.md
-      - 'Versions & Changes': v6n/versions_changes.md
-      - 'FAQ': v6n/faq.md
+          - 'Accessing Logs': client-container-v6/observation/accessing-logs.md
+          - 'Monitoring State': client-container-v6/observation/monitoring-state.md
+      - 'Backup your Data': client-container-v6/backup_data.md
+      - 'Versions & Changes': client-container-v6/versions_changes.md
+      - 'FAQ': client-container-v6/faq.md
+  - 'Client Container V5 (old)':
+      - 'Usage': client-container-v5/index.md
   - 'Contact' : contact.md

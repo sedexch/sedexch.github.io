@@ -23,7 +23,7 @@ The following sedex specific data must survive the lifespan of a Docker containe
 - log files
 - etc.
 
-For the *permanent data storage* outside of the container, Docker primarily offers the following two options ([see Docker documentation](https://docs.docker.com/storage/) for details):
+For the *permanent data storage* outside of the container, Docker e.g. offers the following two options ([see Docker documentation](https://docs.docker.com/storage/) for details):
 
 - *Volumes* (storage managed by the Container platform)
 - *Bind Mounts* (local file system based storage on the host running the Container)
@@ -31,9 +31,9 @@ For the *permanent data storage* outside of the container, Docker primarily offe
 
 **Notes:**
 
- - The command line examples show the use of *bind mounts*. Experienced container administrators can easily adapt the examples to *volumes*.
+ - The command line examples for Docker show the use of *bind mounts*. Experienced container administrators can easily adapt the examples to *volumes*.
  - In our examples the directory with the permanent data storage is named "sedex-data". Of course you can name this external directory or volume differently, but then you have to adapt the examples to your actual directory name. 
-
+ - Other container platforms (Kubernetes, OpenShift, etc.) know specific concepts for persisted data volumes. Please refer to the corresponding documentation for your platform.
 
 
 <a name="Initial_Configuration_Process"></a>

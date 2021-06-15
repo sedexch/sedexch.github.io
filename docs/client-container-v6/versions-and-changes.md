@@ -9,3 +9,18 @@
 
 **Note:**
 The special tag "**latest**" will always be an alias for the most current *container* of the most current *sedex Client*. The tags available can 
+
+## Change Notes
+
+### sedex-Client 6.0.5 in Container 0.99-beta (2021-06-29 xxx)
+
+Tag: `6.0.5_container-1.00-beta`
+
+xxx tbd xxx
+
+
+### sedex-Client 6.0.4 (2021-04-07)
+
+Tag: `6.0.4_container-0.99-beta`
+
+xxx tbd xxx

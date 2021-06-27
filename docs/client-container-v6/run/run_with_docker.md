@@ -1,4 +1,4 @@
-# Start and Stop the sedex Client with Docker 
+# Run the sedex Client with Docker 
 
 **The following steps show how to create, run, and stop the sedex client as a container on a Docker host.**
 

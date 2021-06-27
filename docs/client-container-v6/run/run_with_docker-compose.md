@@ -1,4 +1,4 @@
-# Start and Stop the sedex Client with Docker Compose
+# Run the sedex Client with Docker Compose
 
 **The following steps show how to create, run, and stop the sedex client as a container stack on a Docker host using docker-compose.**
 

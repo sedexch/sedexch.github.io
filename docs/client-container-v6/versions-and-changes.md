@@ -34,7 +34,7 @@ This release does not introduce any new functionality, but resolves an issue and
 
 - **Fix:** When retrieving the monitoring page of the sedex client version 6.0.4 via http (http://[host]:[port]/monitoring), the web server may be blocking in certain cases due to race conditions. This version fixes the problem.
 - **Workaround:** The JVM Java 8 Update 291 and 292 from April 2021 (other versions are not affected) contain a known issue that causes the sedex client to fail to renew the participant certificate. This can lead to the error message "NoSuchAlgorithmExcep-tion: unrecognized algorithm name" in sedex-controller-technical.log. The sedex client version 6.0.5 contains a specific enhancement which 
-works around this JVM error. Nevertheless, we recommend switching to a newer JVM free of this issue as soon as it will become available. <br/> (This change is not relevant for the container version as it is absed on a different JVM version.)
+works around this JVM error. Nevertheless, we recommend switching to a newer JVM free of this issue as soon as it will become available. <br/> (This change is not relevant for the container version as it is based on a different JVM version.)
 - **Update:** The certificate with which remote update packages for the sedex client are digitally signed has been renewed. The corresponding truststore has been extended by this new certificate.
 - **Update:** QuoVadis has revoked one of its intermediate certificates due to policy changes and replaced it with a new one. The corresponding truststore has been ad-justed. Note: Older sedex clients automatically download the latest truststore from the sedex server.
 

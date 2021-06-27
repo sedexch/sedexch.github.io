@@ -19,27 +19,28 @@ nav:
   - 'The sedex system':
       - 'sedex System Overview': sedex-system/overview_sedex.md
       - 'sedex Client': sedex-system/sedex-client.md
-  - 'Client Container V6 (current)':
-      - 'Before Starting': client-container-v6/index.md
-      - 'Important Concepts': client-container-v6/important-concepts.md
-      - 'Requirements': client-container-v6/requirements.md
-      - 'Initial Configuration' :
-        - 'With P12-Certificate': client-container-v6/initial-configuration/initial_configuration_with_certificate.md
-        - 'With CRID+OTP': client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp.md
-      - 'Start & Stop sedex-Client' :
-        - 'with Docker': client-container-v6/run/run_with_docker.md
-        - 'with Docker Compose': client-container-v6/run/run_with_docker-compose.md
-        - 'with Kubernetes': client-container-v6/run/run_with_kubernetes.md
-      - 'Configuration':
+  - 'sedex Client Container V6':
+      - 'Notes Before Starting': client-container-v6/index.md
+      - 'Overview & Basic Concepts': client-container-v6/basic-concepts.md
+      - 'Phase 1: Initial Configuration' :
+        - 'Case a) With P12-Certificate': client-container-v6/initial-configuration/initial_configuration_with_certificate.md
+        - 'Case b) With CRID+OTP': client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp.md
+        - 'Using Init-Scripts': client-container-v6/initial-configuration/initial_configuration_with_init-scripts.md
+      - 'Phase 2: Basic Usage' :
+        - 'Run with Docker': client-container-v6/run/run_with_docker.md
+        - 'Run with Docker Compose': client-container-v6/run/run_with_docker-compose.md
+      - 'Advanced Configuration':
           - 'sedex-Client': client-container-v6/configuration/sedex-client-options.md
           - 'sedex Web Service Proxy': client-container-v6/configuration/sedex-web-service-proxy-options.md
           - 'Container' : client-container-v6/configuration/container-options.md
       - 'Observation':
-          - 'Accessing Logs': client-container-v6/observation/accessing-logs.md
+          - 'Logs': client-container-v6/observation/logs.md
           - 'Monitoring State': client-container-v6/observation/monitoring-state.md
       - 'Backup your Data': client-container-v6/backup-data.md
+      - 'Orchestration Platforms':
+          - 'Overview': client-container-v6/orchestration/overview.md
+          - 'Run with Kubernetes': client-container-v6/orchestration/run_with_kubernetes.md
       - 'Versions & Changes': client-container-v6/versions-and-changes.md
+      - 'Requirements': client-container-v6/requirements.md
       - 'FAQ': client-container-v6/faq.md
-  - 'Client Container V5 (old)':
-      - 'Usage': client-container-v5/index.md
   - 'Contact' : contact.md

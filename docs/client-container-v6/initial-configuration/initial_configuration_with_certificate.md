@@ -1,4 +1,4 @@
-# Initial Configuration With P12-Certificate
+# Case a) Initial Configuration with P12-Certificate
 
 **The following describes how the initial configuration of a new container installation is done for an existing participant, i.e. if you already have a sedex certificate (P12 file).**
 

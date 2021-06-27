@@ -1,4 +1,4 @@
-# Initial Configuration with CRID+OTP
+# Case b) Initial Configuration with CRID+OTP
 
 **The following describes how the initial configuration of a new container installation is done for a new participant, i.e. if you are not yet in possession of a sedex certificate (P12 file) but have a Certificate Request ID (CRID) and a One-Time-Password (OTP).**
 

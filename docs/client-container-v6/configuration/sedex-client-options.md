@@ -1,4 +1,4 @@
-# Configuration Options for the sedex Client
+# Advanced Configuration of the sedex Client
 
 **In the following, you will find how you can customize the configuration of the sedex Client yourself and which parameters are available for this purpose.**
 

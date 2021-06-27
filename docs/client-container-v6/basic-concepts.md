@@ -17,27 +17,34 @@ The diagram below shows the main components of the sedex Client Docker contaiene
 <a name="Permanent_Data_Storage"></a>
 ### Permanent Data Storage ("sedex-data")
 
-The sedex Client must be able to store certain data permanently outside of the container.
-The following sedex specific data must survive the lifespan of a Docker container:
+!!! info "Containers are disposable."
 
-- private key to the sedex participant certificate
-- configuration
-- sedex messages
-- messaging state
-- log files
-- etc.
+    Containers have, by principle, a disposable character.
+    This means that any data stored in the container is also deleted with the container.
+    However, sedex needs data that survive the (possibly short) life cycle of a container and must be persisted permanently.
+    For this purpose, an external permanent data storage must be connected to the sedex Client container.
+
+In the *external permanent data storage* (called "sedex-data"), the sedex Client container persists the following data:
+
+- **conf**: Configuration data including participant certificate and private key. Keep these safe and secret!
+- **interface**: File system interface for the business applications, contains among others the message inbox and message outbox.
+- **internal**: Technical data required by the sedex client. Otherwise not interesting for anyone.
+- **logs**: Logfiles of the sedex client with events and errors for your administrator.
+- **monitoring**: A page with state information and metrics for your operations monitoring.
 
 
-For the *permanent data storage* outside of the container, Docker e.g. offers the following two options ([see Docker documentation](https://docs.docker.com/storage/) for details):
+#### Permanent Storage with Docker
 
-- *Volumes* (storage managed by the Container platform)
-- *Bind Mounts* (local file system based storage on the host running the Container)
+For the *permanent data storage* outside of the container, Docker offers the following two main options ([see Docker documentation](https://docs.docker.com/storage/) for details):
+
+- *Volumes* (storage managed by the container platform, possibly mounted over a network)
+- *Bind Mounts* (a normal folder in the local file system on the host running the container)
 
 
 **Notes:**
 
  - The command line examples for Docker show the use of *bind mounts*. Experienced container administrators can easily adapt the examples to *volumes*.
- - In our examples the directory with the permanent data storage is named "sedex-data". Of course you can name this external directory or volume differently, but then you have to adapt the examples to your actual directory name. 
+ - In our examples the directory with the permanent data storage is named "sedex-data". Of course you can name this external directory or volume differently (for example, to indicate which sedex ID the data belongs to), but then you have to adapt the examples to your actual directory name. 
  - Other container platforms (Kubernetes, OpenShift, etc.) know specific concepts for persisted data volumes. Please refer to the corresponding documentation for your platform.
 
 

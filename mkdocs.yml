@@ -44,5 +44,5 @@ nav:
           - 'Run with Kubernetes': client-container-v6/orchestration/run_with_kubernetes.md
       - 'Versions & Changes': client-container-v6/versions-and-changes.md
       - 'Requirements': client-container-v6/requirements.md
-      - 'FAQ': client-container-v6/faq.md
+  - 'FAQ': faq.md
   - 'Contact' : contact.md

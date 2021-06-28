@@ -30,7 +30,7 @@ nav:
       - 'Phase 2: Normal Usage' :
         - 'Run with Docker': client-container-v6/run/run_with_docker.md
 #        - 'Run with Docker Compose': client-container-v6/run/run_with_docker-compose.md
-      - 'Advanced Configuration':
+      - 'Custom Configuration':
           - 'sedex-Client': client-container-v6/configuration/sedex-client-options.md
           - 'sedex Web Service Proxy': client-container-v6/configuration/sedex-web-service-proxy-options.md
           - 'Container' : client-container-v6/configuration/container-options.md

@@ -78,14 +78,13 @@ This section provides you with an overview of how to get a sedex client up and r
 
 ![The two phases of getting a sedex client Docker container up and running](/assets/v6/phase-1-and-phase-2.png)
 
-Phase 1: Initial Configuration
+*Phase 1: Initial Configuration<br />*
+In this phase, the external permanent data storage ("sedex-data") is created and configured. This phase is executed once.
 
-Here, the external permanent data storage is created and configured once. This phase is executed once.
+*Phase 2: Run sedex Client<br />*
+In this phase, the sedex Client is created and connected to the prepared permanent data storage and run for normal operation. This stage is repeated several times in practice, because containers have a disposable character and therefore are more often thrown away and then recreated.
 
-Phase 2: Run Phase
-
-Here the sedex client is created and connected to the prepared permanent data storage and executed for use. This phase is run again and again if a sedex client container is to be replaced by a new one.
-
+The two phases are described in more detail below. And in the rest of the documentation you will find separate step-by-step instructions for the two phases.
 
 
 <a name="Phase_1_Initial_Configuration"></a>
@@ -99,7 +98,7 @@ During this one time configuration process, the container will automatically pre
 #### Initial Configuration File ("init.conf")
 
 In order to execute the *initial configuration process*, the container needs at its first start a prepared *initial configuration file* ("init.conf") as an input.
-The format of this file is plain text and has to contain three *initial configuration parameters*.
+The format of this file is plain text and has to contain the *initial configuration parameters*.
 
 
 The **content of the initial configuration file "init.conf"** depends on the type of credentials you have for the participant. You will find yourself in one of the following two initialization cases:
@@ -118,5 +117,6 @@ Follow the instructions for the "initial configuration* according to your actual
 
 
 <a name="Phase_2_Normal_Usage"></a>
-### Phase 2: Phase 2: Normal Usage of the sedex Client Docker Container
+### Phase 2: Normal Usage of the sedex Client Docker Container
+
 

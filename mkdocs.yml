@@ -29,7 +29,7 @@ nav:
         - 'Using Init-Scripts': client-container-v6/initial-configuration/initial_configuration_with_init-scripts.md
       - 'Phase 2: Normal Usage' :
         - 'Run with Docker': client-container-v6/run/run_with_docker.md
-        - 'Run with Docker Compose': client-container-v6/run/run_with_docker-compose.md
+#        - 'Run with Docker Compose': client-container-v6/run/run_with_docker-compose.md
       - 'Advanced Configuration':
           - 'sedex-Client': client-container-v6/configuration/sedex-client-options.md
           - 'sedex Web Service Proxy': client-container-v6/configuration/sedex-web-service-proxy-options.md

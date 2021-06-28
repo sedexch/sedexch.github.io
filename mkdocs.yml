@@ -26,7 +26,7 @@ nav:
         - 'Case a) With P12-Certificate': client-container-v6/initial-configuration/initial_configuration_with_certificate.md
         - 'Case b) With CRID+OTP': client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp.md
         - 'Using Init-Scripts': client-container-v6/initial-configuration/initial_configuration_with_init-scripts.md
-      - 'Phase 2: Basic Usage' :
+      - 'Phase 2: Normal Usage' :
         - 'Run with Docker': client-container-v6/run/run_with_docker.md
         - 'Run with Docker Compose': client-container-v6/run/run_with_docker-compose.md
       - 'Advanced Configuration':

@@ -23,11 +23,11 @@ The exact parameters to be listed in this "init.conf" file depend on whether you
 
 The content of the initial configuration file "init.conf" depends on the type of credentials you have for the participant. **You will find yourself in one of the following two cases:**
 
-   - **[Case a) Initial configuration for an existing sedex participant:](initial-configuration/initial_configuration_with_certificate.md)**<br />
+   - **[Case a) Initial configuration for an existing sedex participant:](/client-container-v6/initial-configuration/initial_configuration_with_certificate)**<br />
   Follow the instructions for Case a) if a sedex Client has been running in another installation (Container and non-Container) for your participant before. Thus a sedex *participant-certificate* (the P12 file) and a corresponding *password* already exist and must be reused.
   
 
-   - ** [Case b) Initial configuration for a new sedex participant:](initial-configuration/initial_configuration_with_crid_and_otp.md)
+   - ** [Case b) Initial configuration for a new sedex participant:](/client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp)
 **<br />
   Follow the instructions for Case b) if no sedex Client has been running for your participant before. Thus there is *no* participant-certificate yet but a so-called *certificate request id (CRID)* and a corresponding *one time password (OTP)*.
 

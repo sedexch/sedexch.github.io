@@ -26,15 +26,16 @@ nav:
         - 'Identify your case': client-container-v6/initial-configuration/initial_configuration_case_identification.md
         - 'Case a) With P12-Certificate': client-container-v6/initial-configuration/initial_configuration_with_certificate.md
         - 'Case b) With CRID+OTP': client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp.md
+        - 'Optional Parameters': client-container-v6/initial-configuration/initial_configuration_optional_parameters.md
         - 'Using Init-Scripts': client-container-v6/initial-configuration/initial_configuration_with_init-scripts.md
       - 'Phase 2: Normal Usage' :
         - 'Run with Docker': client-container-v6/run/run_with_docker.md
 #        - 'Run with Docker Compose': client-container-v6/run/run_with_docker-compose.md
-      - 'Custom Configuration':
+      - 'Advanced Configuration':
           - 'sedex-Client': client-container-v6/configuration/sedex-client-options.md
           - 'sedex Web Service Proxy': client-container-v6/configuration/sedex-web-service-proxy-options.md
-          - 'Container' : client-container-v6/configuration/container-options.md
-      - 'Observation':
+          - 'Docker Container' : client-container-v6/configuration/container-options.md
+      - 'Logs / Monitoring':
           - 'Logs': client-container-v6/observation/logs.md
           - 'Monitoring State': client-container-v6/observation/monitoring-state.md
       - 'Backup your Data': client-container-v6/backup-data.md

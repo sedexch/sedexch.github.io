@@ -1,6 +1,6 @@
-# Custom Configuration of the sedex Client
+# Advanced Configuration of the sedex Client
 
-**In the following, you will find how you can change configuration parameters for the sedex Client and which parameters are available for this purpose.**
+**This page describes advanced aspects of sedex Client configuration. Most of these options are rarely needed.**
 
 
 ## Default configuration

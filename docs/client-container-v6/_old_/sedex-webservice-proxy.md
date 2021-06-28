@@ -1,6 +1,6 @@
-# Web Service Proxy
+# sedex Web Service Proxy Configuration
 
-This page describes the web service proxy functionality of the sedex Client. If you only use asynchronous sedex messaging, this page is not relevant for you. 
+This page describes how to configure the web service proxy functionality of the sedex Client. If you only use asynchronous sedex messaging, this page is not relevant for you. 
 
 
 ## Purpose of the Web Service Proxy

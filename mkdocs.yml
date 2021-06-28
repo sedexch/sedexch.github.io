@@ -23,6 +23,7 @@ nav:
       - 'Notes Before Starting': client-container-v6/index.md
       - 'Overview & Basic Concepts': client-container-v6/basic-concepts.md
       - 'Phase 1: Initial Configuration' :
+        - 'Identify your case': client-container-v6/initial-configuration/initial_configuration_case_identification.md
         - 'Case a) With P12-Certificate': client-container-v6/initial-configuration/initial_configuration_with_certificate.md
         - 'Case b) With CRID+OTP': client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp.md
         - 'Using Init-Scripts': client-container-v6/initial-configuration/initial_configuration_with_init-scripts.md

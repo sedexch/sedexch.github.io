@@ -87,34 +87,6 @@ In this phase, the sedex Client is created and connected to the prepared permane
 The two phases are described in more detail below. And in the rest of the documentation you will find separate step-by-step instructions for the two phases.
 
 
-<a name="Phase_1_Initial_Configuration"></a>
-### Phase 1: Initial Configuration
-
-If you are starting from scratch, i.e. you have never started a sedex Client as a Docker container for the participant before, then the sedex container must do an *initial configuration* of the external *permanent data storage* ("sedex-data") once (and only once) at the very first start.
-During this one time configuration process, the container will automatically prepare the *permanent data storage* by creating the required directory structure and by creating the required configuration files based on an initial configuration file described below.
-
-
-<a name="Initial_Configuration_File"></a>
-#### Initial Configuration File ("init.conf")
-
-In order to execute the *initial configuration process*, the container needs at its first start a prepared *initial configuration file* ("init.conf") as an input.
-The format of this file is plain text and has to contain the *initial configuration parameters*.
-
-
-The **content of the initial configuration file "init.conf"** depends on the type of credentials you have for the participant. You will find yourself in one of the following two initialization cases:
-
-   - **Case a) Initial configuration for an existing sedex participant:**
-  This means that a sedex Client has been running in another installation (Container and non-Container) for this participant before. Thus a sedex *participant-certificate* and a corresponding *password* already exist and must be reused.
-
-   - **Case b) Initial configuration for a new sedex participant:**
-  This means that there has no sedex Client been running for this participant before. Thus there is *no* participant-certificate yet but a so-called *certificate request id (CRID)* and a corresponding *one time password (OTP)*.
-
-Follow the instructions for the "initial configuration* according to your actual init case:
-
-   - [Case a) Initial configuration for an existing sedex participant](initial-configuration/initial_configuration_with_certificate.md)
-
-   - [Case b) Initial configuration for a new sedex participant](initial-configuration/initial_configuration_with_crid_and_otp.md)
-
 
 <a name="Phase_2_Normal_Usage"></a>
 ### Phase 2: Normal Usage of the sedex Client Docker Container

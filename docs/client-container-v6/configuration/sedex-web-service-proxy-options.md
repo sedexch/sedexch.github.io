@@ -1,27 +1,38 @@
-# Web Service Proxy
+# Advanced Configuration of the sedex Web Service Proxy
 
-This page describes the web service proxy functionality of the sedex client. If you only use asynchronous sedex messaging, this page is not relevant for you. 
+**In the following, you will find how you can configure sedex Webservice Proxy and which parameters are available for this purpose. If you are only using asynchronous sedex messaging, this page is not relevant for you.**
 
 
 ## Purpose of the Web Service Proxy
 
-The web service proxy (WS-Proxy) is an add-on component of the sedex client offering local access to defined remote Web services. For the business application it looks as if the sedex web service proxy would offer the web service. In fact, the sedex WS-Proxy is only an intermediary between the application and the actual web service.
+The web service proxy (WS-Proxy) is an add-on component of the sedex Client offering local access to defined remote Web services. For the business application it looks as if the sedex web service proxy would offer the web service. In fact, the sedex WS-Proxy is only an intermediary between the application and the actual web service.
 
-![WSP Overview](https://raw.githubusercontent.com/sedexch/sedexch.github.io/master/static_files/assets/images/v6/wsp.png)
+![sedex Webservice Proxy](/assets/v6/wsp.png)
 
 To establish a secure SSL/TLS connection to the actual web service, the WS-Proxy uses the participant's sedex certificate. This allows the service provider to unambiguously identify the caller and to check whether this caller is authorized to use the service or not.
 
 
-## Activating Web Service Proxy
+## Configuring Web Service Proxy
 
-Whether the WS-Proxy is active or not is controlled by a property in the central client configuration. The following excerpt from a sample configuration shows an activated WS-Proxy:
+The WS proxy is configured like the sedex Client is configured. See [Configuration of the sedex Client](../sedex-client-options) for details.
+
+In this section, the configuration parameters specific to the WS-Proxy are described.
+
+
+### Enabling & disabling Web Service Proxy
+
+The following configuration shows an activated WS-Proxy (default value):
 
        wsproxy.start=true 
 
-    
-## Checking if Web service proxy is active
+The following configuration shows a deactivated WS-Proxy:
 
-On the monitoring page of a running sedex client, you can check whether the WS-Proxy is active. If at least some of the “wsp” elements shown below are contained, the web service proxy is active. If there are no entries starting with the prefix “wsp-“, then the WS-Proxy is not active.
+       wsproxy.start=false 
+       
+    
+### Checking if Web service proxy is active
+
+On the monitoring page of a running sedex Client, you can check whether the WS-Proxy is active. If at least some of the “wsp” elements shown below are contained, the web service proxy is active. If there are no entries starting with the prefix “wsp-“, then the WS-Proxy is not active.
 
         [...]
         wsp-https-port=8443
@@ -52,23 +63,7 @@ On the monitoring page of a running sedex client, you can check whether the WS-P
         wsp-webservice-last-call=controller-uptime=00:06:00 
         [...]        
 
-
-## Configuring Web Service Proxy
-
-The WS proxy is configured via the main configuration file of the sedex client:
-
-        <sedex_home>/conf/sedex-client-configuration.properties
-
-In this section, the configuration parameters specific to the WS-Proxy are described.
-
-
-### Enabling & disabling Web Service Proxy
-
-If the WS-Proxy functionality is not required, it can be switched off using the following configuration setting:
-
-        wsproxy.start=false
- 
-        
+         
 ### Disabling Anonymous Access
 
 Regarding access control there are two basic types of web services:
@@ -81,7 +76,7 @@ These are web services that are restricted to a group of known and authorized us
 
 The web service definitions provided by sedex determine which web service may be called anonymously and which not.
 
-If it is desired for security reasons to completely deactivate anonymous access to webservices, this can be achieved with the following setting:
+If it is desired for security reasons to completely deactivate anonymous access to webservices, this can be achieved with the following configuration parameter:
 
         wsproxy.users.allowAnonymous=false
 
@@ -98,9 +93,10 @@ Web service requests and responses are transmitted using the http protocol . Thi
 2.	**Endpoint for access using https (secured)**\
 Web service requests and responses are transmitted using the https protocol . This means that the communication between the business application and the WS-Proxy is cryptographically secured using SSL/TLS  . As of version 6.0, the sedex WS proxy also offers this endpoint. This endpoint should be preferred.
 
-**Note:** The web service definitions provided by sedex determine which web service may be called over http and which not. See section 11.8.2 on how to check which web services are available over http and which are only available over https.
+**Note:** The web service definitions provided by sedex determine which web service may be called over http and which not. Check the monitoring page of the sedex Client to see which web services are available over http and which are only available over https.
 
-**Note:** Even when the business application accesses the WS-Proxy via unencrypted http, the connection between the WS-Proxy and the effective web service is always secured and encrypted via https.
+**Note:** Even when the business applications accesses the WS-Proxy via unencrypted http, the connection between the WS-Proxy and the effective web service over th eInternet is always secured and encrypted via https.
+
 The properties allowing the configuration of the http and https endpoints are described below.
 
 
@@ -124,29 +120,29 @@ As of version 6.0, the WS-Proxy offers the possibility of a secure communication
 
 Basically two types of SSL/TLS certificates can be used:
 
-1.	**Generated by the sedex client (self-signed certificate)**\
+1.	**Generated by the sedex Client (self-signed certificate)**\
 If the client is started and no SSL/TLS certificate is configured, the client automatically generates a new self-signed certificate.
 
 2.	**Existing certificate provided by the operator (may be an official SSL/TLS certificate)**\
-The operator of a sedex client can obtain and use an official SSL/TLS certificate from a certificate provider and configure this in the sedex client.
+The operator of a sedex Client can obtain and use an official SSL/TLS certificate from a certificate provider and configure this in the sedex Client.
 
 **Note:** A self-signed certificate is a certificate that is not signed by a public and generally trusted certificate authority (CA). These certificates are easy to make and are free. A disadvantage of self-signed certificates is that they are not automatically trusted. This means that such certificates must always be added manually to the trust store of a user – here the business application 
 calling the WS-Proxy.
 
 
-**Using the self-signed certificate generated by the sedex client**
+**Using the self-signed certificate generated by the sedex Client**
 
-If the sedex client does not find an SSL/TLS certificate for the WS proxy at startup, it automatically generates and configures a self-signed certificate.
+If the sedex Client does not find an SSL/TLS certificate for the WS proxy at startup, it automatically generates and configures a self-signed certificate.
 
 Notes regarding the self-signed certificate:
 
--	The self-signed certificate is valid for 5 years. You can find the expiration date on the monitoring page of the sedex client.
+-	The self-signed certificate is valid for 5 years. You can find the expiration date on the monitoring page of the sedex Client.
 
 -	If you want to recreate the certificate, simply delete the path to the certificate from the property in the configuration file:\
 
             wsproxy.https.key-store-file=
 
--	The generated certificate is valid for all host names that the sedex client could automatically detect. The WS-Proxy writes these host names to the log file during the creation of the self-signed certificate. Alternately, you can open and examine the certificate.
+-	The generated certificate is valid for all host names that the sedex Client could automatically detect. The WS-Proxy writes these host names to the log file during the creation of the self-signed certificate. Alternately, you can open and examine the certificate.
 
 -	To create a self-signed certificate with an additional host name of your choice do the following steps: 
 
@@ -158,10 +154,10 @@ Notes regarding the self-signed certificate:
         
                 wsproxy.https.key-store-file=
                 
-        3. Let the the certificate be recreated by restarting the sedex client
+        3. Let the the certificate be recreated by restarting the sedex Client
 
 
--	The generated certificate is valid for all host names that the sedex client could automatically detect.
+-	The generated certificate is valid for all host names that the sedex Client could automatically detect.
 
 -	The keystore file generated for the self-signed certificate is in P12 format and is stored under the following path:
 
@@ -180,12 +176,12 @@ If you already have a valid SSL/TLS certificate, the WS proxy can be configured 
 
 **Tip:** The freely available Java based tool “KeyStore Explorer” (https://keystore-explorer.org) allows the comfortable editing of Keystore files. Among other things, you can create a keystore from private keys and certificates in separate files, which can then be used by WS-Proxy.
 
-Once you have your own SSL/TLS certificate in a supported format, you can install and configure it in the sedex client as follows:
+Once you have your own SSL/TLS certificate in a supported format, you can install and configure it in the sedex Client as follows:
 
-1.	Copy your keystore file (e.g. my-ssl-keystore.p12) into the sedex-client configuration folder for certificates:\
+1.	Copy your keystore file (e.g. my-ssl-keystore.p12) into the sedex Client configuration folder for certificates:\
 sedex-data/conf/certificates/my-ssl-keystore.p12
 
-2.	Configure your keystore file in the sedex client’s main configuration file:
+2.	Configure your keystore file in the sedex Client’s main configuration file:
 
         -	*Path to the keystore file*  
 
@@ -205,12 +201,12 @@ sedex-data/conf/certificates/my-ssl-keystore.p12
 
             wsproxy.https.key-password=myPrivatePasswordForTheKey
 
-3.	Restart the sedex client and check the log file of WS-Proxy for errors.
+3.	Restart the sedex Client and check the log file of WS-Proxy for errors.
 
 
 ## Administering Web Service Proxy Users
 
-As of sedex client version 6.0, the sedex WS-Proxy supports the feature to restrict access to the web services it offers. This means that a business application can only call the web service if it has a valid username & password combination. The allowed usernames and their passwords are contained in a separate WS-Proxy user configuration file.
+As of sedex Client version 6.0, the sedex WS-Proxy supports the feature to restrict access to the web services it offers. This means that a business application can only call the web service if it has a valid username & password combination. The allowed usernames and their passwords are contained in a separate WS-Proxy user configuration file.
 
 This sections describes the content and the basic administration of the WS-Proxy user configuration file.
 
@@ -243,9 +239,9 @@ The elements of an entry (i.e. line of the configuration file) in detail are:
 		sedex domain administrator or by FSO’s sedex customer support.
 
 **Please note:**
--	Changes to the users file only become active after a restart of the sedex client.
+-	Changes to the users file only become active after a restart of the sedex Client.
 -	New passwords can be specified in plain text.
--	For security reasons, plain text passwords are automatically encrypted during a restart of the sedex client.
+-	For security reasons, plain text passwords are automatically encrypted during a restart of the sedex Client.
 -	Encrypted passwords will look like: {bcrypt}$2a$10$f/du7KAWE0xVu.a9DrRKN.fBxgk98zwNAUWPOa1nGgot01wldBVam
 -	A once encrypted and forgotten password has to be reset by deleting the old encrypted password (including the {bcrypt} part} and replacing it by a new password in plain text.
 
@@ -262,7 +258,7 @@ If a new business application (e.g. named «myApp») needs access to one or more
 
 3.	Save the configuration file
 
-4.	Restart sedex client
+4.	Restart sedex Client
 
 5.	Check the log file of WS-Proxy for errors or warnings
 
@@ -285,7 +281,7 @@ The password of a user can be changed as follows:
 
 3.	Save the configuration file
 
-4.	Restart sedex client
+4.	Restart sedex Client
 
 5.	Check the log file of WS-Proxy for errors.\
 You should see a line indicating that a previously plain password has been encrypted:
@@ -297,9 +293,9 @@ You should see a line indicating that a previously plain password has been encry
 
 ### Automatic Provisioning of Webservice Definitions
 
-The web service definitions are automatically retrieved from the sedex server by the sedex client and updated regularly.
+The web service definitions are automatically retrieved from the sedex server by the sedex Client and updated regularly.
 
-To ensure that the WS proxy still functions even if the sedex server cannot be reached, the web service definitions are cached locally by the sedex client. This cache can be used for a maximum of one week. If the list of Web service definitions cannot be updated for more than a week, the Web service proxy stops its service with an error message in the log and the Web service responses.
+To ensure that the WS proxy still functions even if the sedex server cannot be reached, the web service definitions are cached locally by the sedex Client. This cache can be used for a maximum of one week. If the list of Web service definitions cannot be updated for more than a week, the Web service proxy stops its service with an error message in the log and the Web service responses.
 
 The information as to whether the web service definitions can be updated and how long they are valid can be taken from the client’s monitoring page:
 

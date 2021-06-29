@@ -11,15 +11,38 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.details
   - admonition
+  - attr_list
   - toc:
       toc_depth: 3
 nav:
   - 'Documentation Home': index.md
-  - 'Documentation for Client V6':
-      - 'Basic Usage': v6/index.md
-      - 'Advanced Docker Options': v6/advanced-docker-options.md
-      - 'Advanced sedex Client Config': v6/sedex-client-configuration-options.md
-      - 'sedex Web Service Proxy': v6/sedex-webservice-proxy.md
-      - 'Kubernetes & Co.': v6/orchestration.md
-  - 'Documentation for Client V5':
-      - 'Usage': v5/index.md
+  - 'The sedex system':
+      - 'sedex System Overview': sedex-system/overview_sedex.md
+      - 'sedex Client': sedex-system/sedex-client.md
+  - 'sedex Client Container V6':
+      - 'Notes Before Starting': client-container-v6/index.md
+      - 'Overview & Basic Concepts': client-container-v6/basic-concepts.md
+      - 'Phase 1: Initial Configuration' :
+        - 'Identify your case': client-container-v6/initial-configuration/initial_configuration_case_identification.md
+        - 'Case a) With P12-Certificate': client-container-v6/initial-configuration/initial_configuration_with_certificate.md
+        - 'Case b) With CRID+OTP': client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp.md
+        - 'Optional Parameters': client-container-v6/initial-configuration/initial_configuration_optional_parameters.md
+        - 'Using Init-Scripts': client-container-v6/initial-configuration/initial_configuration_with_init-scripts.md
+      - 'Phase 2: Normal Usage' :
+        - 'Run with Docker': client-container-v6/run/run_with_docker.md
+#        - 'Run with Docker Compose': client-container-v6/run/run_with_docker-compose.md
+      - 'Advanced Configuration':
+          - 'sedex-Client': client-container-v6/configuration/sedex-client-options.md
+          - 'sedex Web Service Proxy': client-container-v6/configuration/sedex-web-service-proxy-options.md
+          - 'Docker Container' : client-container-v6/configuration/container-options.md
+      - 'Logs / Monitoring':
+          - 'Logs': client-container-v6/observation/logs.md
+          - 'Monitoring State': client-container-v6/observation/monitoring-state.md
+#      - 'Backup your Data': client-container-v6/backup-data.md
+      - 'Orchestration Platforms':
+#          - 'Overview': client-container-v6/orchestration/overview.md
+          - 'Kubernetes & Co.': client-container-v6/orchestration/run_with_kubernetes.md
+      - 'Versions & Changes': client-container-v6/versions-and-changes.md
+      - 'Requirements': client-container-v6/requirements.md
+#  - 'FAQ': faq.md
+  - 'Contact' : contact.md

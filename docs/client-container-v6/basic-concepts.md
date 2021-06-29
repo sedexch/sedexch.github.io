@@ -9,7 +9,7 @@ Before you start using the sedex Client as a Docker container, it is important t
 
 With the official Docker image provided by the sedex service, you can run the current sedex Client as a Docker container. All functionality provided by sedex can be used comfortably with all the advantages of containers.
 
-The diagram below shows the main components of the sedex Client Docker contaiener.
+The diagram below shows the main components of the sedex Client Docker container.
 The components are described individually below the diagram.
 
 ![Overview of the sedex Client as a Docker Container](/assets/v6/sedex-client-container-volume-overview-1.png)
@@ -60,9 +60,9 @@ For the *permanent data storage* outside of the container, Docker offers the fol
 
 !!! info "Network Port Mapping"
 
-    Containers can provide network services to the outside via network ports. When creating a container, free external network ports must be mapped to the fixed internal network ports.
+    Containers can publish network services to the outside via network ports. When creating a container, free external network ports must be mapped to the fixed internal network ports.
 
-The following diagram once again shows the components of the sedex client Docker container. This time, however, we see which processes of the sedex client are running inside and under which network ports they can be reached internally.
+The following diagram once again shows the components of the sedex client Docker container. This time, however, we see which processes of the sedex client are running inside the container and under which network ports they can be reached internally.
 
 
 ![Overview of the sedex Client as a Docker Container](/assets/v6/sedex-client-container-volume-overview-2.png)
@@ -74,21 +74,16 @@ The examples in this documentation will show later how this network port mapping
 
 ## The two phases of getting a sedex client Docker container up and running
 
-This section provides you with an overview of how to get a sedex client up and running. The following diagram shows that the start-up basically runs through two phases:
+The following diagram shows how to get a sedex client up and running. The start-up basically runs through two phases:
 
 ![The two phases of getting a sedex client Docker container up and running](/assets/v6/phase-1-and-phase-2.png)
 
-*Phase 1: Initial Configuration<br />*
-In this phase, the external permanent data storage ("sedex-data") is created and configured. This phase is executed once.
+[*Phase 1: Initial Configuration<br />*](./initial-configuration/initial_configuration_case_identification.md)
+In this phase, the external permanent data storage ("sedex-data") is created and initially configured. This phase is executed once.
 
-*Phase 2: Run sedex Client<br />*
+[*Phase 2: Run sedex Client<br />*](./run/run_with_docker.md)
 In this phase, the sedex Client is created and connected to the prepared permanent data storage and run for normal operation. This stage is repeated several times in practice, because containers have a disposable character and therefore are more often thrown away and then recreated.
 
-The two phases are described in more detail below. And in the rest of the documentation you will find separate step-by-step instructions for the two phases.
 
-
-
-<a name="Phase_2_Normal_Usage"></a>
-### Phase 2: Normal Usage of the sedex Client Docker Container
 
 

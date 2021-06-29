@@ -6,23 +6,25 @@
 
 ## Before Starting
 
+
 ### sedex is a Closed User Group
 
-sedex is a closed user group for registered and authorized participants only.
+sedex is a closed user group for registered and authorized participants of e-Government Switzerland.
 Only subscribers with regulatory authorization and the appropriate credentials can use sedex.
-Please contact sedexsupport@bfs.admin.ch if you are interested in subscribing to the sedex platform.
+Please contact [sedexsupport@bfs.admin.ch](mailto:sedexsupport@bfs.admin.ch) if you are interested in subscribing to the sedex service.
+
 
 ### Container or classic installation?
 
 The sedex client can not only be operated as a container but can also be installed directly on numerous operating systems as a classic software installation.
-The installer and the corresponding installation and user manual can be found at www.sedex.ch.
+The installer and the corresponding installation and user manual can be found at [www.sedex.ch](http://www.sedex.ch).
 
 
 ### Container and Documentation are Pre-Release
 
 The official container image of the sedex Client and the accompanying documentation are currently still to be considered a pre-release and are in a public pilot phase.
 It is strongly discouraged to run a critical productive sedex Client based on this image without the necessary knowledge.
-Please contact [sedex support](http://www.sedex.ch) should you plan to use this container image or if you have any questions.
+Please [Contact sedex support](../contact.md) should you plan to use this container image or if you have any questions.
 
 
 ### Preparation required
@@ -34,8 +36,7 @@ The smooth operation of a sedex client is a demanding task. Please read the docu
 The sedex client as a container is a new offering.
 Help us to improve the container image but also the documentation.
 Therefore we are very interested in your feedback.
-Please tell us what you like at sedexsupport@bfs.admin.ch.
-
+Please tell us what you like at [sedexsupport@bfs.admin.ch](mailto:sedexsupport@bfs.admin.ch).
 
 
 

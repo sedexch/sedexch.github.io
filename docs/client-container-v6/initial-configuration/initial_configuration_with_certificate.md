@@ -48,6 +48,12 @@ SEDEX_CERTIFICATE_FILENAME=YOUR-CERTIFICATE-FILE.p12
 SEDEX_CERTIFICATE_PASSWORD=YOUR-PASSWORD
 ```
     
-**Note:** After the first successful start of the sedex Client, the file init.conf will be **deleted automatically** as its content will be moved to the created sedex configuration files.
+!!! info "init.conf is automatically deleted"
 
-**Note:** If an HTTP proxy is required for access to the Internet, such a proxy server can optionally already be defined in the init.conf file (see section [Advanced Docker Options](advanced-docker-options)) or later manually be defined in the central configuration file of the sedex Client (see section [Advanced sedex Client Configuration](sedex Client-configuration-options)). 
+    After the first successful start of the sedex Client, the file init.conf will be **deleted automatically** as its content will be moved to the created sedex configuration files.
+
+!!! note "Configuring an outgoing http proxy"
+
+    If an HTTP proxy is required for access to the Internet, a proxy server can optionally be defined in the init.conf file (see section [Optional Parameters](initial_configuration_optional_parameters.md)) or later be manually added as part of the configuration of the sedex Client (see section [Advanced Configuration of the sedex Client](../configuration/sedex-client-options.md)). 
+
+**Now everything is ready for the sedex client container to complete the initialization. The container will do this automatically on its first normal startup. So you can [continue with phase 2](../run/run_with_docker.md).**

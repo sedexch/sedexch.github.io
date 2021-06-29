@@ -38,11 +38,11 @@ nav:
       - 'Logs / Monitoring':
           - 'Logs': client-container-v6/observation/logs.md
           - 'Monitoring State': client-container-v6/observation/monitoring-state.md
-      - 'Backup your Data': client-container-v6/backup-data.md
+#      - 'Backup your Data': client-container-v6/backup-data.md
       - 'Orchestration Platforms':
-          - 'Overview': client-container-v6/orchestration/overview.md
-          - 'Run with Kubernetes': client-container-v6/orchestration/run_with_kubernetes.md
+#          - 'Overview': client-container-v6/orchestration/overview.md
+          - 'Kubernetes & Co.': client-container-v6/orchestration/run_with_kubernetes.md
       - 'Versions & Changes': client-container-v6/versions-and-changes.md
       - 'Requirements': client-container-v6/requirements.md
-  - 'FAQ': faq.md
+#  - 'FAQ': faq.md
   - 'Contact' : contact.md

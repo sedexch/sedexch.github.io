@@ -1,6 +1,6 @@
 # Run the sedex Client with Docker 
 
-**We refer to Phase 2 as the normal usage of the sedex Client as container. The steps below show how to create, run, and stop the sedex client as a container on a Docker host.**
+**We refer to Phase 2 as the normal usage of the sedex Client container. The steps below show how to create, run, and stop the sedex client as a container on a Docker host.**
 
 
 
@@ -14,7 +14,7 @@
 
 ## Create and Start the sedex Client container (Run)
 
-!!! info "docker run = docker create && docker start"
+!!! info "docker run = docker create + docker start"
 
     With the Docker command `docker run` a new container is created and also started immediately. Thus, the run command corresponds to a composition of the commands `docker create` and `docker start`. Of course, you can use both ways to reach your goal.
 

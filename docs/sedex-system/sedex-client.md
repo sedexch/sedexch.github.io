@@ -52,8 +52,7 @@ Basically, the following two operating models are available to them:
 
 ### 1. sedex client as classic software installation
 
-The sedex client is a Java-based application that can be installed on various operating systems (including Windows, Mac OS, Linux, AIX, etc.) using a software installer. This documentation does not cover a classic software installation. If you choose this model, you must follow the instructions in the *User and Installation Manual*, which can be found as a PDF in the download section of [www
- .sedex.ch](http://www.sedex.ch). There you will also find the latest sedex client installer.
+The sedex client is a Java-based application that can be installed on various operating systems (including Windows, Mac OS, Linux, AIX, etc.) using a software installer. This documentation does not cover a classic software installation. If you choose this model, you must follow the instructions in the *User and Installation Manual*, which can be found as a PDF in the download section of [www.sedex.ch](http://www.sedex.ch). There you will also find the latest sedex client installer.
 
 ### 2. sedex client as (Docker) container
 

@@ -54,7 +54,6 @@ Otherwise, problems such as lost messages or other malfunctions may result.
 Therefore, you must absolutely ensure organizationally and operationally that no more than one sedex client is running for the same participant at any time.<br/>
 This point has to be considered especially on automatically orchestrated container platforms like Kubernetes, OpenShift, etc.
 Without specific configuration, these platforms tend to run multiple instances (for a short time) by default.
-See page xxx for details.
 
 
 ### Permanent file storage for data volume required
@@ -63,7 +62,6 @@ Containers have, by principle, a disposable character. This means that any data 
 However, sedex needs data that survive the (possibly short) life cycle of a container and must be persisted permanently.
 Examples for such important data to be stored are sedex messages, the participant certificate, etc.
 In order to guarantee that this data can be permanently stored outside the container, it is imperative that the container has a reliable external data volume to which it has access.
-See page xxx for details.
 
 
 

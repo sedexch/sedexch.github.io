@@ -48,7 +48,7 @@ The following is an excerpt from a Kubernetes deployment shows this aspect of co
           volumes:
             - name: sedex-client-YOUR_SEDEX_ID-volume
               persistentVolumeClaim:
-                claimName:  sedex-client-YOUR_SEDEX_ID-volume-claim
+                claimName:  sedex-client-YOUR_SEDEX_ID-persistent-volume-claim
     [...]
 ```
 

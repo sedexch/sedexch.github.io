@@ -21,6 +21,9 @@ This documentation describes how to run a containerized version of the sedex-Cli
 
 ## Docker image of the sedex-client
 
+![docker-hub-logo](/assets/docker-hub-logo.png){ width=200px; align=left;  }
+
+
 The Docker image of the sedex client is publicly available in different versions (tags) on the Docker Hub at [hub.docker.com/r/sedexch/sedex-client](https://hub.docker.com/r/sedexch/sedex-client)
 
 

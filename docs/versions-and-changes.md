@@ -1,5 +1,7 @@
 # Versions and Changes
 
+**This page explains the structure of version numbers and how version numbers are mapped to Docker container tags of images. The major changes of each version are listed.**
+
 ## About Version Numbers
 
 The *full version number* of a sedex container image consists of two composite version numbers of the contained compoents, as shown in the following table:
@@ -7,9 +9,9 @@ The *full version number* of a sedex container image consists of two composite v
 
 | Component | Version number |
 |---|---|
-| full version number for the complete container image | `6.0.5_container-1.0.0-beta` |
-| version of the *sedex client* contained in the container | `6.0.5` |
-| version of the *container logic* | `container-1.0.0-beta` |
+| full version number for the complete container image | `6.0.6_container-0.99-beta` |
+| version of the *sedex client* contained in the container | `6.0.6` |
+| version of the *container logic* | `container-0.99-beta` |
 
 
 ## About Docker Hub Tags of an Image 
@@ -18,27 +20,34 @@ Each sedex container image on Docker Hub is tagged with multiple tags representi
 
 | Tag | Meaning of the Tag |
 |---|---|
-| `6.0.5_container-1.0.0-beta` | The full version tag references the sedex container image with the specific client and the specific container version. |
-| `6.0.5` | The version tag containing only the sedex Client version references the most current sedex container image with the specific client. |
+| `6.0.6_container-0.99-beta` | The full version tag references the sedex container image with the specific client and the specific container version. |
+| `6.0.6` | The version tag containing only the sedex Client version references the most current sedex container image with the specific client. |
 | `latest` | The version tag `latest` references the most current sedex container image with the most current client. |
 
 
 
 ## Versions and Changes
 
-### Version/Tag `6.0.5_container-1.0.0-beta` (2021-06-29 xxx)
+### Version/Tag `6.0.5_container-0.99-beta` (2021-07-12)
 
 
-#### New sedex Client `6.0.5`
-This release does not introduce any new functionality, but resolves an issue and improves some operational aspects of the sedex client.
+#### New sedex Client `6.0.6`
 
+This release does not introduce any new functionality, but resolves issues and improves some operational aspects of the sedex client. Includes changes from version 5.0.5 and 5.0.6.
+
+- **Fix:** During each startup, the sedex client automatically checks that it has write per-mission on all required folders and files and aborts the startup if the check is not com-pletely successful. This check also includes the messaging interface folders (outbox, inbox, receipts, processed). If a business application or an administrator creates files in one of these folders using a different 
+user, the sedex client may not have write per-mission on these externally created files and the check will fail during the next startup of the sedex client. This version fixes the problem by checking only the folders for ex-isting write permissions, but not the individual files.
+- **Fix:** In rare situations, problems could occur under Windows when receiving sedex messages if non-ASCII special characters were used in the file name. This version fix-es the problem by using UTF-8 for the internal encoding, even if the operating system specifies a different encoding.
+- **Improvement:** The workaround introduced in 6.0.5 resulted in a log entry at WARN level on "IBM Java" (AIX, Linux), which is now at (the more appropriate) INFO level, since IBM Java is not affected.
 - **Fix:** When retrieving the monitoring page of the sedex client version 6.0.4 via http (http://[host]:[port]/monitoring), the web server may be blocking in certain cases due to race conditions. This version fixes the problem.
 - **Workaround:** The JVM Java 8 Update 291 and 292 from April 2021 (other versions are not affected) contain a known issue that causes the sedex client to fail to renew the participant certificate. This can lead to the error message "NoSuchAlgorithmExcep-tion: unrecognized algorithm name" in sedex-controller-technical.log. The sedex client version 6.0.5 contains a specific enhancement which 
 works around this JVM error. Nevertheless, we recommend switching to a newer JVM free of this issue as soon as it will become available. <br/> (This change is not relevant for the container version as it is based on a different JVM version.)
 - **Update:** The certificate with which remote update packages for the sedex client are digitally signed has been renewed. The corresponding truststore has been extended by this new certificate.
 - **Update:** QuoVadis has revoked one of its intermediate certificates due to policy changes and replaced it with a new one. The corresponding truststore has been ad-justed. Note: Older sedex clients automatically download the latest truststore from the sedex server.
 
-#### New Container logic `1.0.0-beta`
+
+
+#### New Container logic `0.99-beta`
 - **New Feature:** Configuration parameters for the sedex client can now also be passed to the sedex client as environment parameters (ENV parameters) of the container. As before, the configuration parameters can be set in the central client configuration file sedex-data/conf/sedex-client-configuration.properties. But now they can also be set as ENV parameters. The ENV parameter has the higher priority, i.e. if a value is defined in both places, the value of the ENV parameter is used.
 - **Fix:** When using self-created user and group for the container, some scripts in the container could not be executed correctly under certain circumstances, which could lead to a non-functioning sedex client. This problem is fixed in this version.
 

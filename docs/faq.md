@@ -1,8 +1,8 @@
 # Frequently Asked Questions (FAQ)
 
-## Topic 1
+## Generall Questions
 
-### Question 1
+### 
 
 Answer 1
 

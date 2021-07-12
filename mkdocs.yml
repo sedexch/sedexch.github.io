@@ -43,7 +43,7 @@ nav:
       - 'Orchestration Platforms':
 #          - 'Overview': client-container-v6/orchestration/overview.md
           - 'Kubernetes & Co.': client-container-v6/orchestration/run_with_kubernetes.md
-      - 'Versions & Changes': client-container-v6/versions-and-changes.md
       - 'Requirements': client-container-v6/requirements.md
-#  - 'FAQ': faq.md
+  - 'FAQ': faq.md
+  - 'Versions & Changes': versions-and-changes.md
   - 'Contact' : contact.md

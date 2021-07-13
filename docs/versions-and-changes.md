@@ -28,7 +28,7 @@ Each sedex container image on Docker Hub is tagged with multiple tags representi
 
 ## Versions and Changes
 
-### Version/Tag `6.0.5_container-0.99-beta` (2021-07-12)
+### Version/Tag `6.0.6_container-0.99-beta` (2021-07-12)
 
 
 #### New sedex Client `6.0.6`

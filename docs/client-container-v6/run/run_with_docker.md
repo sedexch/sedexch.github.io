@@ -62,7 +62,7 @@ $ docker run \
     - If specific configuration options are required, these can either be set in the central configuration file or as environment variables of the container. For details see section [Configuration - sedex Client Options](../../configuration/sedex-client-options).
 
 
-#### Check Health State of the Container
+## Check Health State of the sedex Client Container
 
 The sedex client container indicates its health state. This state can be monitored and displayed with standard container means. For example with `docker container ls`.
 
@@ -82,7 +82,7 @@ eec0d26407da sedexch/sedex-client:internal-ref-test-v2 "./scripts/prepare-a..." 
 
     
 
-#### Stop and start the sedex Client container
+## Stop and start the sedex Client container
 
 Stop the sedex Client container:
 ```console

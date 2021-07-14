@@ -12,7 +12,7 @@ If the initial configuration process with manually creating an init.conf file as
 There is a separate init-script in the container for each of the two initialization cases. The task of the init scripts is to automatically create the file structure and the init.conf file from passed in environment parameters.
 
 
-### a) Init Container for an existing participant
+### Case a) Init Container for an existing participant
 
 If you already have a participant with an existing sedex participant certificate (a P12 file).
 
@@ -59,7 +59,7 @@ Resulting output:
 
 
 
-### b) initial configuration for a new participant
+### Case b) initial configuration for a new participant
 
 If you don't have an existing certificate but a *certificate request ID (CRID)* and a one time password (OTP).
 

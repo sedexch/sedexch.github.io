@@ -4,7 +4,7 @@
 **This documentation describes how to install, configure and operate the current sedex Client version 6 on *container platforms* such as Docker, Kubernetes, OpenShift, etc. Before you start working with the sedex client container, it is important to take note of the following points.**
 
 
-## Before Starting
+## Notes Before Starting
 
 
 ### sedex is a Closed User Group

@@ -40,7 +40,7 @@ Command to run the init container:
       --env SEDEX_ID=YOUR-SEDEX-ID \
       --env KEYSTORE=CONTENT-OF-YOUR-CERTIFICATE-FILE \
       --env KEYSTORE_PW=YOUR-PASSWORD \
-      sedexch/sedex Client init-container-existing-cert.sh
+      sedexch/sedex-client init-container-existing-cert.sh
 
 **Note:** In a Linux console, the contents of the keystore file (P12) can be translated into the required base64 encoded format as follows:
 
@@ -86,7 +86,7 @@ Command to run the init container:
       --env SEDEX_ID=YOUR-SEDEX-ID \
       --env CRID=YOUR_CERTIFICATE_REQUEST_ID \
       --env OTP=YOUR-ONE-TIME-PASSWORD \
-      sedexch/sedex Client init-container-new-cert.sh
+      sedexch/sedex-client init-container-new-cert.sh
 
 
 ## Ensure a maximum of one client instance 
@@ -105,20 +105,20 @@ The following is an excerpt from a Kubernetes deployment for the sedex Client:
         metadata:
           name: sedex Client-deployment
           labels:
-            app: sedexch/sedex Client/1-123455-1
+            app: sedexch/sedex-client/1-123455-1
         spec:
           replicas: 1
           strategy:
             type: Recreate
           selector:
             matchLabels:
-              app: sedexch/sedex Client/1-123455-1
+              app: sedexch/sedex-client/1-123455-1
           template:
             metadata:
               labels:
-                app: sedexch/sedex Client/1-123455-1
+                app: sedexch/sedex-client/1-123455-1
             spec:
               containers:
-              - name: sedexch/sedex Client
-                image: sedexch/sedex Client:6.0.0
+              - name: sedexch/sedex-client
+                image: sedexch/sedex-client:6.0.0
         [...]

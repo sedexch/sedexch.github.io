@@ -39,7 +39,7 @@ Command to run the init container:
       --env SEDEX_ID=YOUR-SEDEX-ID \
       --env KEYSTORE=CONTENT-OF-YOUR-CERTIFICATE-FILE \
       --env KEYSTORE_PW=YOUR-PASSWORD \
-      sedexch/sedex Client init-container-existing-cert.sh
+      sedexch/sedex-client init-container-existing-cert.sh
 
 **Note:** In a Linux console, the contents of the keystore file (P12) can be translated into the required base64 encoded format as follows:
 
@@ -86,7 +86,7 @@ Command to run the init container:
       --env SEDEX_ID=YOUR-SEDEX-ID \
       --env CRID=YOUR_CERTIFICATE_REQUEST_ID \
       --env OTP=YOUR-ONE-TIME-PASSWORD \
-      sedexch/sedex Client init-container-new-cert.sh
+      sedexch/sedex-client init-container-new-cert.sh
 
 
 **After having executed the init script, everything is initialized and ready for the sedex client container. So you can [continue with phase 2](../run/run_with_docker.md).**

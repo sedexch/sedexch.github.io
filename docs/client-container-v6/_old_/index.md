@@ -201,7 +201,7 @@ Run the sedex Client container using environment-specific values for the followi
 
 To run the sedex Client container enter the following commands:
 ```console
-$ docker pull sedexch/sedex Client:latest
+$ docker pull sedexch/sedex-client:latest
 
 $ docker run \
   --name sedex Client \
@@ -212,7 +212,7 @@ $ docker run \
   --stop-timeout 65 \
   --restart unless-stopped \
   -d \
-  sedexch/sedex Client:latest
+  sedexch/sedex-client:latest
 ```
 
 

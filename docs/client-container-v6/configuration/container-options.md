@@ -55,7 +55,7 @@ Run the sedex Client container using environment-specific values for the followi
 To run the sedex Client container as a non root user enter the following commands:
 
 ```console
-$ docker pull sedexch/sedex Client:latest
+$ docker pull sedexch/sedex-client:latest
 
 $ docker run \
   --name sedex Client \
@@ -67,7 +67,7 @@ $ docker run \
   --restart unless-stopped \
   --user 901:501 \
   -d \
-  sedexch/sedex Client:latest
+  sedexch/sedex-client:latest
 ```
 
 
@@ -77,7 +77,7 @@ The sedex Client Docker container can be started with a read-only root filesyste
 
 To run the sedex Client container with its root filesystem mounted as read-only enter the following commands:
 ```console
-$ docker pull sedexch/sedex Client:latest
+$ docker pull sedexch/sedex-client:latest
 
 $ docker run \
   --name sedex Client \
@@ -89,39 +89,39 @@ $ docker run \
   --restart unless-stopped \
   --read-only \
   -d \
-  sedexch/sedex Client:latest
+  sedexch/sedex-client:latest
 ```
 
 The Docker option `--read-only` mounts the container’s root filesystem as read only prohibiting writes to locations other than the specified volumes for the container.
 
 
 ## Running a specific version of the container
-If your are referencing the container by its name "sedexch/sedex Client" the version with the tag "latest" is automatically selected.
+If your are referencing the container by its name "sedexch/sedex-client" the version with the tag "latest" is automatically selected.
 To use a specific sedex Client version and/or or a specific container version, use a versioned tag explicitly.
-View the [list of available versions](https://hub.docker.com/r/sedexch/sedex Client/tags) in the  Docker hub registry.
+View the [list of available versions](https://hub.docker.com/r/sedexch/sedex-client/tags) in the  Docker hub registry.
 
 **Note:** For simplicity the run parameters are ommited in the following examples.
 These parameters have to be set as described in the run example above.
 
 Example: Run the latest Docker container of the latest sedex Client:
 ```console
-$ docker run sedexch/sedex Client
+$ docker run sedexch/sedex-client
 ```
 
 or
 
 ```console
-$ docker run sedexch/sedex Client:latest
+$ docker run sedexch/sedex-client:latest
 ```
 
 Example: Run the latest Docker container of the sedex Client 6.0.0:
 ```console
-$ docker run sedexch/sedex Client:6.0.0
+$ docker run sedexch/sedex-client:6.0.0
 ```
 
 Example: Run the Docker container 0.95-beta of the sedex Client 6.0.0:
 ```console
-$ docker run sedexch/sedex Client:6.0.0_container-0.95-beta
+$ docker run sedexch/sedex-client:6.0.0_container-0.95-beta
 ```
 
 ## Pulling a specific image version
@@ -130,17 +130,17 @@ In this case you have to manually issue a "docker pull" command, to download the
 
 Example: Get the latest Docker container of the latest sedex Client:
 ```console
-$ docker pull sedexch/sedex Client
+$ docker pull sedexch/sedex-client
 ```
 
 Example: Get the latest Docker container of the sedex Client 5.3.1:
 ```console
-$ docker pull sedexch/sedex Client:6.0.0
+$ docker pull sedexch/sedex-client:6.0.0
 ```
 
 Example: Get the Docker container 0.95-beta of the sedex Client 6.0.0:
 ```console
-$ docker pull sedexch/sedex Client:6.0.0_container-0.95-beta
+$ docker pull sedexch/sedex-client:6.0.0_container-0.95-beta
 ```
 
 ## Separate permanent stores for conf, log, etc.  
@@ -173,5 +173,5 @@ $ docker run \
   --stop-timeout 65 \
   --restart unless-stopped \
   -d \
-  sedexch/sedex Client:latest
+  sedexch/sedex-client:latest
 ```

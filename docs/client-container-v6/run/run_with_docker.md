@@ -35,7 +35,7 @@ Run the sedex Client container using environment-specific values for the followi
 
 To run the most current sedex Client container enter the following commands:
 ```console
-$ docker pull sedexch/sedex Client:latest
+$ docker pull sedexch/sedex-client:latest
 
 $ docker run \
   --name sedex-client \
@@ -61,6 +61,25 @@ $ docker run \
     ```
     - If specific configuration options are required, these can either be set in the central configuration file or as environment variables of the container. For details see section [Configuration - sedex Client Options](../../configuration/sedex-client-options).
 
+
+#### Check Health State of the Container
+
+The sedex client container indicates its health state. This state can be monitored and displayed with standard container means. For example with `docker container ls`.
+
+At the beginning the container is in the state "health: starting":
+```
+$ docker container ls
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+eec0d26407da sedexch/sedex-client:internal-ref-test-v2 "./scripts/prepare-a..."   2 hours ago Up 48 seconds (health: starting) 0.0.0.0:8000->8000/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8443->8443/tcp sedex-client
+```
+
+After some time the container is in the "healthy" state:
+```
+$ docker container ls
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+eec0d26407da sedexch/sedex-client:internal-ref-test-v2 "./scripts/prepare-a..."   2 hours ago Up 3 minutes (healthy) 0.0.0.0:8000->8000/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8443->8443/tcp sedex-client
+```
+
     
 
 #### Stop and start the sedex Client container
@@ -69,6 +88,10 @@ Stop the sedex Client container:
 ```console
 $ docker stop sedex-client
 ```
+
+!!! info
+
+    Stopping a sedex client container can take up to 65 seconds. This allows the sedex client to gracefully shutdown and clean up temporary data.
 
 Start the sedex Client container:
 ```console

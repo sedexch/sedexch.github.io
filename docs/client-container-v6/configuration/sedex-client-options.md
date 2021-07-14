@@ -63,7 +63,7 @@ Specific key-value pairs can be set using environment variables as follows:
 2. Run the sedex Client container and add the necessary configuration parameter(s) as environment variables
 
        ```console
-       $ docker pull sedexch/sedex Client:latest
+       $ docker pull sedexch/sedex-client:latest
        
        $ docker run \
          --name sedex-client \

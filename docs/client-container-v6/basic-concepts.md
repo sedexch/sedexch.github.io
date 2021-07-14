@@ -7,10 +7,9 @@ Before you start using the sedex Client as a Docker container, it is important t
 
 ## Overview of the sedex Client as a Docker Container
 
-With the official Docker image provided by sedex, you can run the current sedex Client as a container. All functionality provided by sedex can be used comfortably with all advantages containers have to offer.
+With the official Docker image provided by sedex, you can run the current sedex Client as a container. All functionality provided by sedex can be used comfortably with all the advantages containers have to offer.
 
-The diagram below shows the main components of the sedex Client Docker container.
-The components are described individually below the diagram.
+The diagram below shows the main components of the sedex Client Docker container, which are described individually in the following.
 
 ![Overview of the sedex Client as a Docker Container](/assets/v6/sedex-client-container-volume-overview-1.png)
 

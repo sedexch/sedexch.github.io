@@ -1,0 +1,1312 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the official sedex-Client Docker image.">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.10">
+    
+    
+      
+        <title>sedex Web Service Proxy - Documentation for the official sedex-Client Docker Image</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1fe995fd.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-configuration-of-the-sedex-web-service-proxy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Documentation for the official sedex-Client Docker Image" class="md-header__button md-logo" aria-label="Documentation for the official sedex-Client Docker Image" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation for the official sedex-Client Docker Image
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              sedex Web Service Proxy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Documentation for the official sedex-Client Docker Image" class="md-nav__button md-logo" aria-label="Documentation for the official sedex-Client Docker Image" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    Documentation for the official sedex-Client Docker Image
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Documentation Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        The sedex system
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The sedex system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          The sedex system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sedex-system/overview_sedex.html" class="md-nav__link">
+        sedex System Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sedex-system/sedex-client.html" class="md-nav__link">
+        sedex Client
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        sedex Client Container V6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="sedex Client Container V6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          sedex Client Container V6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Notes Before Starting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-concepts.html" class="md-nav__link">
+        Overview & Basic Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Phase 1: Initial Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phase 1: Initial Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 1: Initial Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_case_identification.html" class="md-nav__link">
+        Identify your Init Case
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_with_certificate.html" class="md-nav__link">
+        Case a) With P12-Certificate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_with_crid_and_otp.html" class="md-nav__link">
+        Case b) With CRID+OTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_optional_parameters.html" class="md-nav__link">
+        Optional Init Parameters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_with_init-scripts.html" class="md-nav__link">
+        Using Init-Scripts
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Phase 2: Normal Usage
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phase 2: Normal Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 2: Normal Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run/run_with_docker.html" class="md-nav__link">
+        Run with Docker
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" checked>
+      
+      <label class="md-nav__link" for="__nav_3_5">
+        Advanced Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sedex-client-options.html" class="md-nav__link">
+        sedex-Client
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          sedex Web Service Proxy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="sedex-web-service-proxy-options.html" class="md-nav__link md-nav__link--active">
+        sedex Web Service Proxy
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-of-the-web-service-proxy" class="md-nav__link">
+    Purpose of the Web Service Proxy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-web-service-proxy" class="md-nav__link">
+    Configuring Web Service Proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Web Service Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enabling-disabling-web-service-proxy" class="md-nav__link">
+    Enabling &amp; disabling Web Service Proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-if-web-service-proxy-is-active" class="md-nav__link">
+    Checking if Web service proxy is active
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disabling-anonymous-access" class="md-nav__link">
+    Disabling Anonymous Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-network-endpoints-configuration" class="md-nav__link">
+    Local Network Endpoints Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssltls-certificate-configuration" class="md-nav__link">
+    SSL/TLS Certificate Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administering-web-service-proxy-users" class="md-nav__link">
+    Administering Web Service Proxy Users
+  </a>
+  
+    <nav class="md-nav" aria-label="Administering Web Service Proxy Users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-ws-proxy-user-configuration-file" class="md-nav__link">
+    The WS-Proxy User Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-new-user" class="md-nav__link">
+    Add a new user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-password-of-a-user" class="md-nav__link">
+    Change the password of a user
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provided-web-services" class="md-nav__link">
+    Provided Web Services
+  </a>
+  
+    <nav class="md-nav" aria-label="Provided Web Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-provisioning-of-webservice-definitions" class="md-nav__link">
+    Automatic Provisioning of Webservice Definitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-provided-web-services" class="md-nav__link">
+    List of provided Web Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="container-options.html" class="md-nav__link">
+        Docker Container
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      <label class="md-nav__link" for="__nav_3_6">
+        Logs / Monitoring
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Logs / Monitoring" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logs / Monitoring
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observation/logs.html" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observation/monitoring-state.html" class="md-nav__link">
+        Monitoring State
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      <label class="md-nav__link" for="__nav_3_7">
+        Orchestration Platforms
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Orchestration Platforms" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Orchestration Platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orchestration/run_with_kubernetes.html" class="md-nav__link">
+        Kubernetes & Co.
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements.html" class="md-nav__link">
+        Requirements
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../versions-and-changes.html" class="md-nav__link">
+        Versions & Changes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact.html" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-of-the-web-service-proxy" class="md-nav__link">
+    Purpose of the Web Service Proxy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-web-service-proxy" class="md-nav__link">
+    Configuring Web Service Proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Web Service Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enabling-disabling-web-service-proxy" class="md-nav__link">
+    Enabling &amp; disabling Web Service Proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-if-web-service-proxy-is-active" class="md-nav__link">
+    Checking if Web service proxy is active
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disabling-anonymous-access" class="md-nav__link">
+    Disabling Anonymous Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-network-endpoints-configuration" class="md-nav__link">
+    Local Network Endpoints Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssltls-certificate-configuration" class="md-nav__link">
+    SSL/TLS Certificate Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administering-web-service-proxy-users" class="md-nav__link">
+    Administering Web Service Proxy Users
+  </a>
+  
+    <nav class="md-nav" aria-label="Administering Web Service Proxy Users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-ws-proxy-user-configuration-file" class="md-nav__link">
+    The WS-Proxy User Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-new-user" class="md-nav__link">
+    Add a new user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-password-of-a-user" class="md-nav__link">
+    Change the password of a user
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provided-web-services" class="md-nav__link">
+    Provided Web Services
+  </a>
+  
+    <nav class="md-nav" aria-label="Provided Web Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-provisioning-of-webservice-definitions" class="md-nav__link">
+    Automatic Provisioning of Webservice Definitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-provided-web-services" class="md-nav__link">
+    List of provided Web Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="advanced-configuration-of-the-sedex-web-service-proxy">Advanced Configuration of the sedex Web Service Proxy</h1>
+<p><strong>In the following, you will find how you can configure sedex Webservice Proxy and which parameters are available for this purpose. If you are only using asynchronous sedex messaging, this page is not relevant for you.</strong></p>
+<h2 id="purpose-of-the-web-service-proxy">Purpose of the Web Service Proxy</h2>
+<p>The web service proxy (WS-Proxy) is an add-on component of the sedex Client offering local access to defined remote Web services. For the business application it looks as if the sedex web service proxy would offer the web service. In fact, the sedex WS-Proxy is only an intermediary between the application and the actual web service.</p>
+<p><img alt="sedex Webservice Proxy" src="/assets/v6/wsp.png" /></p>
+<p>To establish a secure SSL/TLS connection to the actual web service, the WS-Proxy uses the participant's sedex certificate. This allows the service provider to unambiguously identify the caller and to check whether this caller is authorized to use the service or not.</p>
+<h2 id="configuring-web-service-proxy">Configuring Web Service Proxy</h2>
+<p>The WS proxy is configured like the sedex Client is configured. See <a href="../sedex-client-options">Configuration of the sedex Client</a> for details.</p>
+<p>In this section, the configuration parameters specific to the WS-Proxy are described.</p>
+<h3 id="enabling-disabling-web-service-proxy">Enabling &amp; disabling Web Service Proxy</h3>
+<p>The following configuration shows an activated WS-Proxy (default value):</p>
+<div class="highlight"><pre><span></span><code>   wsproxy.start=true
+</code></pre></div>
+<p>The following configuration shows a deactivated WS-Proxy:</p>
+<div class="highlight"><pre><span></span><code>   wsproxy.start=false
+</code></pre></div>
+<h3 id="checking-if-web-service-proxy-is-active">Checking if Web service proxy is active</h3>
+<p>On the monitoring page of a running sedex Client, you can check whether the WS-Proxy is active. If at least some of the “wsp” elements shown below are contained, the web service proxy is active. If there are no entries starting with the prefix “wsp-“, then the WS-Proxy is not active.</p>
+<div class="highlight"><pre><span></span><code>    [...]
+    wsp-https-port=8443
+    wsp-https-tls-certificate-subject=CN=sedex-wsproxy, O=sedex (www.sedex.ch)
+    wsp-https-tls-certificate-issuer=CN=sedex-wsproxy, O=sedex (www.sedex.ch)
+    wsp-https-tls-certificate-create-date=2019-12-04T12:43:54
+    wsp-https-tls-certificate-expiry-date=2024-12-02T12:43:54
+    wsp-https-tls-certificate-alternative-names=wsproxy,localhost
+    wsp-https-tls-certificate-is-valid=true
+    wsp-http-disabled=false
+    wsp-http-port=8080
+    wsp-uptime=00:05:55
+    wsp-users-allow-anonymous=true
+    wsp-version=WsProxy 6.0.0
+    wsp-webservice=/wsproxy/services/CheckSedexWebService  [protocols:http,https] 
+                    [users:anonymous,authorized]
+    wsp-webservice=/wsproxy/services/PartnerServices  [protocols:https]
+                    [users:authorized]
+    wsp-webservice=/wsproxy/services/sedexExternalAuthorisationService 
+                    [protocols:http,https] [users:anonymous,authorized]
+    wsp-webservice=/wsproxy/services/ZRWebserv/getNNSS  [protocols:https]
+                    [users:authorized]
+    wsp-webservice-definitions-updated-at=2019-12-04T13:15:43
+    wsp-webservice-definitions-expires-at=2019-12-05T13:15:43
+    wsp-webservice-definitions-update-status=OK
+    wsp-webservice-definitions-update-info=Updated successfully
+    wsp-webservice-definitions-valid=true
+    wsp-webservice-last-call=controller-uptime=00:06:00 
+    [...]
+</code></pre></div>
+<h3 id="disabling-anonymous-access">Disabling Anonymous Access</h3>
+<p>Regarding access control there are two basic types of web services:</p>
+<ol>
+<li>
+<p><strong>Unrestricted webservices</strong> - allowing anonymous access\
+These are web services that are open for everybody with network access to the WS-Proxy. This means that a business application can call the web service via WS-Proxy without indicating a username and password. One says that such a caller is anonymous to the WS-Proxy.</p>
+</li>
+<li>
+<p><strong>Restricted webservices</strong> - requiring an authenticated and authorized user\
+These are web services that are restricted to a group of known and authorized users. This means that a business application can only call the web service together with a valid username &amp; password combination. One says that such a caller is authenticated by the WS-Proxy. Once authenticated, a user can be authorized, i.e. it can be checked whether he has the right to use the service or not.</p>
+</li>
+</ol>
+<p>The web service definitions provided by sedex determine which web service may be called anonymously and which not.</p>
+<p>If it is desired for security reasons to completely deactivate anonymous access to webservices, this can be achieved with the following configuration parameter:</p>
+<div class="highlight"><pre><span></span><code>    wsproxy.users.allowAnonymous=false
+</code></pre></div>
+<p><strong>Note:</strong> If anonymous access is switched off, all accesses from business applications to web services must be made via the https protocol and with user name &amp; password.</p>
+<h3 id="local-network-endpoints-configuration">Local Network Endpoints Configuration</h3>
+<p>The sedex WS-Proxy offers two separate network endpoints where business applications can send their web service requests to:</p>
+<ol>
+<li>
+<p><strong>Endpoint for access using http (unsecured)</strong>\
+Web service requests and responses are transmitted using the http protocol . This means that the communication between the business application and the WS-Proxy is open/unsecured. Up to version 5.3 the sedex WS-Proxy only offered this endpoint.</p>
+</li>
+<li>
+<p><strong>Endpoint for access using https (secured)</strong>\
+Web service requests and responses are transmitted using the https protocol . This means that the communication between the business application and the WS-Proxy is cryptographically secured using SSL/TLS  . As of version 6.0, the sedex WS proxy also offers this endpoint. This endpoint should be preferred.</p>
+</li>
+</ol>
+<p><strong>Note:</strong> The web service definitions provided by sedex determine which web service may be called over http and which not. Check the monitoring page of the sedex Client to see which web services are available over http and which are only available over https.</p>
+<p><strong>Note:</strong> Even when the business applications accesses the WS-Proxy via unencrypted http, the connection between the WS-Proxy and the effective web service over th eInternet is always secured and encrypted via https.</p>
+<p>The properties allowing the configuration of the http and https endpoints are described below.</p>
+<p><strong>Unsecured http port</strong></p>
+<p>The unsecured http port number on the inside of the container is 8080. You can publish/map this port to the desired port number on the outside using your container platform.  <strong>Note:</strong> You can omit this port publication/mapping if the WS-Proxy will not be used or will only be used via https.</p>
+<div class="highlight"><pre><span></span><code>  --publish YOUR_WS_PROXY_HTTP_PORT:8080
+</code></pre></div>
+<p><strong>Secured https port</strong></p>
+<p>The secured https port number on the inside of the container is 8443. You can publish/map this port to the desired port number on the outside using your container platform.</p>
+<div class="highlight"><pre><span></span><code>  --publish YOUR_WS_PROXY_HTTPS_PORT:8443
+</code></pre></div>
+<h3 id="ssltls-certificate-configuration">SSL/TLS Certificate Configuration</h3>
+<p>As of version 6.0, the WS-Proxy offers the possibility of a secure communication between the business application and the WS-Proxy using https protocol. The https protocol is based on SSL/TLS standard for the cryptographic protection of the communication channel. This requires a special SSL/TLS certificate to be installed and configured in the WS-Proxy.</p>
+<p>Basically two types of SSL/TLS certificates can be used:</p>
+<ol>
+<li>
+<p><strong>Generated by the sedex Client (self-signed certificate)</strong>\
+If the client is started and no SSL/TLS certificate is configured, the client automatically generates a new self-signed certificate.</p>
+</li>
+<li>
+<p><strong>Existing certificate provided by the operator (may be an official SSL/TLS certificate)</strong>\
+The operator of a sedex Client can obtain and use an official SSL/TLS certificate from a certificate provider and configure this in the sedex Client.</p>
+</li>
+</ol>
+<p><strong>Note:</strong> A self-signed certificate is a certificate that is not signed by a public and generally trusted certificate authority (CA). These certificates are easy to make and are free. A disadvantage of self-signed certificates is that they are not automatically trusted. This means that such certificates must always be added manually to the trust store of a user – here the business application 
+calling the WS-Proxy.</p>
+<p><strong>Using the self-signed certificate generated by the sedex Client</strong></p>
+<p>If the sedex Client does not find an SSL/TLS certificate for the WS proxy at startup, it automatically generates and configures a self-signed certificate.</p>
+<p>Notes regarding the self-signed certificate:</p>
+<ul>
+<li>
+<p>The self-signed certificate is valid for 5 years. You can find the expiration date on the monitoring page of the sedex Client.</p>
+</li>
+<li>
+<p>If you want to recreate the certificate, simply delete the path to the certificate from the property in the configuration file:\</p>
+<div class="highlight"><pre><span></span><code>    wsproxy.https.key-store-file=
+</code></pre></div>
+</li>
+<li>
+<p>The generated certificate is valid for all host names that the sedex Client could automatically detect. The WS-Proxy writes these host names to the log file during the creation of the self-signed certificate. Alternately, you can open and examine the certificate.</p>
+</li>
+<li>
+<p>To create a self-signed certificate with an additional host name of your choice do the following steps: </p>
+<div class="highlight"><pre><span></span><code>1. add the parameter
+
+        wsproxy.https.hostname=your-host-name
+
+2. Delete the value of the parameter
+
+        wsproxy.https.key-store-file=
+
+3. Let the the certificate be recreated by restarting the sedex Client
+</code></pre></div>
+</li>
+<li>
+<p>The generated certificate is valid for all host names that the sedex Client could automatically detect.</p>
+</li>
+<li>
+<p>The keystore file generated for the self-signed certificate is in P12 format and is stored under the following path:</p>
+<div class="highlight"><pre><span></span><code>    sedex-data/conf/certificates
+</code></pre></div>
+</li>
+<li>
+<p>Additionally a CER file containing the public certificate is created. You can pass this file on to the developers or operators of the business application so that they can include the self-signed certificate in their trust store.</p>
+</li>
+</ul>
+<p><strong>Using an existing certificate provided by the operator</strong></p>
+<p>If you already have a valid SSL/TLS certificate, the WS proxy can be configured to use it for its https endpoint. In order to use your own certificate, it must be in one of the following formats:
+-   PKCS#12 (p12 file)
+-   Java Key Store (jks file)</p>
+<p><strong>Note:</strong> The keystore provided must contain both the private key and the certificate under the same alias name.  </p>
+<p><strong>Tip:</strong> The freely available Java based tool “KeyStore Explorer” (https://keystore-explorer.org) allows the comfortable editing of Keystore files. Among other things, you can create a keystore from private keys and certificates in separate files, which can then be used by WS-Proxy.</p>
+<p>Once you have your own SSL/TLS certificate in a supported format, you can install and configure it in the sedex Client as follows:</p>
+<ol>
+<li>
+<p>Copy your keystore file (e.g. my-ssl-keystore.p12) into the sedex Client configuration folder for certificates:\
+sedex-data/conf/certificates/my-ssl-keystore.p12</p>
+</li>
+<li>
+<p>Configure your keystore file in the sedex Client’s main configuration file:</p>
+<div class="highlight"><pre><span></span><code>-   *Path to the keystore file*
+
+    wsproxy.https.key-store-file=my-ssl-keystore.p12
+
+-   *Password with which the keystore file is secured*
+
+    wsproxy.https.key-store-password=myKeystorePassword
+
+-   *Alias name of the key to use*
+A keystore file may contain one or many private keys. To select the correct key, its alias name must be specified. If you don&#39;t know the alias name, you can examine the content of the keystore with a suitable tool (e.g. with the KeyStore Explorer mentioned above).
+
+    wsproxy.https.key-alias=my-key-alias
+
+-   *Password for accessing the key to use*
+Within a keystore, a separate password can be set again for each key. If no separate password has been set for the key, enter the password for the keystore again here.
+
+    wsproxy.https.key-password=myPrivatePasswordForTheKey
+</code></pre></div>
+</li>
+<li>
+<p>Restart the sedex Client and check the log file of WS-Proxy for errors.</p>
+</li>
+</ol>
+<h2 id="administering-web-service-proxy-users">Administering Web Service Proxy Users</h2>
+<p>As of sedex Client version 6.0, the sedex WS-Proxy supports the feature to restrict access to the web services it offers. This means that a business application can only call the web service if it has a valid username &amp; password combination. The allowed usernames and their passwords are contained in a separate WS-Proxy user configuration file.</p>
+<p>This sections describes the content and the basic administration of the WS-Proxy user configuration file.</p>
+<h3 id="the-ws-proxy-user-configuration-file">The WS-Proxy User Configuration File</h3>
+<p>Usernames and passwords are configured in the following user configuration file:</p>
+<div class="highlight"><pre><span></span><code>    sedex-data/conf/sedex-wsproxy-user-configuration.properties
+</code></pre></div>
+<p>This is an excerpt from the configuration file showing two configured users:</p>
+<div class="highlight"><pre><span></span><code>    # File: sedex-wsproxy-user-configuration.properties
+    […]
+    example-app-1=myNewAndSecurePassword,3-CH-55438
+    example-app-2={bcrypt}$2a$10$f/du7KAWE0xVu.a9DrRKN.fBxg[…]1wldBVam,1-CH-2874423
+    […]
+</code></pre></div>
+<p>The format of the entries in the configuration file is as follows:</p>
+<div class="highlight"><pre><span></span><code>    user_name=password,sedex-id
+</code></pre></div>
+<p>The elements of an entry (i.e. line of the configuration file) in detail are:
+-   <code>user_name:</code>    A freely definable username that represents your application calling the
+        sedex webservice proxy. Allowed characters: a-z, A-Z, 0-9, -, _
+-   <code>password:</code> The password of the user. Allowed characters: a-z, A-Z, 0-9, -, _
+-   <code>sedex-id:</code> The associated sedex ID is that of the physical or logical sedex
+        participant for whom the remote Web service is called.
+        The specific sedex-id to be used is provided either by your
+        sedex domain administrator or by FSO’s sedex customer support.</p>
+<p><strong>Please note:</strong>
+-   Changes to the users file only become active after a restart of the sedex Client.
+-   New passwords can be specified in plain text.
+-   For security reasons, plain text passwords are automatically encrypted during a restart of the sedex Client.
+-   Encrypted passwords will look like: {bcrypt}$2a$10$f/du7KAWE0xVu.a9DrRKN.fBxgk98zwNAUWPOa1nGgot01wldBVam
+-   A once encrypted and forgotten password has to be reset by deleting the old encrypted password (including the {bcrypt} part} and replacing it by a new password in plain text.</p>
+<h3 id="add-a-new-user">Add a new user</h3>
+<p>If a new business application (e.g. named «myApp») needs access to one or more web services via sedex WS-Proxy, a new user representing this application has to be added to the user configuration file:</p>
+<ol>
+<li>
+<p>Open the user configuration file in a text editor</p>
+</li>
+<li>
+<p>Add a line for the new user (e.g. at the end of the file):</p>
+<div class="highlight"><pre><span></span><code>    myApp=aRandomPassword,sedexIdOfThisApplication
+</code></pre></div>
+</li>
+<li>
+<p>Save the configuration file</p>
+</li>
+<li>
+<p>Restart sedex Client</p>
+</li>
+<li>
+<p>Check the log file of WS-Proxy for errors or warnings</p>
+</li>
+</ol>
+<h3 id="change-the-password-of-a-user">Change the password of a user</h3>
+<p>The password of a user can be changed as follows:</p>
+<ol>
+<li>
+<p>Open the user configuration file in a text editor</p>
+</li>
+<li>
+<p>For the intended user change the password element as shown below.\
+\
+    Before (with the old encrypted password):</p>
+<div class="highlight"><pre><span></span><code>   myApp={bcrypt}$2a$10$f/du7KAWE0xVu.a9DrRKN.fBxg[…]1wldBVam,1-CH-3322
+
+ After (with the new plain password):
+
+    myApp=aNewRandomPassword,1-CH-3322
+</code></pre></div>
+</li>
+<li>
+<p>Save the configuration file</p>
+</li>
+<li>
+<p>Restart sedex Client</p>
+</li>
+<li>
+<p>Check the log file of WS-Proxy for errors.\
+You should see a line indicating that a previously plain password has been encrypted:</p>
+</li>
+</ol>
+<h2 id="provided-web-services">Provided Web Services</h2>
+<h3 id="automatic-provisioning-of-webservice-definitions">Automatic Provisioning of Webservice Definitions</h3>
+<p>The web service definitions are automatically retrieved from the sedex server by the sedex Client and updated regularly.</p>
+<p>To ensure that the WS proxy still functions even if the sedex server cannot be reached, the web service definitions are cached locally by the sedex Client. This cache can be used for a maximum of one week. If the list of Web service definitions cannot be updated for more than a week, the Web service proxy stops its service with an error message in the log and the Web service responses.</p>
+<p>The information as to whether the web service definitions can be updated and how long they are valid can be taken from the client’s monitoring page:</p>
+<div class="highlight"><pre><span></span><code>    […]
+    wsp-webservice-definitions-updated-at=2019-12-04T13:15:43
+    wsp-webservice-definitions-expires-at=2019-12-05T13:15:43
+    wsp-webservice-definitions-update-status=OK
+    wsp-webservice-definitions-update-info=Updated successfully
+    wsp-webservice-definitions-valid=true
+    […]
+</code></pre></div>
+<h3 id="list-of-provided-web-services">List of provided Web Services</h3>
+<p>The list of web services offered on a WS-Proxy differs from sedex participant to sedex participant and depends on the rights configured on the sedex server for this participant. </p>
+<p>The list of Web services currently available for a specific client can be viewed via its monitoring page. The following excerpt shows four defined webservices:</p>
+<div class="highlight"><pre><span></span><code>    […]
+    wsp-webservice=/wsproxy/services/CheckSedexWebService  [protocols:http,https] [users:anonymous,authorized]
+    wsp-webservice=/wsproxy/services/PartnerServices  [protocols:https] [users:authorized]
+    wsp-webservice=/wsproxy/services/sedexExternalAuthorisationService [protocols:http,https] [users:anonymous,authorized]
+    wsp-webservice=/wsproxy/services/ZRWebserv/getNNSS  [protocols:https] [users:authorized]
+    […]
+</code></pre></div>
+<p>The elements of a web service definition are:</p>
+<ul>
+<li>
+<p>URL Path on the WS-Proxy
+Path of the Web service on the WS proxy. The complete URL of the Web service is therefore derived from the protocol, host name, port, and this path as in the following example:
+https://myWsProxyHost:8443/wsproxy/services/CheckSedexWebService  </p>
+</li>
+<li>
+<p>Supported protocols
+Specifies which protocols can be used to call the Web service via WS proxy. Possible are http (unsecured) and https (secured).</p>
+</li>
+<li>
+<p>Access control
+Specifies whether the web service can be called anonymously via WS proxy or exclusively with user name &amp; password. Possible are anonymous and authorized.</p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="sedex-client-options.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: sedex-Client" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              sedex-Client
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="container-options.html" class="md-footer__link md-footer__link--next" aria-label="Next: Docker Container" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Docker Container
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>

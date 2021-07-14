@@ -1,0 +1,1020 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the official sedex-Client Docker image.">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.10">
+    
+    
+      
+        <title>Basic Usage of sedex Client Docker Container V6 - Documentation for the official sedex-Client Docker Image</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1fe995fd.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basic-usage-of-sedex-client-docker-container-v6" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Documentation for the official sedex-Client Docker Image" class="md-header__button md-logo" aria-label="Documentation for the official sedex-Client Docker Image" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation for the official sedex-Client Docker Image
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic Usage of sedex Client Docker Container V6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Documentation for the official sedex-Client Docker Image" class="md-nav__button md-logo" aria-label="Documentation for the official sedex-Client Docker Image" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    Documentation for the official sedex-Client Docker Image
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Documentation Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        The sedex system
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The sedex system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          The sedex system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sedex-system/overview_sedex.html" class="md-nav__link">
+        sedex System Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sedex-system/sedex-client.html" class="md-nav__link">
+        sedex Client
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        sedex Client Container V6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="sedex Client Container V6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          sedex Client Container V6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Notes Before Starting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-concepts.html" class="md-nav__link">
+        Overview & Basic Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Phase 1: Initial Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phase 1: Initial Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 1: Initial Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_case_identification.html" class="md-nav__link">
+        Identify your Init Case
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_with_certificate.html" class="md-nav__link">
+        Case a) With P12-Certificate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_with_crid_and_otp.html" class="md-nav__link">
+        Case b) With CRID+OTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_optional_parameters.html" class="md-nav__link">
+        Optional Init Parameters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initial-configuration/initial_configuration_with_init-scripts.html" class="md-nav__link">
+        Using Init-Scripts
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Phase 2: Normal Usage
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phase 2: Normal Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 2: Normal Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run/run_with_docker.html" class="md-nav__link">
+        Run with Docker
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      <label class="md-nav__link" for="__nav_3_5">
+        Advanced Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/sedex-client-options.html" class="md-nav__link">
+        sedex-Client
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/sedex-web-service-proxy-options.html" class="md-nav__link">
+        sedex Web Service Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/container-options.html" class="md-nav__link">
+        Docker Container
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      <label class="md-nav__link" for="__nav_3_6">
+        Logs / Monitoring
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Logs / Monitoring" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logs / Monitoring
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observation/logs.html" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observation/monitoring-state.html" class="md-nav__link">
+        Monitoring State
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      <label class="md-nav__link" for="__nav_3_7">
+        Orchestration Platforms
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Orchestration Platforms" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Orchestration Platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orchestration/run_with_kubernetes.html" class="md-nav__link">
+        Kubernetes & Co.
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements.html" class="md-nav__link">
+        Requirements
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../versions-and-changes.html" class="md-nav__link">
+        Versions & Changes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact.html" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    Important Notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-docker-hub-tags" class="md-nav__link">
+    Current Docker Hub Tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permanent-data-storage-sedex-data" class="md-nav__link">
+    Permanent Data Storage ("sedex-data")
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-configuration-parameters" class="md-nav__link">
+    Initial configuration parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-image" class="md-nav__link">
+    How to use this image
+  </a>
+  
+    <nav class="md-nav" aria-label="How to use this image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-initial-configuration" class="md-nav__link">
+    I) Initial Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-starting-and-using-the-sedex-client" class="md-nav__link">
+    II) Starting and using the sedex Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="basic-usage-of-sedex-client-docker-container-v6">Basic Usage of sedex Client Docker Container V6</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This image is currently in <strong>EXPERIMENTAL</strong> status and for selected early adopters only ("beta version only").</p>
+<p>It is strongly discouraged to run a productive sedex Client based on this image without the necessary knowledge.
+Please contact <a href="http://www.sedex.ch">sedex support</a> should you plan to use this image or have any questions.</p>
+</div>
+<h2 id="important-notes">Important Notes</h2>
+<ul>
+<li>
+<p><strong>Private application:</strong>
+sedex is a closed user group for registered and authorized participants only.
+If you are not such a registered participant, you cannot use sedex Client.</p>
+</li>
+<li>
+<p><strong>One running instance only:</strong>
+It is absolutely necessary that you prevent two or more sedex Clients from running simultaneously for the same participant.
+In the worst case sedex messages could be lost.
+Therefore it has to be ensured that only one sedex Client is running at a time.
+This has to be considered especially when operating on automatic container orchestration platforms like Kubernetes. See section <a href="orchestration.html">Kubernetes &amp; Co.</a> for further details.</p>
+</li>
+<li>
+<p><strong>Persistent file storage for data volume required:</strong>
+There is important data that has to be stored permenently outside of the sedex Client Docker container. Examples for such data are messages, receipts, local messaging state database, certificates, passwords etc. If this data is not reliably stored outside the container, there is a risk of message loss and loss of access to the own message inbox. See section <a href="#Permanent_Data_Storage"><em>Permanent Data Storage ("sedex-data")</em></a> for further details.</p>
+</li>
+<li>
+<p><strong>Feedback:</strong>
+We are very interested in feedback on the Docker version of the sedex Client and this documentation.
+ Please tell us what you like and what you don't like at sedexsupport@bfs.admin.ch.</p>
+</li>
+</ul>
+<h2 id="current-docker-hub-tags">Current Docker Hub Tags</h2>
+<table>
+<thead>
+<tr>
+<th>Tag(s)</th>
+<th>Image Description</th>
+<th>Release date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>latest</strong>, 6.0.4, 6.0.4_container-0.99-beta</td>
+<td>The most current container image (version 0.99-beta) with sedex Client 6.0.4. <strong>Recommended.</strong></td>
+<td>April 07, 2021</td>
+</tr>
+<tr>
+<td>5.3.1, 5.3.1_container-0.94-beta</td>
+<td>The legacy container image (version 0.94-beta) with sedex Client 5.3.1. <strong>Legacy.</strong></td>
+<td>December 19, 2019</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong>
+The special tag "<strong>latest</strong>" will always be an alias for the most current <em>container</em> of the most current <em>sedex Client</em>. The tags available can </p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong>Docker Version:</strong> Docker Engine should be v17.06 or later. Older versions are not supported and the api syntax may differ from this manual.</li>
+<li><strong>Memory:</strong> It is recommended to allocate at least 1GB memory for the sedex docker container.</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>In order to successfully operate the sedex Client as a Docker container, you should first understand the following concepts.</p>
+<p><a name="Permanent_Data_Storage"></a></p>
+<h3 id="permanent-data-storage-sedex-data">Permanent Data Storage ("sedex-data")</h3>
+<p>The sedex Client must be able to store certain data permanently outside of the container. All the following sedex specific data must survive the lifespan of a Docker container:</p>
+<ul>
+<li>configuration</li>
+<li>sedex messages</li>
+<li>messaging state</li>
+<li>log files</li>
+<li>etc.</li>
+</ul>
+<p>For the permanent storage of data outside the container, Docker primarily offers the following two options (<a href="https://docs.docker.com/storage/">see Docker documentation</a> for details):</p>
+<ul>
+<li><em>Volumes</em> (storage managed by Docker)</li>
+<li><em>Bind Mounts</em> (local file system based storage on the host)</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The following command line examples only show the use of <em>bind mounts</em>. Experienced container administrators can easily adapt the examples to <em>volumes</em>.</li>
+<li>In our examples the directory with the permanent data storage is named "sedex-data". Of course you can name this directory differently, but then you have to adapt the examples to your actual directory name. </li>
+</ul>
+<h3 id="initial-configuration-parameters">Initial configuration parameters</h3>
+<p>If you are starting from scratch, i.e. you have never started a sedex Client as a Docker container for this one participant, then the sedex container must initialize the permanent storage directory "sedex-data" once before the very first start so that it can work with it later.
+Specifically, the container will automatically create the required directory structure and create necessary configuration files in it..</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to start this initialization process at its first start, the sedex Clients needs a few initial configuration parameters (e.g. the participant's sedexId) provided in the form of a plain text file named "init.conf".</p>
+</div>
+<p>The <strong>content of the initial configuration file "init.conf"</strong> depends on the form of the credentials for the participant you have. You will find yourself in one of the following two initial cases:</p>
+<ul>
+<li>
+<p><strong>Case a) Initialize for an existing sedex participant:</strong>
+  This means that a sedex Client has been running in another installation for this participant before. Thus a sedex <em>participant-certificate</em> and a corresponding <em>password</em> already exist and must be reused.</p>
+</li>
+<li>
+<p><strong>Case b) Initialize for a new sedex participant:</strong>
+  This means that there has no sedex Client been running for this participant before. Thus there is <em>no</em> participant-certificate yet but a so-called <em>certificate request id (CRID)</em> and a corresponding <em>one time password (OTP)</em>.</p>
+</li>
+</ul>
+<p>The following installation instructions will distinguish between these two init cases a) and b).</p>
+<h2 id="how-to-use-this-image">How to use this image</h2>
+<h3 id="i-initial-configuration">I) Initial Configuration</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The initial preparation steps only have to be executed <strong>just once before the very first start of the sedex Client</strong>.</p>
+</div>
+<h4 id="step-1-create-a-sedex-data-directory">Step 1: Create a sedex-data directory</h4>
+<p>Create a directory "sedex-data" on the local host or a network attached storage (NAS) where the sedex Client will store files that have to be persisted 
+outside of the Docker container (ex. the sedex messaging interface directories). This directory will be used as a Docker bind mount.
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir /path/to/sedex-data
+</code></pre></div></p>
+<h4 id="step-2-create-a-subdirectory-conf-for-the-configuration">Step 2: Create a subdirectory conf for the configuration</h4>
+<p>Create a subdirectory inside of "sedex-data" directory. This directory will contain all configuration files for this sedex participant.
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir /path/to/sedex-data/conf
+</code></pre></div></p>
+<h4 id="step-3a-provide-the-initial-configuration-for-an-existing-participant">Step 3a: Provide the initial configuration for an <em>existing</em> participant</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Execute this step only, if a sedex participant-certificate and a corresponding password already exist.
+For new participants skip to Step 3b.</p>
+</div>
+<h5 id="provide-the-existing-sedex-certificate-file-p12">Provide the existing sedex certificate file (P12)</h5>
+<p>Copy the sedex keystore file (PKCS12/P12 format, containing the private key and certificate) into the "sedex-data/conf" subdirectory.
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cp /path/to/credentials/YOUR-CERTIFICATE-FILE.p12 /path/to/sedex-data/conf/
+</code></pre></div></p>
+<h5 id="provide-the-file-with-the-initial-configuration-parameters">Provide the file with the initial configuration parameters</h5>
+<p>With a text editor (e.g. "nano") create a plain text file named "init.conf" in the subdirectory "sedex-data/conf":
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>nano /path/to/sedex-data/conf/init.conf
+</code></pre></div></p>
+<p>Add the following three configuration parameters (with values adjusted to your actual data) to your "init.conf" file and save it:</p>
+<div class="highlight"><pre><span></span><code><span class="go">SEDEX_ID=YOUR-SEDEX-ID</span>
+<span class="go">SEDEX_CERTIFICATE_FILENAME=YOUR-CERTIFICATE-FILE.p12</span>
+<span class="go">SEDEX_CERTIFICATE_PASSWORD=YOUR-PASSWORD</span>
+</code></pre></div>
+<p><strong>Note:</strong> After the first successful start of the sedex Client, the file init.conf will be <strong>deleted automatically</strong> as its content will be moved to the created sedex configuration files.</p>
+<p><strong>Note:</strong> If an HTTP proxy is required for access to the Internet, such a proxy server can optionally already be defined in the init.conf file (see section <a href="advanced-docker-options">Advanced Docker Options</a>) or later manually be defined in the central configuration file of the sedex Client (see section <a href="sedex Client-configuration-options">Advanced sedex Client Configuration</a>). </p>
+<h4 id="step-3b-provide-the-initial-configuration-for-a-new-participant">Step 3b: Provide the initial configuration for a <em>new</em> participant</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Execute this step only for <em>new</em> sedex participant with no existing certificate but instead with a <em>certificate request id (CRID)</em> and a <em>one time password (OTP)</em>. 
+For new participants follow Step 3a.</p>
+</div>
+<h5 id="provide-the-file-with-the-initial-configuration-parameters_1">Provide the file with the initial configuration parameters</h5>
+<p>With a text editor (e.g. "nano") create a plain text file named "init.conf" in the subdirectory "sedex-data/conf":</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>nano /path/to/sedex-data/conf/init.conf
+</code></pre></div>
+<p>Add the following three configuration parameters (with values adjusted to your actual data) to your "init.conf" file and save it:</p>
+<div class="highlight"><pre><span></span><code><span class="go">SEDEX_ID=YOUR-SEDEX-ID</span>
+<span class="go">SEDEX_CRID=YOUR_CERTIFICATE_REQUEST_ID</span>
+<span class="go">SEDEX_OTP=YOUR-ONE-TIME-PASSWORD</span>
+</code></pre></div>
+<p><strong>Note:</strong> After the first successful start of the sedex Client, the file init.conf will be <strong>deleted automatically</strong> as its content will be moved to the created sedex configuration files.</p>
+<p><strong>Note:</strong> If an HTTP proxy is required for access to the Internet, such a proxy server can optionally already be defined in the init.conf file (see section <a href="advanced-docker-options">Advanced Docker Options</a>) or later manually be defined in the central configuration file of the sedex Client (see section <a href="sedex Client-configuration-options">Advanced sedex Client Configuration</a>). </p>
+<h3 id="ii-starting-and-using-the-sedex-client">II) Starting and using the sedex Client</h3>
+<p>The following steps show how to create and start the latest Docker container running the sedex Client.</p>
+<p><strong>Note:</strong> If you want to use a specific version of the container then see <a href="advanced-docker-options">Advanced Docker Options</a> for details.</p>
+<h4 id="run-the-sedex-client-container">Run the sedex Client container</h4>
+<p>Run the sedex Client container using environment-specific values for the following options:</p>
+<ul>
+<li><code>/path/to/sedex-data</code> - The path to the host's "sedex-data" directory (holding the persisted data)</li>
+<li><code>YOUR_MONITORING_PORT</code> - The port at which the monitoring web page of the sedex Client should be accessible from the outside of the container</li>
+<li><code>YOUR_WS_PROXY_HTTP_PORT</code> - The unsecured http port at which the sedex Clients Web service proxy should be accessible from the outside of the
+  container. <strong>Note:</strong> You can omit this line if the WS-Proxy will not be used or will only be used via https.</li>
+<li><code>YOUR_WS_PROXY_HTTPS_PORT</code> - The secured https port at which the sedex Clients Web service proxy should be accessible from the outside of the
+  container. <strong>Note:</strong> You can omit this line if the WS-Proxy will not be used.</li>
+<li><code>--stop-timeout 65</code> - When the docker container is stopped (e.g. with "docker stop" command), the sedex Client's controller-stop.sh is executed to initiate a graceful 
+  shutdown of the client. This typically takes longer than the default 10 seconds that the Docker daemon waits before killing the container.
+  The --stop-timeout option overrides the default. The required time will vary from one installation to another.</li>
+<li><code>--restart unless-stopped</code> - Restart Policy: Restart the container automatically after Docker daemon restarts, unless the container has been stopped intentionally. </li>
+<li><code>-d</code> - Detached: Start container in background without showing log output on console.</li>
+</ul>
+<!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
+
+<p>To run the sedex Client container enter the following commands:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker pull sedexch/sedex-client:latest
+
+<span class="gp">$ </span>docker run <span class="se">\</span>
+<span class="go">  --name sedex Client \</span>
+<span class="go">  --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \</span>
+<span class="go">  --publish YOUR_MONITORING_PORT:8000 \</span>
+<span class="go">  --publish YOUR_WS_PROXY_HTTP_PORT:8080 \</span>
+<span class="go">  --publish YOUR_WS_PROXY_HTTPS_PORT:8443 \</span>
+<span class="go">  --stop-timeout 65 \</span>
+<span class="go">  --restart unless-stopped \</span>
+<span class="go">  -d \</span>
+<span class="go">  sedexch/sedex-client:latest</span>
+</code></pre></div></p>
+<p><strong>Note:</strong> After the very first start of the sedex Client Docker container, a general default configuration is created.
+If specific configuration options are required, these can be set in the central configuration file of the sedex Client.
+With a text editor (e.g. "nano") open the central sedex Client configuration file named "sedex Client-configuration.properties" in the subdirectory "sedex-data/conf" and edit the contained configuration parameters as needed and as described in <a href="sedex Client-configuration-options">Advanced sedex Client Configuration</a>:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>nano /path/to/sedex-data/conf/sedex Client-configuration.properties
+</code></pre></div></p>
+<p>If no such configuration file has been created after the very first start of the sedex Client, you can search for the cause in the Docker log file:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker logs sedex Client
+</code></pre></div></p>
+<h4 id="stop-and-start-the-sedex-client-container">Stop and start the sedex Client container</h4>
+<p>Stop the sedex Client container:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker stop sedex Client
+</code></pre></div></p>
+<p>Start the sedex Client container:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker start sedex Client
+</code></pre></div></p>
+<h4 id="accessing-log-files-of-the-sedex-client-container">Accessing log files of the sedex Client container</h4>
+<h5 id="option-1-via-docker-logs">Option 1: Via docker logs</h5>
+<p>The combined sedex Client logs can be accessed via the standard docker mechanism.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker logs sedex Client --follow
+<span class="go">14:21:27 INFO Adapterlog - 14:21:27 DEBUG ThrottlingPriorityMessageScheduler - No new messages in outbox. Skipping scheduling of messages to be sent.</span>
+<span class="go">14:21:57 INFO Adapterlog - 14:21:57 DEBUG ThrottlingPriorityMessageScheduler - Begin scheduling of messages</span>
+<span class="go">14:21:57 INFO Adapterlog - 14:21:57 DEBUG ThrottlingPriorityMessageScheduler - No new messages in outbox. Skipping scheduling of messages to be sent.</span>
+<span class="go">14:22:27 INFO Adapterlog - 14:22:27 DEBUG ThrottlingPriorityMessageScheduler - Begin scheduling of messages</span>
+<span class="go">14:22:27 INFO Adapterlog - 14:22:27 DEBUG ThrottlingPriorityMessageScheduler - No new messages in outbox. Skipping scheduling of messages to be sent.</span>
+<span class="go">14:22:57 INFO Adapterlog - 14:22:57 DEBUG ThrottlingPriorityMessageScheduler - Begin scheduling of messages</span>
+<span class="go">14:22:57 INFO Adapterlog - 14:22:57 DEBUG ThrottlingPriorityMessageScheduler - No new messages in outbox. Skipping scheduling of messages to be sent.</span>
+<span class="go">[...]</span>
+</code></pre></div>
+<h5 id="option-2-via-sedex-datas-logs-subdirectory">Option 2: Via sedex-data's logs subdirectory</h5>
+<p>The standard sedex Client log files are located in sedex-data's logs subdirectory.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span> /path/to/sedex-data/logs
+<span class="gp">$ </span>ls
+<span class="go">adapter  controller  wsproxy  error-log.csv  receive-log.csv  send-log.csv  wsproxy-access-log.csv</span>
+</code></pre></div>
+<h4 id="monitoring-the-sedex-client-container">Monitoring the sedex Client container</h4>
+<p>It is essential to integrate sedex Client's functionality in your own operations monitoring system. The key/value pairs provided by the sedex Client for this purpose can be accessed via file system or via http. The basic status of the container can also be checked via docker health.</p>
+<h5 id="option-1-via-sedex-datas-monitoring-subdirectory-file-system">Option 1: Via sedex-data's monitoring subdirectory (file system)</h5>
+<p>The sedex Client monitoring file is a plain text file and is located in sedex-data's monitoring subdirectory.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span> /path/to/sedex-data/monitoring
+</code></pre></div>
+<h5 id="option-2-via-the-monitoring-web-page-http">Option 2: Via the monitoring Web page (http)</h5>
+<p>The sedex Client monitoring webpage is a plain text page and is accessible via the mapped port (default 8000).</p>
+<div class="highlight"><pre><span></span><code><span class="gp">    $ </span>curl http://IP-DOCKER-HOST:8000/monitoring
+</code></pre></div>
+<h5 id="option-3-via-docker-health">Option 3: Via docker health</h5>
+<p>Use the standard docker diagnostics to check the global status and health of a container.</p>
+<p><strong>Note:</strong> Nevertheless it is recommended to check the most important key/value pairs on the monitoring page of the sedex Client.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>

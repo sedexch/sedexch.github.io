@@ -1,0 +1,907 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the official sedex-Client Docker image.">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.10">
+    
+    
+      
+        <title>Using Init-Scripts - Documentation for the official sedex-Client Docker Image</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1fe995fd.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#initial-configuration-using-the-prepared-init-scripts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Documentation for the official sedex-Client Docker Image" class="md-header__button md-logo" aria-label="Documentation for the official sedex-Client Docker Image" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation for the official sedex-Client Docker Image
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Init-Scripts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Documentation for the official sedex-Client Docker Image" class="md-nav__button md-logo" aria-label="Documentation for the official sedex-Client Docker Image" data-md-component="logo">
+      
+  <img src="../../assets/favicon.png" alt="logo">
+
+    </a>
+    Documentation for the official sedex-Client Docker Image
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Documentation Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        The sedex system
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The sedex system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          The sedex system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sedex-system/overview_sedex.html" class="md-nav__link">
+        sedex System Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sedex-system/sedex-client.html" class="md-nav__link">
+        sedex Client
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        sedex Client Container V6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="sedex Client Container V6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          sedex Client Container V6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Notes Before Starting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-concepts.html" class="md-nav__link">
+        Overview & Basic Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Phase 1: Initial Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phase 1: Initial Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 1: Initial Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="initial_configuration_case_identification.html" class="md-nav__link">
+        Identify your Init Case
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="initial_configuration_with_certificate.html" class="md-nav__link">
+        Case a) With P12-Certificate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="initial_configuration_with_crid_and_otp.html" class="md-nav__link">
+        Case b) With CRID+OTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="initial_configuration_optional_parameters.html" class="md-nav__link">
+        Optional Init Parameters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Using Init-Scripts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="initial_configuration_with_init-scripts.html" class="md-nav__link md-nav__link--active">
+        Using Init-Scripts
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-configuration-with-container-init-scripts-instead-of-initconf-file" class="md-nav__link">
+    Initial configuration with Container Init-Scripts instead of init.conf file
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial configuration with Container Init-Scripts instead of init.conf file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-a-init-container-for-an-existing-participant" class="md-nav__link">
+    Case a) Init Container for an existing participant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-b-initial-configuration-for-a-new-participant" class="md-nav__link">
+    Case b) initial configuration for a new participant
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Phase 2: Normal Usage
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phase 2: Normal Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 2: Normal Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run/run_with_docker.html" class="md-nav__link">
+        Run with Docker
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      <label class="md-nav__link" for="__nav_3_5">
+        Advanced Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/sedex-client-options.html" class="md-nav__link">
+        sedex-Client
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/sedex-web-service-proxy-options.html" class="md-nav__link">
+        sedex Web Service Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/container-options.html" class="md-nav__link">
+        Docker Container
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      <label class="md-nav__link" for="__nav_3_6">
+        Logs / Monitoring
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Logs / Monitoring" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logs / Monitoring
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observation/logs.html" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observation/monitoring-state.html" class="md-nav__link">
+        Monitoring State
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      <label class="md-nav__link" for="__nav_3_7">
+        Orchestration Platforms
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Orchestration Platforms" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Orchestration Platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orchestration/run_with_kubernetes.html" class="md-nav__link">
+        Kubernetes & Co.
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements.html" class="md-nav__link">
+        Requirements
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../versions-and-changes.html" class="md-nav__link">
+        Versions & Changes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact.html" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-configuration-with-container-init-scripts-instead-of-initconf-file" class="md-nav__link">
+    Initial configuration with Container Init-Scripts instead of init.conf file
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial configuration with Container Init-Scripts instead of init.conf file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-a-init-container-for-an-existing-participant" class="md-nav__link">
+    Case a) Init Container for an existing participant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-b-initial-configuration-for-a-new-participant" class="md-nav__link">
+    Case b) initial configuration for a new participant
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="initial-configuration-using-the-prepared-init-scripts">Initial Configuration using the prepared Init-Scripts</h1>
+<p><strong>The previous pages show how the one-time initial configuration process of sedex-data can be executed manually using an init.conf file. In certain situations, it may be desirable to automate the one-time initial configuration process. To facilitate this automation, the sedex client container contains two utility init scripts. This page describes how to use these two init scripts.</strong></p>
+<h2 id="initial-configuration-with-container-init-scripts-instead-of-initconf-file">Initial configuration with Container Init-Scripts instead of init.conf file</h2>
+<p>If the initial configuration process with manually creating an init.conf file as described in <a href="initial_configuration_with_certificate.html">Case a) Initial Configuration with P12-Certificate</a> and <a href="initial_configuration_with_crid_and_otp.html">Case b) Initial Configuration with CRID+OTP</a> is not a feasible way, one of the two provided sedex Client container init-scripts may be able to help.</p>
+<p>There is a separate init-script in the container for each of the two initialization cases. The task of the init scripts is to automatically create the file structure and the init.conf file from passed in environment parameters.</p>
+<h3 id="case-a-init-container-for-an-existing-participant">Case a) Init Container for an existing participant</h3>
+<p>If you already have a participant with an existing sedex participant certificate (a P12 file).</p>
+<p>Run the sedex Client container init script using environment-specific values for the following options:</p>
+<ul>
+<li><code>--rm</code> - Automatically remove the container when it exits</li>
+<li><code>/path/to/sedex-data</code> - The path to the host's "sedex-data" directory or volume (holding the persisted data)</li>
+<li><code>SEDEX_ID</code> - environment variable holding the participant's sedex id</li>
+<li><code>KEYSTORE</code> - environment variable holding the <em>content</em> of the keystore file (P12) in base64 encoded format</li>
+<li><code>KEYSTORE_PW</code> - environment variable holding the password to the keystore file</li>
+<li><code>OUTGOING_WEB_PROXY_HOST</code> - optional environment variable holding the http proxy host</li>
+<li><code>OUTGOING_WEB_PROXY_PORT</code> - optional environment variable holding the http proxy port</li>
+<li><code>OUTGOING_WEB_PROXY_USER</code> - optional environment variable holding the http proxy user</li>
+<li><code>OUTGOING_WEB_PROXY_PASSWORD</code> - optional environment variable holding the http proxy password</li>
+<li><code>WSPROXY_START</code> - optional environment variable that can be set to false, if web service proxy should not be started (default value is true)</li>
+</ul>
+<!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
+
+<p>Command to run the init container:</p>
+<div class="highlight"><pre><span></span><code>$ docker run \
+  --rm \
+  --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
+  --env SEDEX_ID=YOUR-SEDEX-ID \
+  --env KEYSTORE=CONTENT-OF-YOUR-CERTIFICATE-FILE \
+  --env KEYSTORE_PW=YOUR-PASSWORD \
+  sedexch/sedex-client init-container-existing-cert.sh
+</code></pre></div>
+<p><strong>Note:</strong> In a Linux console, the contents of the keystore file (P12) can be translated into the required base64 encoded format as follows:</p>
+<div class="highlight"><pre><span></span><code>$ cat YOUR-CERTIFICATE-FILE.p12 | base64
+</code></pre></div>
+<p>Resulting output:</p>
+<div class="highlight"><pre><span></span><code>  MIIHdgIBAzCCBzwGCSqGSIb3DQEHAaCCBy0EggcpMIIHJTCCA+8GCSqGSIb3DQEHBqCCA+AwggPc
+  AgEAMIID1QYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQIRYqcETINPCICAggAgIIDqJno8zFy
+  [...]
+  cDZCr7zStk1IBaD7WoHQqRmvlM9qJJrZsELaTflLcfo43GWGDiwX+OqTD0xo3J/EmVJ8fat/yKsM
+  4lnSpDFaMCMGCSqGSIb3DQEJFTEWBBTPLjUs7MQ16yQIA6BqTg4C6uxj9jAzBgkqhkiG9w0BCRQx
+  Jh4kAEMAbABpAGUAbgB0ACAAQwBlAHIAdABpAGYAaQBjAGEAdABlMDEwITAJBgUrDgMCGgUABBSF
+  i3kuzz/2qGFiSHGVmHe+aHbm2wQIs0UZdpNO54oCAggA
+</code></pre></div>
+<p><strong>Note:</strong> Since this content contains the private key of the sedex participant, it must be kept secret. This content and the corresponding password must not be visible to unauthorized persons at any time.</p>
+<h3 id="case-b-initial-configuration-for-a-new-participant">Case b) initial configuration for a new participant</h3>
+<p>If you don't have an existing certificate but a <em>certificate request ID (CRID)</em> and a one time password (OTP).</p>
+<p>Run the sedex Client container init script using environment-specific values for the following options:</p>
+<ul>
+<li><code>--rm</code> - Automatically remove the container when it exits</li>
+<li><code>/path/to/sedex-data</code> - The path to the host's "sedex-data" directory or volume (holding the persisted data)</li>
+<li><code>SEDEX_ID</code> - environment variable holding the participant's sedex id</li>
+<li><code>CRID</code> - environment variable holding the certificate request id (CRID)</li>
+<li><code>OTP</code> - environment variable holding the one time password (OTP)</li>
+<li><code>OUTGOING_WEB_PROXY_HOST</code> - optional environment variable holding the http proxy host</li>
+<li><code>OUTGOING_WEB_PROXY_PORT</code> - optional environment variable holding the http proxy port</li>
+<li><code>OUTGOING_WEB_PROXY_USER</code> - optional environment variable holding the http proxy user</li>
+<li><code>OUTGOING_WEB_PROXY_PASSWORD</code> - optional environment variable holding the http proxy password</li>
+<li><code>WSPROXY_START</code> - optional environment variable that can be set to false, if web service proxy should not be started (default value is true)</li>
+</ul>
+<!-- Start a new section to get Markdown to consider the following as code and not part of the list... -->
+
+<p>Command to run the init container:</p>
+<div class="highlight"><pre><span></span><code>$ docker run \
+  --rm \
+  --mount type=bind,source=/path/to/sedex-data,destination=/sedex-data/ \
+  --env SEDEX_ID=YOUR-SEDEX-ID \
+  --env CRID=YOUR_CERTIFICATE_REQUEST_ID \
+  --env OTP=YOUR-ONE-TIME-PASSWORD \
+  sedexch/sedex-client init-container-new-cert.sh
+</code></pre></div>
+<p><strong>After having executed the init script, everything is initialized and ready for the sedex client container. So you can <a href="../run/run_with_docker.html">continue with phase 2</a>.</strong></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="initial_configuration_optional_parameters.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Optional Init Parameters" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Optional Init Parameters
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../run/run_with_docker.html" class="md-footer__link md-footer__link--next" aria-label="Next: Run with Docker" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Run with Docker
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>

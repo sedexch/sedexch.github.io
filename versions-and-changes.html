@@ -1,0 +1,961 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the official sedex-Client Docker image.">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.10">
+    
+    
+      
+        <title>Versions & Changes - Documentation for the official sedex-Client Docker Image</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1fe995fd.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#versions-and-changes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Documentation for the official sedex-Client Docker Image" class="md-header__button md-logo" aria-label="Documentation for the official sedex-Client Docker Image" data-md-component="logo">
+      
+  <img src="assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation for the official sedex-Client Docker Image
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Versions & Changes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Documentation for the official sedex-Client Docker Image" class="md-nav__button md-logo" aria-label="Documentation for the official sedex-Client Docker Image" data-md-component="logo">
+      
+  <img src="assets/favicon.png" alt="logo">
+
+    </a>
+    Documentation for the official sedex-Client Docker Image
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Documentation Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        The sedex system
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The sedex system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          The sedex system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sedex-system/overview_sedex.html" class="md-nav__link">
+        sedex System Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sedex-system/sedex-client.html" class="md-nav__link">
+        sedex Client
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        sedex Client Container V6
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="sedex Client Container V6" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          sedex Client Container V6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/index.html" class="md-nav__link">
+        Notes Before Starting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/basic-concepts.html" class="md-nav__link">
+        Overview & Basic Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Phase 1: Initial Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phase 1: Initial Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 1: Initial Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/initial-configuration/initial_configuration_case_identification.html" class="md-nav__link">
+        Identify your Init Case
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/initial-configuration/initial_configuration_with_certificate.html" class="md-nav__link">
+        Case a) With P12-Certificate
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/initial-configuration/initial_configuration_with_crid_and_otp.html" class="md-nav__link">
+        Case b) With CRID+OTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/initial-configuration/initial_configuration_optional_parameters.html" class="md-nav__link">
+        Optional Init Parameters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/initial-configuration/initial_configuration_with_init-scripts.html" class="md-nav__link">
+        Using Init-Scripts
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Phase 2: Normal Usage
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phase 2: Normal Usage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 2: Normal Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/run/run_with_docker.html" class="md-nav__link">
+        Run with Docker
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      <label class="md-nav__link" for="__nav_3_5">
+        Advanced Configuration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/configuration/sedex-client-options.html" class="md-nav__link">
+        sedex-Client
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/configuration/sedex-web-service-proxy-options.html" class="md-nav__link">
+        sedex Web Service Proxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/configuration/container-options.html" class="md-nav__link">
+        Docker Container
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      <label class="md-nav__link" for="__nav_3_6">
+        Logs / Monitoring
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Logs / Monitoring" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logs / Monitoring
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/observation/logs.html" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/observation/monitoring-state.html" class="md-nav__link">
+        Monitoring State
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      <label class="md-nav__link" for="__nav_3_7">
+        Orchestration Platforms
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Orchestration Platforms" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Orchestration Platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/orchestration/run_with_kubernetes.html" class="md-nav__link">
+        Kubernetes & Co.
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="client-container-v6/requirements.html" class="md-nav__link">
+        Requirements
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Versions & Changes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="versions-and-changes.html" class="md-nav__link md-nav__link--active">
+        Versions & Changes
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-version-numbers" class="md-nav__link">
+    About Version Numbers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-docker-hub-tags-of-an-image" class="md-nav__link">
+    About Docker Hub Tags of an Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versions-and-changes_1" class="md-nav__link">
+    Versions and Changes
+  </a>
+  
+    <nav class="md-nav" aria-label="Versions and Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versiontag-606_container-099-beta-2021-07-12" class="md-nav__link">
+    Version/Tag 6.0.6_container-0.99-beta (2021-07-12)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versiontag-604_container-099-beta-2021-04-07" class="md-nav__link">
+    Version/Tag 6.0.4_container-0.99-beta (2021-04-07)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previous-versions" class="md-nav__link">
+    Previous Versions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contact.html" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-version-numbers" class="md-nav__link">
+    About Version Numbers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-docker-hub-tags-of-an-image" class="md-nav__link">
+    About Docker Hub Tags of an Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versions-and-changes_1" class="md-nav__link">
+    Versions and Changes
+  </a>
+  
+    <nav class="md-nav" aria-label="Versions and Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versiontag-606_container-099-beta-2021-07-12" class="md-nav__link">
+    Version/Tag 6.0.6_container-0.99-beta (2021-07-12)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versiontag-604_container-099-beta-2021-04-07" class="md-nav__link">
+    Version/Tag 6.0.4_container-0.99-beta (2021-04-07)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previous-versions" class="md-nav__link">
+    Previous Versions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="versions-and-changes">Versions and Changes</h1>
+<p><strong>This page explains the structure of version numbers and how version numbers are mapped to Docker container tags of images. The major changes of each version are listed.</strong></p>
+<h2 id="about-version-numbers">About Version Numbers</h2>
+<p>The <em>full version number</em> of a sedex container image consists of two composite version numbers of the contained compoents, as shown in the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>full version number for the complete container image</td>
+<td><code>6.0.6_container-0.99-beta</code></td>
+</tr>
+<tr>
+<td>version of the <em>sedex client</em> contained in the container</td>
+<td><code>6.0.6</code></td>
+</tr>
+<tr>
+<td>version of the <em>container logic</em></td>
+<td><code>container-0.99-beta</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="about-docker-hub-tags-of-an-image">About Docker Hub Tags of an Image</h2>
+<p>Each sedex container image on Docker Hub is tagged with multiple tags representing the different version numbers:</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Meaning of the Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>6.0.6_container-0.99-beta</code></td>
+<td>The full version tag references the sedex container image with the specific client and the specific container version.</td>
+</tr>
+<tr>
+<td><code>6.0.6</code></td>
+<td>The version tag containing only the sedex Client version references the most current sedex container image with the specific client.</td>
+</tr>
+<tr>
+<td><code>latest</code></td>
+<td>The version tag <code>latest</code> references the most current sedex container image with the most current client.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="versions-and-changes_1">Versions and Changes</h2>
+<h3 id="versiontag-606_container-099-beta-2021-07-12">Version/Tag <code>6.0.6_container-0.99-beta</code> (2021-07-12)</h3>
+<h4 id="new-sedex-client-606">New sedex Client <code>6.0.6</code></h4>
+<p>This release does not introduce any new functionality, but resolves issues and improves some operational aspects of the sedex client. Includes changes from version 5.0.5 and 5.0.6.</p>
+<ul>
+<li><strong>Fix:</strong> During each startup, the sedex client automatically checks that it has write per-mission on all required folders and files and aborts the startup if the check is not com-pletely successful. This check also includes the messaging interface folders (outbox, inbox, receipts, processed). If a business application or an administrator creates files in one of these folders using a different 
+user, the sedex client may not have write per-mission on these externally created files and the check will fail during the next startup of the sedex client. This version fixes the problem by checking only the folders for ex-isting write permissions, but not the individual files.</li>
+<li><strong>Fix:</strong> In rare situations, problems could occur under Windows when receiving sedex messages if non-ASCII special characters were used in the file name. This version fix-es the problem by using UTF-8 for the internal encoding, even if the operating system specifies a different encoding.</li>
+<li><strong>Improvement:</strong> The workaround introduced in 6.0.5 resulted in a log entry at WARN level on "IBM Java" (AIX, Linux), which is now at (the more appropriate) INFO level, since IBM Java is not affected.</li>
+<li><strong>Fix:</strong> When retrieving the monitoring page of the sedex client version 6.0.4 via http (http://[host]:[port]/monitoring), the web server may be blocking in certain cases due to race conditions. This version fixes the problem.</li>
+<li><strong>Workaround:</strong> The JVM Java 8 Update 291 and 292 from April 2021 (other versions are not affected) contain a known issue that causes the sedex client to fail to renew the participant certificate. This can lead to the error message "NoSuchAlgorithmExcep-tion: unrecognized algorithm name" in sedex-controller-technical.log. The sedex client version 6.0.5 contains a specific enhancement which 
+works around this JVM error. Nevertheless, we recommend switching to a newer JVM free of this issue as soon as it will become available. <br/> (This change is not relevant for the container version as it is based on a different JVM version.)</li>
+<li><strong>Update:</strong> The certificate with which remote update packages for the sedex client are digitally signed has been renewed. The corresponding truststore has been extended by this new certificate.</li>
+<li><strong>Update:</strong> QuoVadis has revoked one of its intermediate certificates due to policy changes and replaced it with a new one. The corresponding truststore has been ad-justed. Note: Older sedex clients automatically download the latest truststore from the sedex server.</li>
+</ul>
+<h4 id="new-container-logic-099-beta">New Container logic <code>0.99-beta</code></h4>
+<ul>
+<li><strong>New Feature:</strong> Configuration parameters for the sedex client can now also be passed to the sedex client as environment parameters (ENV parameters) of the container. As before, the configuration parameters can be set in the central client configuration file sedex-data/conf/sedex-client-configuration.properties. But now they can also be set as ENV parameters. The ENV parameter has the higher priority, i.e. if a value is defined in both places, the value of the ENV parameter is used.</li>
+<li><strong>Fix:</strong> When using self-created user and group for the container, some scripts in the container could not be executed correctly under certain circumstances, which could lead to a non-functioning sedex client. This problem is fixed in this version.</li>
+</ul>
+<h3 id="versiontag-604_container-099-beta-2021-04-07">Version/Tag 6.0.4_container-0.99-beta (2021-04-07)</h3>
+<h4 id="new-sedex-client-604">New sedex Client <code>6.0.4</code></h4>
+<p>This release does not introduce any new functionality, but improves some operational and security aspects of the sedex client and its installation program.</p>
+<ul>
+<li><strong>Improvement: Changes to WS-Proxy user permissions are applied automatically without a restart.</strong> Since version 6.0.x, the sedex client offers the feature of assigning a user name and password to business applications in the configuration file <sedex_home>/conf/sedex-wsproxy-user-configuration.properties. This allows partici-pants themselves to control which web services offered by the sedex 
+WS-Proxy their business applications have access to. In previous versions of sedex Client (6.0.2 and 6.0.3), it was necessary to restart the WS-Proxy after changing this configuration file in order to apply the new permissions. As of sedex Client version 6.0.4, a restart is no longer required after changes to the sedex-wsproxy-user-configuration.properties file. WS-Proxy watches this file and detects changes during normal operation and applies them automatically. Whether the changes could be applied correctly can be seen from the technical logfile of the WS-Proxy and is in part also shown on the monitoring page of the WS-Proxy.</li>
+<li><strong>Change: New default RMI port.</strong> The three processes controller, adapter, WSProxy of the sedex client communicate with each other via an RMI server. The sedex clients from version 6.0.4 cannot use an RMI server of an older client and therefore need a separate RMI server. The new RMI server now uses port 11899 by default. (Older sedex clients 5.x use port 11099 and sedex clients 6.0.2/6.0.3 use 
+port 11999 by de-fault). Of course, the RMI port to be used can be reconfigured in the sedex-client-configuration.properties file if necessary. Please consult the sedex client manual for details.
+ <br/> (This change is not relevant for the container version as this communication is encapsulated in the container.)</li>
+<li><strong>Change: Optional Restriction of access rights on new Windows installations.</strong> On the Windows operating system, the installer program now can adjust the default per-missions on the folders of the sedex client. It can limit access to the installing user, the built-in group Administrators and the built-in user SYSTEM. If chosen, all other users and groups will per default have no access to the
+ sedex installation folder. After the in-stallation/migration the folder permission have to be adjusted manually by the adminis-trator so that other authorized users and end-user applications have access to the re-quired folders. Please consult the sedex client manual for details.
+ <br/> (This change is not relevant for the container version as it is Linux based.)</li>
+<li><strong>Improvement: Minor internal client improvements.</strong> Several dependencies/libraries have been updated and a few minor internal improvements to the client have been made. These internal improvements have no impact on the functionality, but will make it easier to run in a Docker container, for example.</li>
+</ul>
+<h3 id="previous-versions">Previous Versions</h3>
+<p>Older versions of the sedex container images had internal test character and are therefore not described in detail here.</p>
+<p>If you are interested in the version history of the sedex client and the corresponding changes, you can find these in the separate document <em>Release Notes</em> in the download area of <a href="http://www.sedex.ch">www.sedex.ch</a>.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="client-container-v6/requirements.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Requirements" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Requirements
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="faq.html" class="md-footer__link md-footer__link--next" aria-label="Next: FAQ" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              FAQ
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>
